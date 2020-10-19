@@ -1,5 +1,3 @@
-alert();
-
 /*!
  * jQuery JavaScript Library v3.5.1
  * https://jquery.com/

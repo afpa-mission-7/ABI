@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Page d'accueil</title>
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
 
-    <script src="assets/js/bootstrap.js" defer></script>
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/main.js" defer></script>
     <script src="https://kit.fontawesome.com/c2ce3de10b.js" crossorigin="anonymous" defer></script>
 </head>
 

@@ -1,5 +1,3 @@
-alert();
-
 $("#connect").click(function () {
     $("#login").toggleClass("d-none");
 })
