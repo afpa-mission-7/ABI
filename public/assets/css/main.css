@@ -1,31 +1,37 @@
-html,body{
+html, body {
     width: 100%;
     height: 100%;
     background-color: #D4D2D5;
 }
 
-.bg-duck{
+.bg-duck {
     background-color: #0080A3;
 }
 
-.bg-abi-cream{
+.bg-abi-cream {
     background-color: #D4D2D5;
 }
 
-.bg-abi-light-brown{
+.bg-abi-light-brown {
     background-color: #AA968A;
 }
 
-.bg-abi-brown{
+.bg-abi-brown {
     background-color: #5F4F45;
 }
 
-.bg-abi-grey{
+.bg-abi-grey {
     background-color: #6E6A6F;
 }
 
-.btn-duck{
+.btn-duck {
     background-color: #0080A3;
+    color: #fff;
+}
+
+.btn-duck:hover {
+    background-color: #099ec7;
+    color: #fff;
 }
 
 .border-2 {
@@ -68,7 +74,19 @@ html,body{
     border-left: 3px solid #dee2e6
 }
 
-.border-abi-grey{
+.border-abi-grey {
     border-color: #6E6A6F;
 }
 
+.form-control:focus {
+    border-color: #AA968A;
+    box-shadow: 0 0 0 0.2rem rgba(170, 150, 138, 0.25);
+}
+
+#login {
+    top: 59px;
+}
+
+.rounded-bottom-left-xxl {
+    border-bottom-left-radius: 1rem !important;
+}

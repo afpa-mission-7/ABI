@@ -7,20 +7,23 @@
     <link rel="stylesheet" href="assets/css/main.css">
 
     <script src="assets/js/bootstrap.js" defer></script>
-    <script src="https://kit.fontawesome.com/c2ce3de10b.js" crossorigin="anonymous"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="https://kit.fontawesome.com/c2ce3de10b.js" crossorigin="anonymous" defer></script>
 </head>
 
 <body class="d-flex flex-column justify-content-between">
-<nav class="navbar navbar-expand-lg navbar-light bg-abi-light-brown font-weight-bold border-bottom-3 border-abi-grey d-flex">
-    <a class="navbar-brand" href="">ABI</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-abi-light-brown font-weight-bold border-bottom-3 border-abi-grey position-fixed w-100">
+    <a class=" navbar-brand
+" href="">ABI</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse d-flex" id="navbarNavDropdown">
+        <ul class="navbar-nav navbar-collapse">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Features</a>
@@ -39,11 +42,34 @@
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>
             </li>
-            <li class="nav-item align-self-center justify-content-end">
-                <i class="fas fa-sign-in-alt d-inline"></i><a class="nav-link d-inline" href="#">Connexion</a>
+            <li class="nav-item ml-auto">
+                <a id="connect" class="nav-link d-inline" href="#"><i class="fas fa-sign-in-alt d-inline"></i> Connexion</a>
             </li>
         </ul>
     </div>
 </nav>
+<div id="login"
+     class="align-self-end p-4 bg-white border-bottom-3 border-left-3 border-abi-grey position-fixed rounded-bottom-left-xxl d-none">
+    <form action="" method="post">
+        <div class="form-group">
+            <label for="email">Adresse mail</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="text" class="form-control" id="password" name="password">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="remember">
+            <label for="remember" class="form-check-label">Rester connecter</label>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-duck font-weight-bold">Se connecter</button>
+        </div>
+        <div>
+            <span>Pas encore de compte? </span><a href="../signup.php">Inscrivez-vous</a>
+        </div>
+    </form>
+</div>
 
 <div class="container">
