@@ -111,6 +111,7 @@ thead {
 
 .table-bordered {
     border: 2px solid #5F4F45;
+    border
 }
 
 .table-bordered>thead>tr>th {

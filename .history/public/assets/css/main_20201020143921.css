@@ -124,7 +124,3 @@ thead {
 .table-bordered>tbody>tr>td {
     border: 1px solid #5F4F45;
 }
-
-#myTable {
-    background-color: #ffffff;
-}

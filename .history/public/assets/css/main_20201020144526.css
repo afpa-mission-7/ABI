@@ -128,3 +128,7 @@ thead {
 #myTable {
     background-color: #ffffff;
 }
+
+.table {
+    border-radius: 30px;
+}

@@ -122,7 +122,7 @@ thead {
 }
 
 .table-bordered>tbody>tr>td {
-    border: 1px solid #5F4F45;
+    border: 10px solid #5F4F45;
 }
 
 #myTable {

@@ -107,6 +107,7 @@ main {
 
 thead {
     background-color: #099ec7;
+    border-collapse: separate;
 }
 
 .table-bordered {
@@ -127,4 +128,5 @@ thead {
 
 #myTable {
     background-color: #ffffff;
+    border-radius: 30px;
 }
