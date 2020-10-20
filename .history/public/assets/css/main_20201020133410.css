@@ -2,7 +2,7 @@ html,
 body {
     width: 100%;
     height: 100%;
-    background-color: #FFF5EE;
+    background-color: #D4D2D5;
 }
 
 .bg-duck {
@@ -56,23 +56,23 @@ body {
 }
 
 .border-3 {
-    border: 3px solid
+    border: 3px solid #dee2e6
 }
 
 .border-top-3 {
-    border-top: 3px solid
+    border-top: 3px solid #dee2e6
 }
 
 .border-right-3 {
-    border-right: 3px solid
+    border-right: 3px solid #dee2e6
 }
 
 .border-bottom-3 {
-    border-bottom: 3px solid
+    border-bottom: 3px solid #dee2e6
 }
 
 .border-left-3 {
-    border-left: 3px solid
+    border-left: 3px solid #dee2e6
 }
 
 .border-abi-grey {
@@ -103,9 +103,6 @@ body {
 
 main {
     margin: 100px 50px 10px 50px;
-<<<<<<< HEAD
-  }
-=======
 }
 
 .article {
@@ -113,7 +110,6 @@ main {
     border-style: groove;
     border-color: #5f4f45;
 }
->>>>>>> 1a76d39ee700b53772f1f0df130b0f60dcf2991b
 
 thead {
     background-color: #AA968A;
@@ -123,16 +119,8 @@ thead {
     border: 2px solid #5F4F45;
 }
 
-<<<<<<< HEAD
-.table-bordered > thead > tr > th{
-    border: 1px solid #5F4F45;
-}
-.table-bordered > tbody > tr > td{
-    border:1px solid #5F4F45;
-=======
 .table-bordered>thead>tr>th {
     border: 1px solid #5F4F45;
->>>>>>> 1a76d39ee700b53772f1f0df130b0f60dcf2991b
 }
 
 .table-bordered>tbody>tr>td {
