@@ -41,6 +41,7 @@
             </li>
             <li class="nav-item ml-auto">
                <?php 
+               dump($_SESSION);
                if(empty($_SESSION))
                {
                    echo '<a id="connect" class="nav-link d-inline" href="#"><i class="fas fa-sign-in-alt d-inline"></i> Connexion</a>' ;
@@ -54,7 +55,7 @@
 </nav>
 <div id="login"
      class="align-self-end p-4 bg-white border-bottom-3 border-left-3 border-abi-grey position-fixed rounded-bottom-left-xxl d-none">
-    <form action="/login" method="post">
+    <form action="" method="post">
         <div class="form-group">
             <label for="email">Adresse mail</label>
             <input type="email" class="form-control" id="email" name="email">

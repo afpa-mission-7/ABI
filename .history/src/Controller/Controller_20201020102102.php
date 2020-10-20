@@ -9,7 +9,8 @@ class Controller
     public function indexController()
     {
         ob_start();
-        session_start();
+
+
         include '../templates/index.php';
         ob_end_flush();
     }
@@ -21,14 +22,12 @@ class Controller
             $loginform = new LoginForm($_POST);
             $loginform->login();
         }
-        header('location: /');
+        dump($_SESSION);
     }
 
     public function disconnectController()
     {
-        session_start();
-        session_unset();
+        session_destroy();
         header('location: /');
-        exit();
     }
 }

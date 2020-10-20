@@ -29,7 +29,9 @@ class LoginForm
 
         // Comparaison du pass envoyé via le formulaire avec la BDD
        if($resultat['password'] === $this->password ){
-            $_SESSION['name'] = $resultat['name'];
+
+$_SESSION['name'] = $resultat['name'];
+
        } else {
            dd('Raté');
        }

@@ -9,6 +9,8 @@ use App\Config\DbConfig;
 class LoginForm
 {
 
+    private int $id;
+    private string $name;
     private string $password;
     private string $email;
 
@@ -29,7 +31,8 @@ class LoginForm
 
         // Comparaison du pass envoyé via le formulaire avec la BDD
        if($resultat['password'] === $this->password ){
-            $_SESSION['name'] = $resultat['name'];
+dd('Succes');
+
        } else {
            dd('Raté');
        }

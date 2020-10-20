@@ -10,6 +10,8 @@ class Controller
     {
         ob_start();
         session_start();
+
+        dd($_SESSION);
         include '../templates/index.php';
         ob_end_flush();
     }
@@ -26,9 +28,7 @@ class Controller
 
     public function disconnectController()
     {
-        session_start();
-        session_unset();
+        session_destroy();
         header('location: /');
-        exit();
     }
 }

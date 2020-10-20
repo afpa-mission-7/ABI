@@ -7,8 +7,6 @@ $uri = $_SERVER['REQUEST_URI'];
 $controller = new Controller();
 if($uri==="/"){
     $controller->indexController();
-} elseif ($uri === "/login"){
-    $controller->loginController();
 } elseif ($uri === "/disconnect") {
     $controller->disconnectController();
-} 
+}

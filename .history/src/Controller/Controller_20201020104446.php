@@ -26,8 +26,8 @@ class Controller
 
     public function disconnectController()
     {
-        session_start();
-        session_unset();
+        unset($_POST);
+        session_destroy();
         header('location: /');
         exit();
     }

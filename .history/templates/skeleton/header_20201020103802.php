@@ -43,7 +43,7 @@
                <?php 
                if(empty($_SESSION))
                {
-                   echo '<a id="connect" class="nav-link d-inline" href="#"><i class="fas fa-sign-in-alt d-inline"></i> Connexion</a>' ;
+                   echo '<a id="connect" class="nav-link d-inline" href="/login"><i class="fas fa-sign-in-alt d-inline"></i> Connexion</a>' ;
             } else {
                 echo '<a id="disconnect" class="nav-link d-inline" href="/disconnect"><i class="fas fa-sign-in-alt d-inline"></i> Deconnexion </a>' ;
             }
