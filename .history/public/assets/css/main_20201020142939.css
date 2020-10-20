@@ -105,6 +105,12 @@ main {
     margin: 100px 50px 10px 50px;
 }
 
+.article {
+    margin-top: 15px;
+    border-style: groove;
+    border-color: #5f4f45;
+}
+
 thead {
     background-color: #AA968A;
 }
