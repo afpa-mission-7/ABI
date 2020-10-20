@@ -70,7 +70,7 @@ class Controller
             $loginform = new LoginForm($_POST);
             $loginform->login();
         }
-        header('location: /indexconnect');
+        header('location: /');
     }
 
     public function disconnectController()

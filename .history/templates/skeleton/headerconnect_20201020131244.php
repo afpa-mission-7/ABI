@@ -36,7 +36,7 @@
 </nav>
 <div id="login"
      class="align-self-end p-4 bg-white border-bottom-3 border-left-3 border-abi-grey fixed-top rounded-bottom-left-xxl d-none">
-    <form action="/disconnect" method="post">
+    <form action="" method="post">
         <div class="form-group">
             <label for="submit">Êtes vous sur de vouloir vous déconnecter ?</label>
             <button type="submit" class="btn btn-duck font-weight-bold">Se déconnecter</button>
