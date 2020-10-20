@@ -90,3 +90,38 @@ html, body {
 .rounded-bottom-left-xxl {
     border-bottom-left-radius: 1rem !important;
 }
+
+#login.fixed-top{
+    left: 80%;
+}
+
+/**
+* Style main
+*/
+main {
+    margin: 100px 50px 10px 50px;
+  }
+  
+.article {
+    margin-top: 15px;
+    border-style: groove;
+    border-color: #5f4f45;
+  }
+
+thead { 
+    background-color: #AA968A;
+}
+
+.table-bordered{
+    border: 2px solid #5F4F45;
+}
+
+.table-bordered > thead > tr > th{
+    border: 1px solid #5F4F45;
+}
+.table-bordered > tbody > tr > td{
+    border: 1px solid #5F4F45;
+}
+
+
+  

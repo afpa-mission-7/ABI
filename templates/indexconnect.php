@@ -1,4 +1,4 @@
-<?php require_once 'skeleton/header.php' ?>
+<?php require_once 'skeleton/headerconnect.php' ?>
 
 <div class="row article">
         <div class="col d-flex justify-content-center">

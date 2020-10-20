@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Config;
 
 class DbConfig
 {
