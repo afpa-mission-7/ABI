@@ -18,38 +18,4 @@ abstract class Repository
         $this->classname = $classname;
         $this->table = strtolower($classname);
     }
-
-public function find(int $id){
-
-}
-
-public function findBy(array $criteria, array $orderBy, int $limit, int $offset) {
-
-    $params = array_values($criteria);
-    if (!empty($citeria)) {
-        $criteria = " WHERE " . join(" AND ", array_map(fn($key) => "$key = ?", array_keys($criteria)));
-    } else {
-        $criteria = null;
-    }
-    if ($orderBy) $orderBy = " ORDER BY " . join(", ", array_map(fn($key, $value) => "$key $value", array_keys($orderBy), array_values($orderBy)));
-    if ($limit) $limit = " LIMIT $limit";
-    if ($offset) $offset = " OFFSET $offset";
-    $query = $this->pdo->prepare("SELECT * FROM $this->table $criteria $orderBy $limit $offset");
-    $query->execute($params);
-    return $query->fetchAll(PDO::FETCH_CLASS, $this->classname);
-    
-}
-
-public function finAll():array {
-    
-}
-
-public function findOneBy(array $criteria, array $orderBy) {
-
-}
-
-
-
-
-
 }
