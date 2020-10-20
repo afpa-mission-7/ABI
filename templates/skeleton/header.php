@@ -40,7 +40,13 @@
                 </div>
             </li>
             <li class="nav-item ml-auto">
-                <a id="connect" class="nav-link d-inline" href="#"><i class="fas fa-sign-in-alt d-inline"></i> Connexion</a>
+                <?php
+                if (empty($_SESSION)) {
+                    echo '<a id="connect" class="nav-link d-inline" href="connect"><i class="fas fa-sign-in-alt d-inline"></i> Connexion</a>';
+                }else{
+                    echo '<a id="disConnect" class="nav-link d-inline" href="disconnect"><i class="fas fa-sign-in-alt d-inline"></i> Déconnexion</a>';
+                }
+                ?>
             </li>
         </ul>
     </div>
