@@ -17,8 +17,6 @@ if($uri==="/"){
     $controller->gestioncollaborateursController();
 }elseif($uri==="/gestionprojets"){
     $controller->gestionprojetsController();
-}elseif($uri==="/indexconnect"){
-    $controller->indexconnectController();
 } elseif ($uri === "/login"){
     $controller->loginController();
 } elseif ($uri === "/disconnect") {

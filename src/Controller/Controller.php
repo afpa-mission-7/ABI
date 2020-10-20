@@ -17,6 +17,7 @@ class Controller
     public function aproposController()
     {
         ob_start();
+        session_start();
         include '../templates/apropos.php';
         ob_end_flush();
     }
@@ -24,6 +25,7 @@ class Controller
     public function contactController()
     {
         ob_start();
+        session_start();
         include '../templates/contact.php';
         ob_end_flush();
     }
@@ -31,6 +33,7 @@ class Controller
     public function gestionclientsController()
     {
         ob_start();
+        session_start();
         include '../templates/gestionclients.php';
         ob_end_flush();
     }
@@ -38,6 +41,7 @@ class Controller
     public function gestioncollaborateursController()
     {
         ob_start();
+        session_start();
         include '../templates/gestioncollaborateurs.php';
         ob_end_flush();
     }
@@ -45,20 +49,15 @@ class Controller
     public function gestionprojetsController()
     {
         ob_start();
+        session_start();
         include '../templates/gestionprojets.php';
-        ob_end_flush();
-    }
-
-    public function indexconnectController()
-    {
-        ob_start();
-        include '../templates/indexconnect.php';
         ob_end_flush();
     }
 
     public function error404Controller()
     {
         ob_start();
+        session_start();
         include '../templates/error404.php';
         ob_end_flush();
     }
@@ -70,7 +69,7 @@ class Controller
             $loginform = new LoginForm($_POST);
             $loginform->login();
         }
-        header('location: /indexconnect');
+        header('location: /');
     }
 
     public function disconnectController()
