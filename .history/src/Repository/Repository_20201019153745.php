@@ -4,7 +4,7 @@
  * date 19/10/20
  */
 
-use App\Config\DbConfig;
+require_once '../src/'
 
 abstract class Repository
 {

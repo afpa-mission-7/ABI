@@ -19,6 +19,10 @@ if($uri==="/"){
     $controller->gestionprojetsController();
 }elseif($uri==="/indexconnect"){
     $controller->indexconnectController();
+} elseif ($uri === "/login"){
+    $controller->loginController();
+} elseif ($uri === "/disconnect") {
+    $controller->disconnectController();
 }else{
     $controller->error404Controller();
 }

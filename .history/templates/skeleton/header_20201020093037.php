@@ -10,36 +10,47 @@
 </head>
 
 <body class="d-flex flex-column justify-content-between">
-<nav class="navbar navbar-expand-lg navbar-light bg-abi-light-brown font-weight-bold border-bottom-3 border-abi-grey fixed-top w-100">
-        <a class="navbar-brand" href="/">       
-            <img src="assets/image/logo.png" width="auto" height="30" class="d-inline-block align-top" alt="ABI"/>
-        </a>
+<nav class="navbar navbar-expand-lg navbar-light bg-abi-light-brown font-weight-bold border-bottom-3 border-abi-grey position-fixed w-100">
+    <a class=" navbar-brand
+" href="">ABI</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse d-flex" id="navbarNavDropdown">
         <ul class="navbar-nav navbar-collapse">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Accueil</a>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/apropos">A propos</a>
+                <a class="nav-link" href="#">Features</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact</a>
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown link
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
             </li>
             <li class="nav-item ml-auto">
-               <?php 
-               if(empty($_SESSION))
+               <?php if(empty($_SESSION))
                {
                    echo '<a id="connect" class="nav-link d-inline" href="#"><i class="fas fa-sign-in-alt d-inline"></i> Connexion</a>' ;
-            } else {
-                echo '<a id="disconnect" class="nav-link d-inline" href="/disconnect"><i class="fas fa-sign-in-alt d-inline"></i> Deconnexion </a>' ;
-            }
-            ?>
+
+            } ?>
             </li>
         </ul>
     </div>
 </nav>
 <div id="login"
-     class="align-self-end p-4 bg-white border-bottom-3 border-left-3 border-abi-grey fixed-top rounded-bottom-left-xxl d-none">
+     class="align-self-end p-4 bg-white border-bottom-3 border-left-3 border-abi-grey position-fixed rounded-bottom-left-xxl d-none">
     <form action="" method="post">
         <div class="form-group">
             <label for="email">Adresse mail</label>
@@ -62,4 +73,4 @@
     </form>
 </div>
 
-<main class="container">
+<div class="container">

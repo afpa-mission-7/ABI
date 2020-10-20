@@ -4,8 +4,6 @@
  * date 19/10/20
  */
 
-use App\Config\DbConfig;
-
 abstract class Repository
 {
     protected PDO $pdo;
