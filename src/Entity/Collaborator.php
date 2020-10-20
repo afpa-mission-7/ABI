@@ -9,6 +9,8 @@ class Collaborator
     private int $id;
     private string $username;
     private string $password;
+    private string $firstname;
+    private string $lastname;
 
     /**
      * @return int
@@ -61,6 +63,42 @@ class Collaborator
     public function setPassword(string $password): Collaborator
     {
         $this->password = $password;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstname(): string
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * @param string $firstname
+     * @return Collaborator
+     */
+    public function setFirstname(string $firstname): Collaborator
+    {
+        $this->firstname = $firstname;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastname(): string
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * @param string $lastname
+     * @return Collaborator
+     */
+    public function setLastname(string $lastname): Collaborator
+    {
+        $this->lastname = $lastname;
         return $this;
     }
 

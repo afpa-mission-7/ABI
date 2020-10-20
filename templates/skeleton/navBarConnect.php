@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-abi-light-brown font-weight-bold border-bottom-3 border-abi-grey fixed-top w-100">
-        <a class="navbar-brand" href="/">       
-            <img src="assets/image/logo.png" width="auto" height="30" class="d-inline-block align-top" alt="ABI"/>
-        </a>
+    <a class="navbar-brand" href="/">
+        <img src="assets/image/logo.png" width="auto" height="30" class="d-inline-block align-top" alt="ABI"/>
+    </a>
     <div class="collapse navbar-collapse d-flex" id="navbarNavDropdown">
         <ul class="navbar-nav navbar-collapse">
             <li class="nav-item">
@@ -17,7 +17,16 @@
                 <a class="nav-link" href="/gestionprojets">Gestion projets</a>
             </li>
             <li class="nav-item ml-auto">
-                <a id="connect" class="nav-link d-inline" href="#"><i class="fas fa-sign-in-alt d-inline"></i> Déconnexion</a>
+                <div class="dropdown">
+                    <a class="btn btn-abi-light-brown dropdown-toggle" type="button" id="account" data-toggle="dropdown">
+                        <i class="fas fa-user"></i> <?= $_SESSION['firstname'] . ' ' . $_SESSION['lastname'] ?>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/profile">Profil</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/disconnect">Déconnexion</a>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>

@@ -32,7 +32,9 @@ class LoginForm
 
         // Comparaison du pass envoyé via le formulaire avec la BDD
         if ($collaborator->getPassword() === $this->password) {
-            $_SESSION['idCollaborator'] = $collaborator->getId();
+            $_SESSION['id'] = $collaborator->getId();
+            $_SESSION['firstname'] = $collaborator->getFirstname();
+            $_SESSION['lastname'] = $collaborator->getLastname();
             return true;
         } else {
             return false;

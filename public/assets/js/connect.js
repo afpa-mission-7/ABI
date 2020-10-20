@@ -5,7 +5,7 @@ $("#loginForm").submit(function(e){
     $.post('/login',{username: username, password:password},function(data){
         if(data === 'true'){
             window.location.replace("/");
-        }else{
+        }else if(data === 'false'){
             $("#connectFailed").show();
         }
     });

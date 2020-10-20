@@ -14,7 +14,7 @@
                 <a class="nav-link" href="/contact">Contact</a>
             </li>
             <li class="nav-item ml-auto">
-                <a id="connect" class="nav-link d-inline" href="#"><i class="fas fa-sign-in-alt d-inline"></i> Connexion</a>
+                <a id="connect" class="nav-link d-inline" href=""><i class="fas fa-sign-in-alt d-inline"></i> Connexion</a>
             </li>
         </ul>
     </div>

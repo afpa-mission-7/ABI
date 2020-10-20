@@ -16,7 +16,7 @@
 <body class="d-flex flex-column justify-content-between">
 
 <?php
-if(!empty($_SESSION["idCollaborator"])){
+if(!empty($_SESSION["id"])){
     require 'navBarConnect.php';
 } else {
     require 'navBarDisconnect.php';
