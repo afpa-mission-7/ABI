@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Forms\LoginForm;
+use App\Repository\Repository;
 
 class Controller
 {
@@ -50,6 +51,9 @@ class Controller
     {
         ob_start();
         session_start();
+        $userRepository = new Repository('Collaborator');
+        $user = $userRepository->findOneBy(['firstname'=>'Arthur'], ['firstname'=>'DESC']);
+        dump($user);
         include '../templates/gestionprojets.php';
         ob_end_flush();
     }

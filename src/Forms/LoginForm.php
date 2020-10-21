@@ -23,7 +23,7 @@ class LoginForm
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
 
         // Récupération de l'utilisateur et de son PASSWORD
-        $req = $pdo->prepare('SELECT login .* FROM login WHERE email = :email');
+        $req = $pdo->prepare('SELECT * FROM collaborator WHERE email = :email');
         $req->execute([':email'=> $this->email]);
         $resultat = $req->fetch();
 
