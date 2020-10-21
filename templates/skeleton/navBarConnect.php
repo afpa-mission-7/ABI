@@ -2,7 +2,7 @@
     <a class="navbar-brand" href="/">
         <img src="assets/image/logo.png" width="auto" height="30" class="d-inline-block align-top" alt="ABI"/>
     </a>
-    <div class="collapse navbar-collapse d-flex" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse d-flex">
         <ul class="navbar-nav navbar-collapse">
             <li class="nav-item">
                 <a class="nav-link" href="/">Accueil</a>
