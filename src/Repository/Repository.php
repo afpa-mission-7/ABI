@@ -48,7 +48,6 @@ public function findOneBy(array $criteria, array $orderBy = null)
     $criteria = " WHERE " . implode(" AND ", array_map(fn($key)=>" $key = ?", array_keys($criteria)));
     $orderBy = " ORDER BY " . implode(", ", array_map(fn($key, $value)=>"$key $value", array_keys($orderBy), array_values($orderBy)));
     $sql = "SELECT * FROM $this->table $criteria $orderBy";
-    dd($sql);
     $query = $this->pdo->prepare($sql);
     $query->execute($params);
     $query->setFetchMode(PDO::FETCH_OBJ);

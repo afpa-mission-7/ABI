@@ -35,6 +35,10 @@ body {
     color: #fff;
 }
 
+.btn-abi-light-brown{
+    background-color: #AA968A;
+}
+
 .border-2 {
     border: 2px solid #dee2e6
 }
@@ -106,7 +110,7 @@ main {
 }
 
 thead {
-    background-color: #099ec7;
+    background-color: #AA968A;
 }
 
 .table-bordered {
@@ -119,12 +123,4 @@ thead {
 
 .table-bordered>tbody>tr>td {
     border: 1px solid #5F4F45;
-}
-
-.table-bordered>tbody>tr>td {
-    border: 1px solid #5F4F45;
-}
-
-#myTable {
-    background-color: #ffffff;
 }

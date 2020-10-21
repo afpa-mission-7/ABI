@@ -51,9 +51,6 @@ class Controller
     {
         ob_start();
         session_start();
-        $userRepository = new Repository('Collaborator');
-        $user = $userRepository->findOneBy(['firstname'=>'Arthur'], ['firstname'=>'DESC']);
-        dump($user);
         include '../templates/gestionprojets.php';
         ob_end_flush();
     }
@@ -65,15 +62,18 @@ class Controller
         include '../templates/error404.php';
         ob_end_flush();
     }
-///////////////////////////////////////////////
+
     public function loginController()
     {
         session_start();
         if (!empty($_POST)) {
             $loginform = new LoginForm($_POST);
-            $loginform->login();
+            if($loginform->login()){
+                echo 'true';
+            }else{
+                echo 'false';
+            }
         }
-        header('location: /');
     }
 
     public function disconnectController()
@@ -81,6 +81,5 @@ class Controller
         session_start();
         session_unset();
         header('location: /');
-        exit();
     }
 }
