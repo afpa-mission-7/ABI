@@ -1,9 +1,10 @@
 <?php
 
-namespace App\CustomerRepository;
+namespace App\Repository;
 
+use\PDO;
 use App\Repository\Repository;
-use App\Entity\Collaborator;
+use App\Entity\Project;
 
 class CustomerRepository extends Repository
 {
@@ -12,12 +13,13 @@ class CustomerRepository extends Repository
         parent::__construct('Customer');
     }
 
-    public function findByCollaborator($collaborator)
+    public function findByProject($projet)
     {
-        $idCollaborator = $collaborator->getId();
-        $sql = "SELECT customer.* FROM customer JOIN projet WHERE customer.customer_id = projet.id IN(SELECT * FROM collaborator JOIN projet ON collaborator.collaborator_id = projet_id WHERE projet.id = ?)"
+        $idProjet = $projet->getId();
+        $sql = "SELECT customer.* FROM customer JOIN project_customer ON customer.id = project_customer.customer_id WHERE project_id = ?";
         $query = $this->pdo->prepare($sql);
-        $query->execute($idCollaborator);
+        $query->execute([$idProjet]);
+        return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\Customer");
     }
 
 }

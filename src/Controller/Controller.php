@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CustomerRepository;
 use App\Forms\LoginForm;
 
 class Controller
@@ -34,6 +35,8 @@ class Controller
     {
         ob_start();
         session_start();
+        $customerRepository = new CustomerRepository();
+        $customers = $customerRepository->findAll();
         include '../templates/gestionclients.php';
         ob_end_flush();
     }
