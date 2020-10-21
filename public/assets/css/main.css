@@ -89,15 +89,12 @@ body {
 }
 
 #login {
+    width:320px;
     top: 59px;
 }
 
 .rounded-bottom-left-xxl {
     border-bottom-left-radius: 1rem !important;
-}
-
-#login{
-    left: 80%;
 }
 
 
