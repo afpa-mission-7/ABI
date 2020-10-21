@@ -15,6 +15,7 @@
 
 <body class="d-flex flex-column justify-content-between">
 
+<header class="d-flex flex-column fixed-top">
 <?php
 if(!empty($_SESSION["id"])){
     require 'navBarConnect.php';
@@ -22,5 +23,6 @@ if(!empty($_SESSION["id"])){
     require 'navBarDisconnect.php';
 }
 ?>
+</header>
 
 <main class="container">

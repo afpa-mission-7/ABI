@@ -15,7 +15,7 @@ class Collaborator
     private string $phone;
     private string $email;
     private string $contract;
-    private string $status;
+    private ?string $status;
     private ?string $qualification;
     private int $salary;
 

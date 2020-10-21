@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand navbar-light bg-abi-light-brown font-weight-bold border-bottom-3 border-abi-grey fixed-top w-100">
-        <a class="navbar-brand" href="/">       
-            <img src="assets/image/logo.png" width="auto" height="30" class="d-inline-block align-top" alt="ABI"/>
-        </a>
-    <div class="collapse navbar-collapse d-flex" id="navbarNavDropdown">
-        <ul class="navbar-nav navbar-collapse">
+<nav class="navbar navbar-expand navbar-light bg-abi-light-brown font-weight-bold border-bottom-3 border-abi-grey">
+    <a class="navbar-brand" href="/">
+        <img src="assets/image/logo.png" width="auto" height="30" class="d-inline-block align-top" alt="ABI"/>
+    </a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav navbar-collapse d-none">
             <li class="nav-item">
                 <a class="nav-link" href="/">Accueil</a>
             </li>
@@ -13,6 +13,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="/contact">Contact</a>
             </li>
+        </ul>
+        <ul class="navbar-nav navbar-collapse d-none">
             <li class="nav-item ml-auto">
                 <a id="connect" class="nav-link d-inline" href=""><i class="fas fa-sign-in-alt d-inline"></i> Connexion</a>
             </li>
@@ -20,7 +22,7 @@
     </div>
 </nav>
 <div id="login"
-     class="align-self-end p-4 bg-white border-bottom-3 border-left-3 border-abi-grey fixed-top rounded-bottom-left-xxl d-none">
+     class="align-self-end p-4 bg-white border-bottom-3 border-left-3 border-abi-grey rounded-bottom-left-xxl d-none">
     <form id="loginForm" action="" method="post">
         <div class="form-group">
             <label for="username">Nom d'utilisateur</label>
@@ -39,7 +41,7 @@
             <button type="submit" class="btn btn-duck font-weight-bold">Se connecter</button>
         </div>
         <div>
-            <span>Pas encore de compte? </span><a href="../signup.php">Inscrivez-vous</a>
+            <span>Pas encore de compte? </span><a href="/signup">Inscrivez-vous</a>
         </div>
     </form>
 </div>
