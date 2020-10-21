@@ -1,4 +1,5 @@
-$("#connect").click(function () {
+$("#connect").click(function (e) {
+    e.preventDefault();
     $("#login").toggleClass("d-none");
 })
 
