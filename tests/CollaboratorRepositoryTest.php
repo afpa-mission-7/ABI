@@ -33,8 +33,8 @@ class CollaboratorRepositoryTest extends TestCase
     public function testFindOneBy()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
-        $query = $pdo->query("SELECT * FROM user ORDER BY RAND() LIMIT 1");
+        $query = $pdo->query("SELECT * FROM collaborator ORDER BY RAND() LIMIT 1");
         $query->setFetchMode(PDO::FETCH_CLASS,'App\Entity\Collaborator');
-        $user = $query->fetch();
+        $collaborator = $query->fetch();
     }
 }
