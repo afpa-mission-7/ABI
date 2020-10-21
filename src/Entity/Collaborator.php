@@ -11,6 +11,121 @@ class Collaborator
     private string $password;
     private string $firstname;
     private string $lastname;
+    private string $function;
+    private string $phone;
+    private string $email;
+    private string $contract;
+    private string $status;
+    private ?string $qualification;
+    private int $salary;
+
+    /**
+     * @return string
+     */
+    public function getFunction(): string
+    {
+        return $this->function;
+    }
+
+    /**
+     * @param string $function
+     * @return Collaborator
+     */
+    public function setFunction(string $function): Collaborator
+    {
+        $this->function = $function;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhone(): string
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param string $phone
+     * @return Collaborator
+     */
+    public function setPhone(string $phone): Collaborator
+    {
+        $this->phone = $phone;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     * @return Collaborator
+     */
+    public function setEmail(string $email): Collaborator
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContract(): string
+    {
+        return $this->contract;
+    }
+
+    /**
+     * @param string $contract
+     * @return Collaborator
+     */
+    public function setContract(string $contract): Collaborator
+    {
+        $this->contract = $contract;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getQualification(): ?string
+    {
+        return $this->qualification;
+    }
+
+    /**
+     * @param string|null $qualification
+     * @return Collaborator
+     */
+    public function setQualification(?string $qualification): Collaborator
+    {
+        $this->qualification = $qualification;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSalary(): int
+    {
+        return $this->salary;
+    }
+
+    /**
+     * @param int $salary
+     * @return Collaborator
+     */
+    public function setSalary(int $salary): Collaborator
+    {
+        $this->salary = $salary;
+        return $this;
+    }
 
     /**
      * @return int
@@ -99,6 +214,24 @@ class Collaborator
     public function setLastname(string $lastname): Collaborator
     {
         $this->lastname = $lastname;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus(): string
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     * @return Collaborator
+     */
+    public function setStatus(string $status): Collaborator
+    {
+        $this->status = $status;
         return $this;
     }
 
