@@ -5,14 +5,21 @@ use App\Controller\Controller;
 $uri = $_SERVER['REQUEST_URI'];
 
 $controller = new Controller();
-
 if($uri==="/"){
     $controller->indexController();
-}elseif ($uri === "/login") {
+}elseif($uri==="/apropos"){
+    $controller->aproposController();
+}elseif($uri==="/contact"){
+    $controller->contactController();
+}elseif($uri==="/gestionclients"){
+    $controller->gestionclientsController();
+}elseif($uri==="/gestioncollaborateurs"){
+    $controller->gestioncollaborateursController();
+}elseif($uri==="/gestionprojets"){
+    $controller->gestionprojetsController();
+} elseif ($uri === "/login"){
     $controller->loginController();
-}elseif ($uri === "/connect") {
-    $controller->connectController();
-}elseif ($uri === "/disconnect"){
+} elseif ($uri === "/disconnect") {
     $controller->disconnectController();
 }else{
     $controller->error404Controller();
