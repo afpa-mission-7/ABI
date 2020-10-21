@@ -22,7 +22,8 @@
             <th scope="col">Raison Sociale</th>
             <th scope="col">Code postal</th>
             <th scope="col">Activité</th>
-            <th scope="col">Contacter</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -32,7 +33,10 @@
                 <td><?= $customer->getZip() ?></td>
                 <td><?= $customer->getCity() ?></td>
                 <td>1</td>
-            </tr>
+                <td>
+                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+                </tr>
         <?php endforeach; ?>
     </tbody>
 </table>

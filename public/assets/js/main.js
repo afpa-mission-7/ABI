@@ -16,7 +16,7 @@ $("body").click(function(e){
 $(document).ready(function(){
     $("#tableSearch").on("keyup", function() {
       var value = $(this).val().toLowerCase();
-      $("#tableCustomer tr").filter(function() {
+      $("#tableCustomer tbody tr").filter(function() {
         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
       });
     });
