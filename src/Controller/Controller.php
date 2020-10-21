@@ -18,7 +18,6 @@ class Controller
     {
         ob_start();
         session_start();
-        dump($_POST);
         include '../templates/apropos.php';
         ob_end_flush();
     }
@@ -68,15 +67,12 @@ class Controller
         session_start();
         if (!empty($_POST)) {
             $loginform = new LoginForm($_POST);
-            if ($loginform->login()) {
-                header("Location: /");
-            } else {
-                //dd($_SERVER['HTTP_REFERER']);
-                header('Location: ' . $_SERVER['HTTP_REFERER']);
-                exit;
+            if($loginform->login()){
+                echo 'true';
+            }else{
+                echo 'false';
             }
         }
-        header('location: /');
     }
 
     public function disconnectController()
@@ -84,6 +80,5 @@ class Controller
         session_start();
         session_unset();
         header('location: /');
-        exit();
     }
 }
