@@ -6,8 +6,6 @@
 
 namespace App\Repository;
 use App\Repository\Repository;
-use App\Entity\Collaborator;
-use App\Entity\Customer;
 use App\Entity\Project;
 use \PDO;
 
@@ -27,12 +25,4 @@ class CollaboratorRepository extends Repository
         $query->execute([$idProject]);
         return $query->fetchAll(PDO::FETCH_CLASS,'App\Entity\Collaborator');
     }
-/*
-    public function findByCustomer(Customer $customer): array 
-    {
-        $idCustomer = $customer->getId();
-        $query = $this->pdo->prepare("SELECT collaborator.* FROM collaborator JOIN project_customer AS pc ON collaborator.id = pc");
-        $query->execute([$idCustomer]);
-        return $query->fetchAll(PDO::FETCH_CLASS,'App\Entity\Collaborator');
-    }*/
 }
