@@ -96,7 +96,7 @@ body {
     border-bottom-left-radius: 1rem !important;
 }
 
-#login.fixed-top {
+#login{
     left: 80%;
 }
 
