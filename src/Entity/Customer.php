@@ -18,7 +18,8 @@ class Customer
     private string $revenue;
     private int $staff;
     private string $phone;
-    private string $comment;
+    private string $email;
+    private ?string $comment;
 
     public function delete()
     {
@@ -218,6 +219,24 @@ class Customer
     public function setComment(string $comment): Customer
     {
         $this->comment = $comment;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     * @return Customer
+     */
+    public function setEmail(string $email): Customer
+    {
+        $this->email = $email;
         return $this;
     }
 }
