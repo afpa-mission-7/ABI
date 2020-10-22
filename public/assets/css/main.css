@@ -2,7 +2,7 @@ html,
 body {
     width: 100%;
     height: 100%;
-    background-color: #FFF5EE;
+    background-color: red !important;
 }
 
 .bg-duck {
@@ -35,7 +35,7 @@ body {
     color: #fff;
 }
 
-.btn-abi-light-brown{
+.btn-abi-light-brown {
     background-color: #AA968A;
 }
 
@@ -89,7 +89,7 @@ body {
 }
 
 #login {
-    width:320px;
+    width: 320px;
     top: 59px;
 }
 
@@ -97,8 +97,8 @@ body {
     border-bottom-left-radius: 1rem !important;
 }
 
-.d-none{
-    display: none; !important;
+.d-none {
+    display: none !important;
 }
 
 
@@ -124,4 +124,8 @@ thead {
 
 .table-bordered>tbody>tr>td {
     border: 1px solid #5F4F45;
+}
+
+.table {
+    background-color: red;
 }

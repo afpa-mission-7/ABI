@@ -1,3 +1,7 @@
-#tableCustomer tbody tr:hover{
+#tableCustomer tbody tr:hover {
     cursor: pointer;
+}
+
+#tableCustomer:hover {
+    background-color: aqua;
 }
