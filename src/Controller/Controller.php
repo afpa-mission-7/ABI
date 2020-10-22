@@ -119,6 +119,12 @@ class Controller
 
     }
 
+
+    /**
+     * @author Doryan
+     * @author Aymeric
+     * 22/10/20
+     */
     public function modalCustomerController()
     {
         $id=$_POST["id"];

@@ -18,10 +18,16 @@ $(".row_customer").click(function(e) {
 })
 
 
-$("#valid_customer").click(function(e) {
+$("#form_customer").submit(function(e) {
+    e.preventDefault();
     let target = e.target;
-    let form = $(target).closest("#form_customer");
-
-    let value = $(form).find('#company_name').val()
-    console.log(value)
+    let inputs = $(target).find('input:not([type=radio]:not(:checked))');
+    let customer = {};
+    $(inputs).each(function(index, element) {
+        let value = element.value;
+        let key = element.id;
+        customer[key] = value;
+    })
+    $.post('/addCustomerForm', customer);
+    console.log(customer);
 })
