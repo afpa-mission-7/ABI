@@ -116,5 +116,17 @@ class Controller
         $addCustomerForm->addCustomer($_POST);*/
         $customer = new CustomerRepository();
         $customer->find(7)->delete($customer);
+
     }
+
+    public function modalCustomerController()
+    {
+        $id=$_POST["id"];
+        $customerRepository = new CustomerRepository();
+        $customer = $customerRepository->find($id);
+        echo $customer->toJSON(); // envoi $customer a la fonction toJSON(); echo permet a l'ordinateur de récupérer le texte afficher par la fonction ajax.
+
+
+    }
+
 }

@@ -31,20 +31,18 @@
     </thead>
     <tbody>
         <?php foreach ($customers as $customer) : ?>
-            <tr data-toggle="modal" data-target="#modalCustomer">
+            <tr id="<?= $customer->getId() ?>" class="row_customer">
                 <td scope="row"><?= $customer->getCompanyName() ?></th>
                 <td><?= $customer->getZip() ?></td>
                 <td><?= $customer->getCity() ?></td>
-                <td>1</td>
-                <td>
-                    <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Contacter"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Supprimer"><i class="far fa-trash-alt"></i></button></td>
+                <td><?= $customer->getPhone() ?></td>
                 </tr>
         <?php endforeach; ?>
     </tbody>
 </table>
 
 <!-- Modal -->
+
 <div class="modal fade" id="modalCustomer" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -55,31 +53,101 @@
                 </button>
             </div>
             <div class="modal-body">
-                <table class="table table-hover table-bordered" id="tableCustomer">
-                    <thead>
-                        <tr>
-                            <th scope="col">Raison Sociale</th>
-                            <th scope="col">Code postal</th>
-                            <th scope="col">Activité</th>
-                            <th scope="col">Contacter</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($customers as $customer) : ?>
-                            <tr data-toggle="modal" data-target="#modalCustomer">
-                                <td scope="row"><?= $customer->getCompanyName() ?></th>
-                                <td><?= $customer->getZip() ?></td>
-                                <td><?= $customer->getCity() ?></td>
-                                <td>1</td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            <form action="#" method="GET" id="form_customer">
+                
+                        <div class="form-row form-group">
+                          <label for="newRaisonSociale" class="col-sm-3 col-form-label">Raison Sociale</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control editableModal" id="company_name" value="">
+                          </div>
+                        </div>
+                        <div class="form-row form-group">
+                          <div class="col-sm-4">
+                           Secteur d'activité
+                          </div>
+                          <div class="form-check col-sm-2">
+                            <input class="form-check-input" type="radio" name="newType" id="sector_activity" value="Privée"
+                              checked>
+                            <label class="form-check-label" for="newPrivee">
+                              1
+                            </label>
+                          </div>
+                          <div class="form-check col-sm-2">
+                            <input class="form-check-input" type="radio" name="newType" id="sector_activity"
+                              value="Publique">
+                            <label class="form-check-label" for="newPublique">
+                              2
+                            </label>
+                          </div>
+                          <div class="form-check col-sm-2">
+                            <input class="form-check-input" type="radio" name="newType" id="sector_activity"
+                              value="Publique">
+                            <label class="form-check-label" for="newPublique">
+                              3
+                            </label>
+                          </div>
+                          <div class="form-check col-sm-2">
+                            <input class="form-check-input" type="radio" name="newType" id="sector_activity"
+                              value="Publique">
+                            <label class="form-check-label" for="newPublique">
+                              4
+                            </label>
+                          </div>
+                        </div>
+                        <div class="form-row form-group">
+                          <label for="newAdresse" class="col-sm-3 col-form-label">Adresse</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control editableModal" id="address">
+                          </div>
+                        </div>
+                        <div class=row>
+                          <div class="form-row form-group col-sm-6">
+                            <label for="newCp" class="col-sm-3 col-form-label">CP</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control editableModal" id="zip">
+                            </div>
+                          </div>
+                          <div class="form-row form-group col-sm-6">
+                            <label for="newVille" class="col-sm-3 col-form-label">Ville</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control editableModal" id="city">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-row form-group">
+                          <label for="newTelephone" class="col-sm-3 col-form-label">Téléphone</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control editableModal" id="phone">
+                          </div>
+                        </div>
+                        <div class="form-row form-group">
+                          <label for="newEmail" class="col-sm-3 col-form-label">Email</label>
+                          <div class="col-sm-9">
+                            <input type="email" class="form-control editableModal" id="email"
+                              placeholder="********">
+                          </div>
+                        </div>
+                        <div class="form-row form-group">
+                          <label for="newCa" class="col-sm-3 col-form-label">CA</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control editableModal" id="revenue" placeholder="€">
+                          </div>
+                        </div>
+                        <div class="form-row form-group">
+                          <label for="newEffectif" class="col-sm-3 col-form-label">Effectif</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control editableModal" id="staff"
+                              placeholder="10">
+                          </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button type="button" id="valid_customer" class="btn btn-primary">Valider</button>
+                  
+                      </form>
+                    </div>
+                    
+                </div>
+                
         </div>
     </div>
 </div>

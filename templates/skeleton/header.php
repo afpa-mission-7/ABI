@@ -12,6 +12,8 @@
     <script src="assets/js/bootstrap.js" defer></script>
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/connect.js" defer></script>
+    <script src="assets/js/modal.js" defer></script>
+
 </head>
 
 <body class="d-flex flex-column justify-content-between">

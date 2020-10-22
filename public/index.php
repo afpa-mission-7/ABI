@@ -23,6 +23,8 @@ if($uri==="/"){
     $controller->disconnectController();
 } elseif ($uri === "/addCustomer") {
     $controller->addCustomerController();
-}else{
+} elseif ($uri === "/modalCustomer") {
+    $controller->modalCustomerController();
+} else{
     $controller->error404Controller();
 }
