@@ -16,6 +16,9 @@
         </div>
     </div>
 </div>
+<div class="row mb-4 justify-content-center">
+    <button type="button" class="btn btn-duck">Ajouter un client</button>
+</div>
 <table class="table table-hover table-bordered" id="tableCustomer">
     <thead>
         <tr>
@@ -34,8 +37,8 @@
                 <td><?= $customer->getCity() ?></td>
                 <td>1</td>
                 <td>
-                    <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></td>
+                    <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Contacter"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Supprimer"><i class="far fa-trash-alt"></i></button></td>
                 </tr>
         <?php endforeach; ?>
     </tbody>

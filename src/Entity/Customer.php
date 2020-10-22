@@ -3,6 +3,9 @@
 
 namespace App\Entity;
 
+use App\Config\DbConfig;
+use \PDO;
+
 
 class Customer
 {
@@ -16,6 +19,14 @@ class Customer
     private int $staff;
     private string $phone;
     private string $comment;
+
+    public function delete()
+    {
+        $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
+        
+        $query = $pdo->prepare("DELETE FROM customer WHERE id = ?");
+        $query->execute([$this->id]);
+    }
 
     /**
      * @return int

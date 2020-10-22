@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\Customer;
+use App\Forms\AddCustomerForm;
 use App\Repository\CustomerRepository;
 use App\Forms\LoginForm;
 use App\Repository\CollaboratorRepository;
@@ -95,5 +97,24 @@ class Controller
         session_start();
         session_unset();
         header('location: /');
+    }
+
+    public function addCustomerController()
+    {
+        /*$_POST = [
+            "company_name"=>"Michelin",
+            "sector_activity"=>"Plop",
+            "address"=>"impasse de l'arbre",
+            "zip"=>"63000",
+            "city"=>"Clermont",
+            "revenue"=>"2500000",
+            "staff"=>"2000",
+            "phone"=>"0805498965",
+            "comment"=>"Coucou c'est nous"
+        ];
+        $addCustomerForm = new AddCustomerForm($_POST);
+        $addCustomerForm->addCustomer($_POST);*/
+        $customer = new CustomerRepository();
+        $customer->find(7)->delete($customer);
     }
 }

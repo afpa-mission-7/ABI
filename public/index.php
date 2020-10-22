@@ -21,6 +21,8 @@ if($uri==="/"){
     $controller->loginController();
 } elseif ($uri === "/disconnect") {
     $controller->disconnectController();
+} elseif ($uri === "/addCustomer") {
+    $controller->addCustomerController();
 }else{
     $controller->error404Controller();
 }
