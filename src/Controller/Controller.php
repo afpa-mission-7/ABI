@@ -96,4 +96,14 @@ class Controller
         session_unset();
         header('location: /');
     }
+
+    public function modalCustomerController()
+    {
+        $id=$_POST["id"];
+        $customerRepository = new CustomerRepository();
+        $customer = $customerRepository->find($id);
+        echo $customer->toJSON(); // envoi $customer a la fonction toJSON(); echo permet a l'ordinateur de récupérer le texte afficher par la fonction ajax.
+
+
+    }
 }
