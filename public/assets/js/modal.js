@@ -6,22 +6,26 @@
  */
 
 $(".row_customer").click(function(e) {
-    let id = e.currentTarget.id;
-    $.post('/modalCustomer', { id: id }, function(data) {
-        var customer = JSON.parse(data); // json.parse() = transforme du json en objet JS.
-        for (const property in customer) {
-            $('#form_customer #' + property).val(customer[property]); //customer[property] = je récupere les property de customer.
-            //#form_customer #' + property = selectionne les input du formulaire ayant l'id de la variable property
+    let target = e.currentTarget;
+    let id = target.id;
+    $.post("/modalCustomer", {id:id}, function(data){
+        let customer = JSON.parse(data);
+        for(property in customer){
+            $("#modalCustomer #" + property).val(customer[property]);
         }
     })
-    $('#modalCustomer').modal('toggle')
+    $("#modalCustomer").modal("toggle");
 })
 
-
-$("#valid_customer").click(function(e) {
-    let target = e.target;
-    let form = $(target).closest("#form_customer");
-
-    let value = $(form).find('#company_name').val()
-    console.log(value)
+$("#form_customer").submit(function(e){
+    e.preventDefault();
+    let inputs = $('#modalCustomer input:not([type = radio]:not(:checked))');
+    let customer = {};
+    $(inputs).each(function(index, element){
+        let value = element.value;
+        let key = element.id;
+        customer[key] = value;
+    })
+    $.post("/addCustomer", customer);
+    console.log(customer);
 })

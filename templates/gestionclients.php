@@ -141,7 +141,7 @@
                           </div>
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                        <button type="button" id="valid_customer" class="btn btn-primary">Valider</button>
+                        <button type="submit" id="valid_customer" class="btn btn-primary">Valider</button>
                   
                       </form>
                     </div>

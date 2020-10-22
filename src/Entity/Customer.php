@@ -18,7 +18,8 @@ class Customer
     private string $revenue;
     private int $staff;
     private string $phone;
-    private string $comment;
+    private string $email;
+    private ?string $comment;
 
     public function delete()
     {
@@ -42,7 +43,7 @@ class Customer
      */
     public function toJSON()
     {
-        return json_encode(get_object_vars($this));//get_object_vars permet de transformer un objet JSON en array,
+       return json_encode(get_object_vars($this));
     }
 
     /**
@@ -214,6 +215,24 @@ class Customer
     public function setComment(string $comment): Customer
     {
         $this->comment = $comment;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     * @return Customer
+     */
+    public function setEmail(string $email): Customer
+    {
+        $this->email = $email;
         return $this;
     }
 }

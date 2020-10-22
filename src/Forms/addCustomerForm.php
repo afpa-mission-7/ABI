@@ -18,15 +18,15 @@ class AddCustomerForm extends Customer
         $this->revenue = $post['revenue'];
         $this->staff = $post['staff'];
         $this->phone = $post['phone'];
-        $this->comment = $post['comment'];
+        $this->email = $post['email'];
     }
     
-    public function addCustomer(array $post)
+    public function addCustomer()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
 
-        $param = array_values($post);
-        $query = $pdo->prepare("INSERT INTO customer (company_name, sector_activity, address, zip, city, revenue, staff, phone, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $param = array_values(get_object_vars($this));
+        $query = $pdo->prepare("INSERT INTO customer (company_name, sector_activity, address, zip, city, revenue, staff, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $query->execute($param);
     }
 
