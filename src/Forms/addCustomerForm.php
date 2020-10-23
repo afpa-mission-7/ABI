@@ -29,6 +29,13 @@ class AddCustomerForm extends Customer
         $query = $pdo->prepare("INSERT INTO customer (company_name, sector_activity, address, zip, city, revenue, staff, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $query->execute($param);
     }
+    public function updateCustomer()
+    {
+        $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
+        $param = array_map(fn($key, $values)) => "$key = $values, " 
+        $query = $pdo->prepare("UPDATE customer SET ")
+
+    }
 
 
 

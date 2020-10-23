@@ -27,5 +27,13 @@ $("#form_customer").submit(function(e){
         customer[key] = value;
     })
     $.post("/addCustomer", customer);
-    console.log(customer);
+})
+
+$("#addCustomer").click(function(){
+    let inputs = $('#modalCustomer input:not([type = radio])');
+    $(inputs).each(function(index, element){
+        $(element).val("");
+    })
+
+    $("#modalCustomer").modal("toggle");
 })
