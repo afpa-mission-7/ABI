@@ -30,7 +30,7 @@ class Customer
     }
 
     /**
-     * @author Doryan 
+     * @author Doryan
      * @return JSON
      * Permet de convertir la selection $this en JSON pour ensuite le transformer en JS puis encore apres en php pour le modal
      */

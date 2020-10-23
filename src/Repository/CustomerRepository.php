@@ -7,7 +7,6 @@
 namespace App\Repository;
 use App\Repository\Repository;
 use App\Entity\Project;
-use App\Entity\Customer;
 use \PDO;
 
 

@@ -25,4 +25,14 @@ class CustomerForm extends Customer
     }
 
 
+    public function updateCustomer()
+    {
+        $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
+
+        $param = array_values(get_object_vars($this));
+        $query = $pdo->prepare("UPDATE customer (company_name, sector_activity, address, zip, city, revenue, staff, phone, email, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $query->execute($param);
+    }
+
+
 }

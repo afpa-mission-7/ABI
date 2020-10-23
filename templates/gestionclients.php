@@ -140,6 +140,12 @@
                               placeholder="10">
                           </div>
                         </div>
+                        <div class="form-row form-group">
+                            <label for="newComment" class="col-sm-3 col-form-label">Commentaire</label>
+                            <div class="col-sm-9">
+                              <input type="text" class="form-control" id="comment" placeholder="Commentaire" required></input>
+                            </div>
+                        </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                         <button type="submit" id="valid_customer" class="btn btn-primary">Valider</button>
                   
