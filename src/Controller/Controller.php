@@ -101,8 +101,11 @@ class Controller
 
     public function addCustomerController()
     {
-        $addCustomerForm = new AddCustomerForm($_POST);
-        $addCustomerForm->addCustomer();
+        if(empty($_POST['id'])){
+            $addCustomerForm = new AddCustomerForm($_POST);
+            $addCustomerForm->addCustomer();
+        }
+        dd($_POST);
 
         
         /*$customer = new CustomerRepository();
