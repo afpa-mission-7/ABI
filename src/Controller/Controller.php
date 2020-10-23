@@ -104,12 +104,11 @@ class Controller
         if(empty($_POST['id'])){
             $addCustomerForm = new AddCustomerForm($_POST);
             $addCustomerForm->addCustomer();
+        } else {
+            $addCustomerForm = new AddCustomerForm($_POST);
+            $addCustomerForm->updateCustomer();
         }
-        dd($_POST);
-
         
-        /*$customer = new CustomerRepository();
-        $customer->find(7)->delete($customer);*/
 
     }
 
