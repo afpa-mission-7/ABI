@@ -101,11 +101,10 @@ class Controller
 
     public function addCustomerController()
     {
+        $addCustomerForm = new AddCustomerForm($_POST);
         if(empty($_POST['id'])){
-            $addCustomerForm = new AddCustomerForm($_POST);
             $addCustomerForm->addCustomer();
         } else {
-            $addCustomerForm = new AddCustomerForm($_POST);
             $addCustomerForm->updateCustomer();
         }
         
