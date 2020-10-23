@@ -3,6 +3,12 @@
 namespace App\Controller;
 
 use App\Forms\LoginForm;
+use App\Repository\CollaboratorRepository;
+use App\Repository\Repository;
+use App\Repository\CustomerRepository;
+use App\Repository\DocumentRepository;
+use App\Repository\ProjectRepository;
+
 
 class Controller
 {
@@ -18,6 +24,11 @@ class Controller
     {
         ob_start();
         session_start();
+        $collaboratorRepository = new CollaboratorRepository();
+        $collaborators = $collaboratorRepository->find(5);
+        $projectRepository = new ProjectRepository("Project");
+        $projects = $projectRepository->findByCollaborator($collaborators);
+        dump($projects);
         include '../templates/apropos.php';
         ob_end_flush();
     }
@@ -50,6 +61,10 @@ class Controller
     {
         ob_start();
         session_start();
+        $projectRepository = new ProjectRepository();
+        $projects = $projectRepository->findAll();
+        $documentRepository = new DocumentRepository();
+        $customerRepository = new CustomerRepository();
         include '../templates/gestionprojets.php';
         ob_end_flush();
     }
@@ -67,9 +82,9 @@ class Controller
         session_start();
         if (!empty($_POST)) {
             $loginform = new LoginForm($_POST);
-            if($loginform->login()){
+            if ($loginform->login()) {
                 echo 'true';
-            }else{
+            } else {
                 echo 'false';
             }
         }

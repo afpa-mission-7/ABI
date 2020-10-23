@@ -3,6 +3,8 @@
 
 namespace App\Entity;
 
+use \DateTime;
+
 
 class Project
 {
@@ -13,6 +15,19 @@ class Project
     private $date_start;
     private $expected_date_end;
     private $date_end;
+
+    public function __construct()
+    {
+        $this->expected_date_start = new DateTime($this->expected_date_start);
+        $this->date_start = new DateTime($this->date_start);
+        $this->expected_date_end = new DateTime($this->expected_date_end);
+        if ($this->date_end !== null) $this->date_end = new DateTime($this->date_end);
+    }
+
+    public function format(DateTime $dateTime)
+    {
+        return $dateTime->format("d / m / Y");
+    }
 
     /**
      * @return int
@@ -73,7 +88,7 @@ class Project
      */
     public function getExpectedDateStart()
     {
-        return $this->expected_date_start;
+        return $this->format($this->expected_date_start);
     }
 
     /**
@@ -91,7 +106,7 @@ class Project
      */
     public function getDateStart()
     {
-        return $this->date_start;
+        return $this->format($this->date_start);
     }
 
     /**
@@ -109,7 +124,7 @@ class Project
      */
     public function getExpectedDateEnd()
     {
-        return $this->expected_date_end;
+        return $this->format($this->expected_date_end);
     }
 
     /**
@@ -127,7 +142,11 @@ class Project
      */
     public function getDateEnd()
     {
-        return $this->date_end;
+        if ($this->date_end !== null) {
+            return $this->format($this->date_end);
+        } else {
+            return "En cours";
+        }
     }
 
     /**
