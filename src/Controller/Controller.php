@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Customer;
+use App\Forms\AddCustomerForm;
+use App\Repository\CustomerRepository;
 use App\Forms\LoginForm;
 use App\Repository\CollaboratorRepository;
 use App\Repository\Repository;
-use App\Repository\CustomerRepository;
 use App\Repository\DocumentRepository;
 use App\Repository\ProjectRepository;
 
@@ -45,6 +47,8 @@ class Controller
     {
         ob_start();
         session_start();
+        $customerRepository = new CustomerRepository();
+        $customers = $customerRepository->findAll();
         include '../templates/gestionclients.php';
         ob_end_flush();
     }
@@ -123,5 +127,23 @@ class Controller
         $projectRepository = new ProjectRepository();
         $project = $projectRepository->find($id);
         echo $project->toJSON();
+    }
+
+    public function addCustomerController()
+    {
+        $addCustomerForm = new AddCustomerForm($_POST);
+        if(empty($_POST['id'])){
+            $addCustomerForm->addCustomer();
+        } else {
+            $addCustomerForm->updateCustomer();
+        }
+    }
+
+    public function modalCustomerController()
+    {
+        $id = $_POST["id"];
+        $customerRepository = new CustomerRepository();
+        $customer = $customerRepository->find($id);
+        echo $customer->toJSON();
     }
 }

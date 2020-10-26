@@ -7,6 +7,7 @@
 namespace App\Repository;
 use App\Repository\Repository;
 use App\Entity\Project;
+use App\Entity\Customer;
 use \PDO;
 
 
@@ -25,4 +26,5 @@ class CustomerRepository extends Repository
         $query->execute([$idProject]);
         return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\Customer");
     }
+
 }

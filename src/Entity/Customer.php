@@ -3,6 +3,9 @@
 
 namespace App\Entity;
 
+use App\Config\DbConfig;
+use \PDO;
+
 
 class Customer
 {
@@ -15,7 +18,16 @@ class Customer
     private string $revenue;
     private int $staff;
     private string $phone;
-    private string $comment;
+    private string $email;
+    private ?string $comment;
+
+    public function delete()
+    {
+        $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
+        
+        $query = $pdo->prepare("DELETE FROM customer WHERE id = ?");
+        $query->execute([$this->id]);
+    }
 
     /**
      * @return int
@@ -23,6 +35,15 @@ class Customer
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /**
+     * @return JSON
+     * Permet de convertir la selection $this en JSON pour ensuite le transformer en JS puis encore apres en php pour le modal
+     */
+    public function toJSON()
+    {
+       return json_encode(get_object_vars($this));
     }
 
     /**
@@ -194,6 +215,24 @@ class Customer
     public function setComment(string $comment): Customer
     {
         $this->comment = $comment;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     * @return Customer
+     */
+    public function setEmail(string $email): Customer
+    {
+        $this->email = $email;
         return $this;
     }
 }

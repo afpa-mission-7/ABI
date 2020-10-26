@@ -22,10 +22,18 @@ if ($uri === "/") {
     $controller->loginController();
 } elseif ($uri === "/disconnect") {
     $controller->disconnectController();
+<<<<<<< HEAD
 } elseif ($uri === "/profile") {
     $controller->profileController();
 }elseif($uri === "/modalProject"){
     $controller->modalProjectController();
 } else {
+=======
+} elseif ($uri === "/addCustomer") {
+    $controller->addCustomerController();
+} elseif ($uri === "/modalCustomer") {
+    $controller->modalCustomerController();
+} else{
+>>>>>>> b5d5ef97d1dce085982342e48e9592153698f56c
     $controller->error404Controller();
 }

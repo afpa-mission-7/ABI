@@ -26,7 +26,7 @@ public function find(int $id)
     $sql = "SELECT * FROM $this->table WHERE id =?";
     $query = $this->pdo->prepare($sql);
     $query->execute([$id]);
-    $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\\".$this->classname);
+    $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\\" . $this->classname);
     return $query->fetch();
 }
 
@@ -51,7 +51,7 @@ public function findAll():array
     $sql = "SELECT * FROM $this->table";
     $query = $this->pdo->prepare($sql);
     $query->execute();
-    return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\".$this->classname);
+    return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\" . $this->classname);
 }
 
 public function findOneBy(array $criteria, array $orderBy = null) 
@@ -62,7 +62,7 @@ public function findOneBy(array $criteria, array $orderBy = null)
     $sql = "SELECT * FROM $this->table $criteria $orderBy";
     $query = $this->pdo->prepare($sql);
     $query->execute($params);
-    $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\\".$this->classname);
+    $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\\" . $this->classname);
     return $query->fetch();
 }
 
