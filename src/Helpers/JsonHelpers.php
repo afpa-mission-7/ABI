@@ -9,8 +9,8 @@ class JsonHelpers
 
     public static function ObjectToAssoc(array &$objectVars)
     {
-        array_walk_recursive($objectVars,function(&$value){
-            if(is_object($value)){
+        array_walk_recursive($objectVars, function (&$value) {
+            if (is_object($value)) {
                 $value = $value->toAssoc();
             }
         });
@@ -18,12 +18,10 @@ class JsonHelpers
 
     public static function formatDates(array &$objectVars)
     {
-        $objectVars =  array_combine(array_keys($objectVars), array_map(function ($value) {
+        array_walk_recursive($objectVars, function (&$value, &$key) {
             if ($value instanceof DateTime) {
-                return $value->format("Y-m-d");
-            } else {
-                return $value;
+                $value = $value->format("Y-m-d");
             }
-        }, array_values($objectVars)));
+        });
     }
 }
