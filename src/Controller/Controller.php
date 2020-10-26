@@ -4,8 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Customer;
 use App\Forms\AddCustomerForm;
-use App\Repository\CustomerRepository;
+use App\Forms\customerForm;
 use App\Forms\LoginForm;
+use App\Repository\CustomerRepository;
 use App\Repository\CollaboratorRepository;
 use App\Repository\Repository;
 use App\Repository\DocumentRepository;
@@ -125,6 +126,20 @@ class Controller
         $customerRepository = new CustomerRepository();
         $customer = $customerRepository->find($id);
         echo $customer->toJSON();
+    }
+
+    public function updateCustomerController()
+    {
+        if(!empty($_POST['id'])){
+            $addCustomerForm = new customerForm($_POST);
+            $addCustomerForm->updateCustomer();
+        }
+        dd($_POST);
+
+        
+        /*$customer = new CustomerRepository();
+        $customer->find(7)->delete($customer);*/
+
     }
 
 }

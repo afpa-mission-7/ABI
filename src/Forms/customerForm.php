@@ -21,10 +21,14 @@ class CustomerForm extends Customer
         $this->staff = $post['staff'];
         $this->phone = $post['phone'];
         $this->comment = $post['comment'];
-       // $this->email = $email['email'];
+        $this->email = $post['email'];
     }
 
-
+/**
+ * @author Doryan
+ * 23/10/20 
+ * Fonction permetant de modifier un Client de la BDD
+ */
     public function updateCustomer()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
@@ -34,5 +38,12 @@ class CustomerForm extends Customer
         $query->execute($param);
     }
 
+/*
+    public function updateCustomers()
+    {
+        $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
+        $param = array_map(fn($key, $values)) => "$key = $values, " 
+        $query = $pdo->prepare("UPDATE customer SET ")
 
+    }*/
 }

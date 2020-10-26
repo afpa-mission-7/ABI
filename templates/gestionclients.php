@@ -54,63 +54,6 @@
       </div>
       <div class="modal-body">
         <form action="#" method="GET" id="form_customer">
-          <div class="form-row form-group">
-            <label for="newRaisonSociale" class="col-sm-3 col-form-label">Raison Sociale</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control editableModal" id="company_name" value="">
-            </div>
-          </div>
-          <div class="form-row form-group">
-            <div class="col-sm-4">
-              Secteur d'activité
-            </div>
-            <div class="form-check col-sm-2">
-              <input class="form-check-input" type="radio" name="newType" id="sector_activity" value="Privée" checked>
-              <label class="form-check-label" for="newPrivee">
-                1
-              </label>
-            </div>
-            <div class="form-check col-sm-2">
-              <input class="form-check-input" type="radio" name="newType" id="sector_activity" value="Publique">
-              <label class="form-check-label" for="newPublique">
-                2
-              </label>
-            </div>
-            <div class="form-check col-sm-2">
-              <input class="form-check-input" type="radio" name="newType" id="sector_activity" value="Publique">
-              <label class="form-check-label" for="newPublique">
-                3
-              </label>
-            </div>
-            <div class="form-check col-sm-2">
-              <input class="form-check-input" type="radio" name="newType" id="sector_activity" value="Publique">
-              <label class="form-check-label" for="newPublique">
-                4
-              </label>
-            </div>
-          </div>
-          <div class="form-row form-group">
-            <label for="newAdresse" class="col-sm-3 col-form-label">Adresse</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control editableModal" id="address">
-            </div>
-          </div>
-          <div class=row>
-            <div class="form-row form-group col-sm-6">
-              <label for="newCp" class="col-sm-3 col-form-label">CP</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control editableModal" id="zip">
-              </div>
-            </div>
-            <div class="form-row form-group col-sm-6">
-              <label for="newVille" class="col-sm-3 col-form-label">Ville</label>
-              <div class="col-sm-9">
-                <input type="text" class="form-control editableModal" id="city">
-              </div>
-            </div>
-            <div class="modal-body">
-            <form action="" method="post" id="form_customer">
-                
                         <div class="form-row form-group">
                           <label for="newRaisonSociale" class="col-sm-3 col-form-label">Raison Sociale</label>
                           <div class="col-sm-9">
@@ -122,29 +65,26 @@
                            Secteur d'activité
                           </div>
                           <div class="form-check col-sm-2">
-                            <input class="form-check-input" type="radio" name="newType" id="sector_activity" value="Privée"
+                            <input class="form-check-input" type="radio" name="newType" id="sector_activity"
                               checked>
                             <label class="form-check-label" for="newPrivee">
                               1
                             </label>
                           </div>
                           <div class="form-check col-sm-2">
-                            <input class="form-check-input" type="radio" name="newType" id="sector_activity"
-                              value="Publique">
+                            <input class="form-check-input" type="radio" name="newType" id="sector_activity">
                             <label class="form-check-label" for="newPublique">
                               2
                             </label>
                           </div>
                           <div class="form-check col-sm-2">
-                            <input class="form-check-input" type="radio" name="newType" id="sector_activity"
-                              value="Publique">
+                            <input class="form-check-input" type="radio" name="newType" id="sector_activity">
                             <label class="form-check-label" for="newPublique">
                               3
                             </label>
                           </div>
                           <div class="form-check col-sm-2">
-                            <input class="form-check-input" type="radio" name="newType" id="sector_activity"
-                              value="Publique">
+                            <input class="form-check-input" type="radio" name="newType" id="sector_activity">
                             <label class="form-check-label" for="newPublique">
                               4
                             </label>

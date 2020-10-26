@@ -1,6 +1,7 @@
 /**
  * @author Doryan
  * @author Aymeric
+ * @author Simon
  * 22/10/20
  * Permet d'ouvrir un modal client avec toutes les info de la BDD et du php
  */
@@ -26,12 +27,12 @@ $("#form_customer").submit(function(e) {
         let key = element.id;
         customer[key] = value;
     })
-    $.post("/addCustomer", customer);
+    $.post("/updateCustomer", customer);
 })
 
-$("#addCustomer").click(function(){
+$("#addCustomer").click(function() {
     let inputs = $('#modalCustomer input:not([type = radio])');
-    $(inputs).each(function(index, element){
+    $(inputs).each(function(index, element) {
         $(element).val("");
     })
 
