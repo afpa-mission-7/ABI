@@ -19,6 +19,7 @@ class AddCustomerForm extends Customer
         $this->staff = $post['staff'];
         $this->phone = $post['phone'];
         $this->email = $post['email'];
+        $this->id = $post['id'];
     }
     
     public function addCustomer()
@@ -29,5 +30,19 @@ class AddCustomerForm extends Customer
         $query = $pdo->prepare("INSERT INTO customer (company_name, sector_activity, address, zip, city, revenue, staff, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $query->execute($param);
     }
+    public function updateCustomer()
+    {
+        $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
+
+        $param = get_object_vars($this);
+        unset($param['id']);
+        $param = join(", ", array_map(fn($key, $value) => "$key = '$value'", array_keys($param), array_values($param))); 
+        $query = $pdo->prepare("UPDATE customer SET $param WHERE id = $this->id");
+        $query->execute([$param]);
+
+    }
+
+
+
 
 }

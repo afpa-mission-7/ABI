@@ -35,6 +35,5 @@ $("#addCustomer").click(function() {
     $(inputs).each(function(index, element) {
         $(element).val("");
     })
-
     $("#modalCustomer").modal("toggle");
 })
