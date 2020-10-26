@@ -142,11 +142,7 @@ class Project
      */
     public function getDateEnd()
     {
-        if ($this->date_end !== null) {
-            return $this->format($this->date_end);
-        } else {
-            return "En cours";
-        }
+        return $this->date_end;
     }
 
     /**

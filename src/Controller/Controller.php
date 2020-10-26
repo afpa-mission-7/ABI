@@ -90,10 +90,38 @@ class Controller
         }
     }
 
+    public function profileController()
+    {
+        ob_start();
+        session_start();
+        $collaboratorRepository = new CollaboratorRepository();
+        $collaborator = $collaboratorRepository->find($_SESSION["id"]);
+        include '../templates/profile.php';
+        ob_end_flush();
+    }
+
     public function disconnectController()
     {
         session_start();
         session_unset();
         header('location: /');
+    }
+
+    public function addProjectController()
+    {
+        $addProjectForm = new AddProjectForm($_POST);
+        if(empty($_POST['id'])){
+            $addProjectForm->addCustomer();
+        } else {
+            $addProjectForm->updateCustomer();
+        }
+    }
+
+    public function modalProjectController()
+    {
+        $id = $_POST["id"];
+        $projectRepository = new ProjectRepository();
+        $project = $projectRepository->find($id);
+        echo $project->toJSON();
     }
 }
