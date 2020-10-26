@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Entity\Collaborator;
 use PHPUnit\Framework\TestCase;
 use App\Repository\CollaboratorRepository;
 use App\Config\DbConfig;
@@ -17,16 +18,16 @@ class CollaboratorRepositoryTest extends TestCase
         $collaboratorRepository = new CollaboratorRepository();
         $collaborator = $collaboratorRepository->find($id);
         $this->assertEquals($id, $collaborator->getId());
-        $this->assertInstanceOf('App\Entity\Collaborator', $collaborator);
+        $this->assertInstanceOf(Collaborator::class, $collaborator);
     }
 
     public function testFindAll()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
         $query = $pdo->query("SELECT * FROM collaborator");
-        $collaborators = $query->fetchAll(PDO::FETCH_CLASS,'App\Entity\Collaborator');
+        $collaborators = $query->fetchAll(PDO::FETCH_CLASS,Collaborator::class);
         $collaboratorRepository = new CollaboratorRepository();
-        $this->assertContainsOnlyInstancesOf('App\Entity\User', $collaboratorRepository->findAll());
+        $this->assertContainsOnlyInstancesOf(Collaborator::class, $collaboratorRepository->findAll());
         $this->assertEquals($collaborators, $collaboratorRepository->findAll());
     }
     /*
