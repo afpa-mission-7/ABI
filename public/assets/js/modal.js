@@ -27,12 +27,10 @@ $("#form_customer").submit(function(e){
         customer[key] = value;
     })
     $.post("/addCustomer", customer, function() {
-        //$('#tableCustomer tbody').empty();
         let row = $('#' + customer.id);
         for(property in customer){
-            $(row).find("." + property).attr('value',customer[property]);
+            $(row).find("." + property).text(customer[property]);
         }
-        //$('#tableCustomer tbody').load("/gestionclients #tableCustomer tbody *");
     });
     $("#modalCustomer").modal("toggle");
 })
