@@ -2,6 +2,7 @@
 
 
 namespace App\Entity;
+use \PDO;
 
 use App\Repository\CollaboratorRepository;
 use App\Repository\CustomerRepository;
@@ -63,6 +64,14 @@ class Project
             }
         }, array_values($objectVars)));
     }
+
+    ///////////////////////////////
+    /*
+    public function toJSON()
+    {
+        return json_encode(get_object_vars($this));//get_object_vars permet de transformer un objet JSON en array,
+    }*/
+    /////////////////////////////////////////
 
     /**
      * @return int

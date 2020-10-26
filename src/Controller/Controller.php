@@ -4,8 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Customer;
 use App\Forms\AddCustomerForm;
-use App\Repository\CustomerRepository;
+use App\Forms\customerForm;
 use App\Forms\LoginForm;
+use App\Repository\CustomerRepository;
 use App\Repository\CollaboratorRepository;
 use App\Repository\Repository;
 use App\Repository\DocumentRepository;

@@ -64,25 +64,25 @@
               Secteur d'activité
             </div>
             <div class="form-check col-sm-2">
-              <input class="form-check-input" type="radio" name="newType" id="sector_activity" value="Privée" checked>
+              <input class="form-check-input" type="radio" name="newType" id="sector_activity" checked>
               <label class="form-check-label" for="newPrivee">
                 1
               </label>
             </div>
             <div class="form-check col-sm-2">
-              <input class="form-check-input" type="radio" name="newType" id="sector_activity" value="Publique">
+              <input class="form-check-input" type="radio" name="newType" id="sector_activity">
               <label class="form-check-label" for="newPublique">
                 2
               </label>
             </div>
             <div class="form-check col-sm-2">
-              <input class="form-check-input" type="radio" name="newType" id="sector_activity" value="Publique">
+              <input class="form-check-input" type="radio" name="newType" id="sector_activity">
               <label class="form-check-label" for="newPublique">
                 3
               </label>
             </div>
             <div class="form-check col-sm-2">
-              <input class="form-check-input" type="radio" name="newType" id="sector_activity" value="Publique">
+              <input class="form-check-input" type="radio" name="newType" id="sector_activity">
               <label class="form-check-label" for="newPublique">
                 4
               </label>
@@ -132,17 +132,39 @@
               <input type="text" class="form-control editableModal" id="staff" placeholder="10">
             </div>
           </div>
-          <input type="hidden" name="id" id="id">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-          <button type="submit" id="valid_customer" class="btn btn-primary">Valider</button>
-        <td><button type="button" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="Supprimer">SUPPRIMER</button></td>
-
+          <div class="form-row form-group">
+            <label for="newComment" class="col-sm-3 col-form-label">Commentaire</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="comment" placeholder="Commentaire" required></input>
+            </div>
+          </div>
+          <div class="form-row form-group">
+            <label for="newProject" class="col-sm-3 col-form-label">Projet</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="project" placeholder="Nom du Projet"></input>
+            </div>
+          </div>
+          <div class="form-row form-group">
+            <label for="Collaborators" class="col-sm-3 col-form-label">Collaborateurs</label>
+            <div class="col-sm-9">
+              <ul type="text" class="form-control" id="collaborators" placeholder="Collaborateurs"></ul>
+            </div>
+          </div>
+            <input type="hidden" name="id" id="id">
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+              <button type="submit" id="valid_customer" class="btn btn-primary">Valider</button>
+              <button type="button" class="btn btn-danger delete" id="deleteCustomer">Supprimer</button>
+            </div>
         </form>
       </div>
 
     </div>
 
   </div>
+</div>
+
+</div>
 </div>
 </div>
 
