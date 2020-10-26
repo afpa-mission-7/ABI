@@ -4,13 +4,28 @@
 namespace App\Entity;
 
 
+use App\Repository\CollaboratorRepository;
+use App\Repository\CustomerRepository;
+use App\Repository\DocumentRepository;
+use App\Repository\ProjectRepository;
+
 class Document
 {
-private int $id;
-private string $title;
-private string $resume;
-private $date;
-private string $link;
+    private int $id;
+    private string $title;
+    private string $resume;
+    private $date;
+    private string $link;
+    private Project $project;
+
+    public function __construct($first = true)
+    {
+        if ($first) {
+            $projectRepository = new ProjectRepository();
+            $this->project = $projectRepository->findOneByDocument($this, false);
+        }
+        unset($this->project_id);
+    }
 
     /**
      * @return int

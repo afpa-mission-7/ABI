@@ -97,11 +97,12 @@ body {
     border-bottom-left-radius: 1rem !important;
 }
 
+table tbody tr {
+    cursor: pointer;
+}
 .d-none{
     display: none !important;
 }
-
-
 /**
 * Style main
 */
