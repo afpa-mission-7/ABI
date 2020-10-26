@@ -5,9 +5,12 @@ namespace App\Entity;
 
 
 use App\Repository\ProjectRepository;
+use App\Traits\JSONTrait;
 
 class Collaborator
 {
+    use JSONTrait;
+
     private int $id;
     private string $username;
     private string $password;

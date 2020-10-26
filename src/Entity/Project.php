@@ -2,17 +2,21 @@
 
 
 namespace App\Entity;
+use App\Traits\JSONTrait;
 use \PDO;
 
 use App\Repository\CollaboratorRepository;
 use App\Repository\CustomerRepository;
 use App\Repository\DocumentRepository;
+use App\Entity\Customer;
 use App\Repository\ProjectRepository;
 use \DateTime;
 
 
 class Project
 {
+    use JSONTrait;
+
     private int $id;
     private string $name;
     private ?string $type;
@@ -44,26 +48,6 @@ class Project
     public function format(DateTime $dateTime)
     {
         return $dateTime->format("d / m / Y");
-    }
-
-    public function toJSON()
-    {
-        $objectVars = $this->formatDates();
-        dd($objectVars);
-        return json_encode($objectVars);
-    }
-    
-    public function formatDates()
-    {
-        $objectVars = get_object_vars($this);
-
-        return array_combine(array_keys($objectVars), array_map(function ($value) {
-            if ($value instanceof DateTime) {
-                return $value->format("Y-m-d");
-            } else {
-                return $value;
-            }
-        }, array_values($objectVars)));
     }
 
     /**

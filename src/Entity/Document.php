@@ -8,9 +8,12 @@ use App\Repository\CollaboratorRepository;
 use App\Repository\CustomerRepository;
 use App\Repository\DocumentRepository;
 use App\Repository\ProjectRepository;
+use App\Traits\JSONTrait;
 
 class Document
 {
+    use JSONTrait;
+
     private int $id;
     private string $title;
     private string $resume;
