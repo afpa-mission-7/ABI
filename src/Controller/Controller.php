@@ -119,4 +119,11 @@ class Controller
         echo $customer->toJSON();
     }
 
+    public function deleteCustomerController()
+    {
+        $id = $_POST['id'];
+        $customer = new Customer();
+        $customer->delete($id);
+    }
+
 }

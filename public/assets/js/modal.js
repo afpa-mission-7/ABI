@@ -8,12 +8,17 @@
 $(".row_customer").click(function(e) {
     let target = e.currentTarget;
     let id = target.id;
+    console.log(target, id);
     $.post("/modalCustomer", {id:id}, function(data){
         let customer = JSON.parse(data);
         for(property in customer){
             $("#modalCustomer #" + property).val(customer[property]);
         }
     })
+    if($('.delete').click(function(){
+        $.post("/deleteCustomer", {id:id});
+        $("#modalCustomer").modal("toggle");
+    }));
     $("#modalCustomer").modal("toggle");
 })
 
@@ -42,3 +47,4 @@ $("#addCustomer").click(function(){
     })
     $("#modalCustomer").modal("toggle");
 })
+

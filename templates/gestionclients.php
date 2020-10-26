@@ -26,7 +26,6 @@
       <th scope="col">Code postal</th>
       <th scope="col">Activité</th>
       <th scope="col">Contact</th>
-      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -136,6 +135,7 @@
           <input type="hidden" name="id" id="id">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
           <button type="submit" id="valid_customer" class="btn btn-primary">Valider</button>
+        <td><button type="button" class="btn btn-danger delete" data-toggle="tooltip" data-original-title="Supprimer">SUPPRIMER</button></td>
 
         </form>
       </div>

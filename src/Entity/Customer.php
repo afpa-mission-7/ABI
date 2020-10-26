@@ -21,12 +21,12 @@ class Customer
     private string $email;
     private ?string $comment;
 
-    public function delete()
+    public function delete($id)
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
         
         $query = $pdo->prepare("DELETE FROM customer WHERE id = ?");
-        $query->execute([$this->id]);
+        $query->execute([$id]);
     }
 
     /**

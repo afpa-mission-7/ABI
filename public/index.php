@@ -25,6 +25,8 @@ if($uri==="/"){
     $controller->addCustomerController();
 } elseif ($uri === "/modalCustomer") {
     $controller->modalCustomerController();
+} elseif ($uri === "/deleteCustomer") {
+    $controller->deleteCustomerController();
 } else{
     $controller->error404Controller();
 }
