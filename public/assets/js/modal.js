@@ -27,7 +27,13 @@ $("#form_customer").submit(function(e) {
         let key = element.id;
         customer[key] = value;
     })
-    $.post("/updateCustomer", customer);
+    $.post("/addCustomer", customer, function() {
+        let row = $('#' + customer.id);
+        for (property in customer) {
+            $(row).find("." + property).text(customer[property]);
+        }
+    });
+    $("#modalCustomer").modal("toggle");
 })
 
 $("#addCustomer").click(function() {

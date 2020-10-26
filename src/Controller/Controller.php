@@ -100,6 +100,12 @@ class Controller
         header('location: /');
     }
 
+
+    /**
+     * @author Simon
+     * @author Aymeric 
+     * 26/10/20
+     */
     public function addCustomerController()
     {
         $addCustomerForm = new AddCustomerForm($_POST);
@@ -108,8 +114,6 @@ class Controller
         } else {
             $addCustomerForm->updateCustomer();
         }
-        
-
     }
 
 
@@ -125,19 +129,4 @@ class Controller
         $customer = $customerRepository->find($id);
         echo $customer->toJSON();
     }
-
-    public function updateCustomerController()
-    {
-        if(!empty($_POST['id'])){
-            $addCustomerForm = new customerForm($_POST);
-            $addCustomerForm->updateCustomer();
-        }
-        dd($_POST);
-
-        
-        /*$customer = new CustomerRepository();
-        $customer->find(7)->delete($customer);*/
-
-    }
-
 }
