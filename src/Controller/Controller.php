@@ -126,7 +126,15 @@ class Controller
     {
         $id = $_POST["id"];
         $customerRepository = new CustomerRepository();
-        $customer = $customerRepository->find($id);
+        $customer = $customerRepository->find($id);       
         echo $customer->toJSON();
+    }
+
+    public function deleteCustomerController() {
+        $id = $_POST["id"];
+        $customerRepository = new CustomerRepository();
+        $customer = $customerRepository->find($id);
+        $customer->delete();
+
     }
 }

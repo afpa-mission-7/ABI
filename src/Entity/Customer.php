@@ -21,6 +21,11 @@ class Customer
     private string $email;
     private ?string $comment;
 
+    /**
+     * @author Simon
+     * 26/10/20
+     * Permet de supprimer un client
+     */
     public function delete()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);

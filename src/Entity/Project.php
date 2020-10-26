@@ -2,6 +2,7 @@
 
 
 namespace App\Entity;
+use \PDO;
 
 
 class Project
@@ -13,6 +14,14 @@ class Project
     private $date_start;
     private $expected_date_end;
     private $date_end;
+
+    ///////////////////////////////
+    /*
+    public function toJSON()
+    {
+        return json_encode(get_object_vars($this));//get_object_vars permet de transformer un objet JSON en array,
+    }*/
+    /////////////////////////////////////////
 
     /**
      * @return int
