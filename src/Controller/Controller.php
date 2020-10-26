@@ -18,6 +18,15 @@ class Controller
     {
         ob_start();
         session_start();
+        $projectRepository = new ProjectRepository();
+        $project = $projectRepository->find(6);
+        $collaboratorRepository = new CollaboratorRepository();
+        $collaborator = $collaboratorRepository->find(5);
+        $customerRepository = new CustomerRepository();
+        $customer = $customerRepository->find(1);
+        $documentRepository = new DocumentRepository();
+        $document = $documentRepository->find(1);
+        dd($project,$collaborator,$customer, $document);
         include '../templates/index.php';
         ob_end_flush();
     }
@@ -26,11 +35,11 @@ class Controller
     {
         ob_start();
         session_start();
-       /* $collaboratorRepository = new CollaboratorRepository();
-        $collaborators = $collaboratorRepository->find(5);
-        $projectRepository = new ProjectRepository("Project");
-        $projects = $projectRepository->findByCollaborator($collaborators);
-        dump($projects);*/
+        /* $collaboratorRepository = new CollaboratorRepository();
+         $collaborators = $collaboratorRepository->find(5);
+         $projectRepository = new ProjectRepository("Project");
+         $projects = $projectRepository->findByCollaborator($collaborators);
+         dump($projects);*/
         include '../templates/apropos.php';
         ob_end_flush();
     }
@@ -111,39 +120,22 @@ class Controller
         header('location: /');
     }
 
-    public function addProjectController()
-    {
-        $addProjectForm = new AddProjectForm($_POST);
-        if(empty($_POST['id'])){
-            $addProjectForm->addCustomer();
-        } else {
-            $addProjectForm->updateCustomer();
-        }
-    }
-
-    public function modalProjectController()
-    {
-        $id = $_POST["id"];
-        $projectRepository = new ProjectRepository();
-        $project = $projectRepository->find($id);
-        echo $project->toJSON();
-    }
-
-    public function addCustomerController()
+    public function addController($classname)
     {
         $addCustomerForm = new AddCustomerForm($_POST);
-        if(empty($_POST['id'])){
+        if (empty($_POST['id'])) {
             $addCustomerForm->addCustomer();
         } else {
             $addCustomerForm->updateCustomer();
         }
     }
 
-    public function modalCustomerController()
+    public function modalController(string $classname)
     {
         $id = $_POST["id"];
-        $customerRepository = new CustomerRepository();
-        $customer = $customerRepository->find($id);
-        echo $customer->toJSON();
+        $repositoryName = 'App\Repository\\' . $classname . 'Repository';
+        $repository = new $repositoryName();
+        $entity = $repository->find($id);
+        echo $entity->toJSON();
     }
 }

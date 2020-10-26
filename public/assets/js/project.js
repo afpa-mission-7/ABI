@@ -1,9 +1,21 @@
-$("#listProject tbody tr").click(function(){
-    $.post("/modalProject", { id: this.id }, function(data) {
+$("#listProject tbody tr").click(function () {
+    $.post("/modalProject", {id: this.id}, function (data) {
         let project = JSON.parse(data);
+        console.log(project);
         for (property in project) {
-            $("#modalCustomer #" + property).val(project[property]);
-        }
+                $("#modalProject #" + property).val(project[property]);
+            }
     })
-    $("#modalCustomer").modal("toggle");
+    $("#modalProject").modal("toggle");
 })
+
+$("#edit").click(function(){
+    $("input").removeAttr('disabled');
+})
+
+$("#form_modal").submit(function(e){
+    e.preventDefault();
+
+})
+
+

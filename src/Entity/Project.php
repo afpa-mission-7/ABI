@@ -3,6 +3,10 @@
 
 namespace App\Entity;
 
+use App\Repository\CollaboratorRepository;
+use App\Repository\CustomerRepository;
+use App\Repository\DocumentRepository;
+use App\Repository\ProjectRepository;
 use \DateTime;
 
 
@@ -15,18 +19,49 @@ class Project
     private $date_start;
     private $expected_date_end;
     private $date_end;
+    private array $customers;
+    private array $collaborators;
+    private array $documents;
 
-    public function __construct()
+    public function __construct($first = true)
     {
         $this->expected_date_start = new DateTime($this->expected_date_start);
         $this->date_start = new DateTime($this->date_start);
         $this->expected_date_end = new DateTime($this->expected_date_end);
         if ($this->date_end !== null) $this->date_end = new DateTime($this->date_end);
+
+        if ($first) {
+            $customerRepository = new CustomerRepository();
+            $this->customers = $customerRepository->findByProject($this, false);
+            $collaboratorRepository = new CollaboratorRepository();
+            $this->collaborators = $collaboratorRepository->findByProject($this, false);
+            $documentRepository = new DocumentRepository();
+            $this->documents = $documentRepository->findByProject($this,false);
+        }
     }
 
     public function format(DateTime $dateTime)
     {
         return $dateTime->format("d / m / Y");
+    }
+
+    public function toJSON()
+    {
+        $objectVars = $this->formatDates();
+        return json_encode($objectVars);
+    }
+
+    public function formatDates()
+    {
+        $objectVars = get_object_vars($this);
+
+        return array_combine(array_keys($objectVars), array_map(function ($value) {
+            if ($value instanceof DateTime) {
+                return $value->format("Y-m-d");
+            } else {
+                return $value;
+            }
+        }, array_values($objectVars)));
     }
 
     /**
