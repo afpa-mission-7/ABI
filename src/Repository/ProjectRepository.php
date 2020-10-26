@@ -5,6 +5,7 @@
  */
 
 namespace App\Repository;
+use App\Entity\Project;
 use App\Repository\Repository;
 use App\Entity\Collaborator;
 use App\Entity\Customer;
@@ -20,28 +21,29 @@ class ProjectRepository extends Repository
         parent::__construct("Project");
     }
 
-    public function findByDocument( Document $document):array
+    public function findOneByDocument( Document $document, $first):Project
     {
         $idDocument = $document->getId();
         $query = $this->pdo->prepare("SELECT project.* FROM project JOIN document ON project.id=document.project_id WHERE document.id = ?  ");
         $query->execute([$idDocument]);
-        return $query->fetchAll(PDO:: FETCH_CLASS, "App\Entity\Project");
+        $query->setFetchMode(PDO:: FETCH_CLASS, Project::class,[$first]);
+        return $query->fetch();
     }
 
-    public function findByCustomer( Customer $customer) : array
+    public function findByCustomer( Customer $customer, $first) : array
     {
         $idCustomer = $customer->getId();
         $query = $this->pdo->prepare("SELECT project.* FROM project JOIN project_customer AS pc ON project.id = pc.project_id WHERE pc.customer_id = ?");
         $query->execute([$idCustomer]);
-        return $query->fetchAll(PDO:: FETCH_CLASS, "App\Entity\Project");
+        return $query->fetchAll(PDO:: FETCH_CLASS, Project::class,[$first]);
     }
 
-    public function findByCollaborator( Collaborator $collaborator) : array
+    public function findByCollaborator( Collaborator $collaborator, $first) : array
     {
         $idCollaborator = $collaborator->getId();
         $query = $this->pdo->prepare("SELECT project.* FROM project JOIN project_collaborator AS pc ON project.id = pc.project_id WHERE pc.collaborator_id = ?");
         $query->execute([$idCollaborator]);
-        return $query->fetchAll(PDO:: FETCH_CLASS, "App\Entity\Project");
+        return $query->fetchAll(PDO:: FETCH_CLASS, Project::class,[$first]);
 
     }
 }

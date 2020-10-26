@@ -4,6 +4,7 @@
 namespace App\Entity;
 
 use App\Config\DbConfig;
+use App\Repository\ProjectRepository;
 use \PDO;
 
 
@@ -20,13 +21,22 @@ class Customer
     private string $phone;
     private string $email;
     private ?string $comment;
+    private array $projects;
 
-    public function delete($id)
+    public function __construct($first = true)
+    {
+        if ($first) {
+            $projectRepository = new ProjectRepository();
+            $this->projects = $projectRepository->findByCustomer($this, false);
+        }
+    }
+    
+    public function delete()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
         
         $query = $pdo->prepare("DELETE FROM customer WHERE id = ?");
-        $query->execute([$id]);
+        $query->execute([$this->id]);
     }
 
     /**

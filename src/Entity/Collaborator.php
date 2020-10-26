@@ -4,6 +4,8 @@
 namespace App\Entity;
 
 
+use App\Repository\ProjectRepository;
+
 class Collaborator
 {
     private int $id;
@@ -18,6 +20,16 @@ class Collaborator
     private ?string $status;
     private ?string $qualification;
     private int $salary;
+    private array $projects;
+
+
+    public function __construct($first = true)
+    {
+        if ($first) {
+            $projectRepository = new ProjectRepository();
+            $this->projects = $projectRepository->findByCollaborator($this, false);
+        }
+    }
 
     /**
      * @return string
