@@ -35,7 +35,7 @@
         <tr>
             <td scope="row">2</th>
             <td>Jacob</td>
-            <td>Thornton</td>
+            <td>Marko</td>
             <td>@fat</td>
         </tr>
         <tr>
@@ -51,7 +51,7 @@
         </tr>
         <tr>
             <td scope="row">2</th>
-            <td>Jacob</td>
+            <td>Ottoman</td>
             <td>Thornton</td>
             <td>@fat</td>
         </tr>
