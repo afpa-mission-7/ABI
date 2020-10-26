@@ -49,9 +49,10 @@ class Project
     public function toJSON()
     {
         $objectVars = $this->formatDates();
+        dd($objectVars);
         return json_encode($objectVars);
     }
-
+    
     public function formatDates()
     {
         $objectVars = get_object_vars($this);
@@ -64,14 +65,6 @@ class Project
             }
         }, array_values($objectVars)));
     }
-
-    ///////////////////////////////
-    /*
-    public function toJSON()
-    {
-        return json_encode(get_object_vars($this));//get_object_vars permet de transformer un objet JSON en array,
-    }*/
-    /////////////////////////////////////////
 
     /**
      * @return int

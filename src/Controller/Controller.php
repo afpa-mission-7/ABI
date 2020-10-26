@@ -129,6 +129,7 @@ class Controller
         $repositoryName = 'App\Repository\\' . $classname . 'Repository';
         $repository = new $repositoryName();
         $entity = $repository->find($id);
+        dd($entity->toJSON());
         echo $entity->toJSON();
     }
 
