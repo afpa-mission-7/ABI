@@ -8,6 +8,7 @@ use \PDO;
 
 class AddCustomerForm extends Customer
 {
+
     public function __construct($post)
     {
         $this->id = $post['id'];

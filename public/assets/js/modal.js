@@ -5,15 +5,9 @@
  * 22/10/20
  * Permet d'ouvrir un modal client avec toutes les info de la BDD et du php
  */
-$(".row_customer").click(function(e) {
-    let target = e.currentTarget;
-    let id = target.id;
-    console.log(target, id);
-    $.post("/modalCustomer", {id:id}, function(data){
-=======
+
 $(".row_customer").click(function() {
     $.post("/modalCustomer", { id: this.id }, function(data) {
->>>>>>> Doryan
         let customer = JSON.parse(data);
         for (property in customer) {
             $("#modalCustomer #" + property).val(customer[property]);
@@ -67,9 +61,6 @@ $("#addCustomer").click(function() {
     $("#modalCustomer").modal("toggle");
 })
 
-<<<<<<< HEAD
-=======
-
 /**
  * @author Simon 
  * @author Doryan
@@ -81,11 +72,6 @@ $('.delete').click(function() {
     $.post("/deleteCustomer", { id: id }, function() {
         location.reload();
     });
-
-
-
-
     $("#modalCustomer").modal("toggle");
 
 })
->>>>>>> Doryan

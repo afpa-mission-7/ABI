@@ -97,14 +97,11 @@ body {
     border-bottom-left-radius: 1rem !important;
 }
 
-<<<<<<< HEAD
 table tbody tr {
     cursor: pointer;
 }
-.d-none{
-=======
+
 .d-none {
->>>>>>> Doryan
     display: none !important;
 }
 /**
