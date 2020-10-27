@@ -17,6 +17,10 @@ if($uri==="/"){
     $controller->gestioncollaborateursController();
 }elseif($uri==="/nouveaucollaborateur"){
     $controller->nouveaucollaborateurController();
+}elseif($uri==="/nouveaucontrat"){
+    $controller->nouveaucontratController();
+}elseif($uri==="/infocollaborateur"){
+    $controller->infocollaborateurController();
 }elseif($uri==="/gestionprojets"){
     $controller->gestionprojetsController();
 } elseif ($uri === "/login"){

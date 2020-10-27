@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Document;
 use App\Forms\LoginForm;
 use App\Forms\AddCollaboratorForm;
 use App\Forms\AddContractForm;
@@ -71,9 +72,38 @@ class Controller
     {
         ob_start();
         session_start();
-       // $newCollaborator = new AddCollaboratorForm($_POST);
-       // $newContract = new AddContractForm($_POST);
+        // $newCollaborator = new AddCollaboratorForm($_POST);
+        // $newContract = new AddContractForm($_POST);
         include '../templates/nouveaucollaborateur.php';
+        ob_end_flush();
+    }
+
+    public function nouveaucontratController()
+    {
+        ob_start();
+        session_start();
+        // $newContract = new AddContractForm($_POST);
+        $collaboratorRepository = new CollaboratorRepository;
+        $listOfCollaborators = $collaboratorRepository->findAll();
+        include '../templates/nouveaucontrat.php';
+/*
+        foreach ($listOfCollaborators as $key => $value) {
+            print_r($key );
+        }
+        echo " -------------------- \n";
+        print_r($listOfCollaborators);*/
+
+        ob_end_flush();
+    }
+
+    
+    public function infocollaborateurController()
+    {
+        ob_start();
+        session_start();
+
+        include '../templates/infocollaborateur.php';
+
         ob_end_flush();
     }
 
