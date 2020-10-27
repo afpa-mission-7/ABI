@@ -8,14 +8,15 @@
 $(".row_customer").click(function() {
     $.post("/modalCustomer", { id: this.id }, function(data) {
         let customer = JSON.parse(data);
+        console.log(customer);
         for (property in customer) {
             $("#modalCustomer #" + property).val(customer[property]);
         }
     })
-    if($('.delete').click(function(){
-        $.post("/deleteCustomer", {id:id});
-        $("#modalCustomer").modal("toggle");
-    }));
+    if ($('.delete').click(function() {
+            $.post("/deleteCustomer", { id: id });
+            $("#modalCustomer").modal("toggle");
+        }));
     $("#modalCustomer").modal("toggle");
 
 })

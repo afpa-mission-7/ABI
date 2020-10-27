@@ -56,7 +56,7 @@
           <div class="form-row form-group">
             <label for="newRaisonSociale" class="col-sm-3 col-form-label">Raison Sociale</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control editableModal" id="company_name" value="">
+              <input type="text" class="form-control editableModal" id="company_name" value="" disabled>
             </div>
           </div>
           <div class="form-row form-group">
@@ -64,25 +64,25 @@
               Secteur d'activité
             </div>
             <div class="form-check col-sm-2">
-              <input class="form-check-input" type="radio" name="newType" id="sector_activity" checked>
+              <input class="form-check-input" type="radio" name="newType" id="sector_activity" checked disabled>
               <label class="form-check-label" for="newPrivee">
                 1
               </label>
             </div>
             <div class="form-check col-sm-2">
-              <input class="form-check-input" type="radio" name="newType" id="sector_activity">
+              <input class="form-check-input" type="radio" name="newType" id="sector_activity" disabled>
               <label class="form-check-label" for="newPublique">
                 2
               </label>
             </div>
             <div class="form-check col-sm-2">
-              <input class="form-check-input" type="radio" name="newType" id="sector_activity">
+              <input class="form-check-input" type="radio" name="newType" id="sector_activity" disabled>
               <label class="form-check-label" for="newPublique">
                 3
               </label>
             </div>
             <div class="form-check col-sm-2">
-              <input class="form-check-input" type="radio" name="newType" id="sector_activity">
+              <input class="form-check-input" type="radio" name="newType" id="sector_activity" disabled>
               <label class="form-check-label" for="newPublique">
                 4
               </label>
@@ -91,69 +91,70 @@
           <div class="form-row form-group">
             <label for="newAdresse" class="col-sm-3 col-form-label">Adresse</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control editableModal" id="address">
+              <input type="text" class="form-control editableModal" id="address" disabled>
             </div>
           </div>
           <div class=row>
             <div class="form-row form-group col-sm-6">
               <label for="newCp" class="col-sm-3 col-form-label">CP</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control editableModal" id="zip">
+                <input type="text" class="form-control editableModal" id="zip" disabled>
               </div>
             </div>
             <div class="form-row form-group col-sm-6">
               <label for="newVille" class="col-sm-3 col-form-label">Ville</label>
               <div class="col-sm-9">
-                <input type="text" class="form-control editableModal" id="city">
+                <input type="text" class="form-control editableModal" id="city" disabled>
               </div>
             </div>
           </div>
           <div class="form-row form-group">
             <label for="newTelephone" class="col-sm-3 col-form-label">Téléphone</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control editableModal" id="phone">
+              <input type="text" class="form-control editableModal" id="phone" disabled>
             </div>
           </div>
           <div class="form-row form-group">
             <label for="newEmail" class="col-sm-3 col-form-label">Email</label>
             <div class="col-sm-9">
-              <input type="email" class="form-control editableModal" id="email" placeholder="********">
+              <input type="email" class="form-control editableModal" id="email" placeholder="********" disabled>
             </div>
           </div>
           <div class="form-row form-group">
             <label for="newCa" class="col-sm-3 col-form-label">CA</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control editableModal" id="revenue" placeholder="€">
+              <input type="text" class="form-control editableModal" id="revenue" placeholder="€" disabled>
             </div>
           </div>
           <div class="form-row form-group">
             <label for="newEffectif" class="col-sm-3 col-form-label">Effectif</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control editableModal" id="staff" placeholder="10">
+              <input type="text" class="form-control editableModal" id="staff" placeholder="10" disabled>
             </div>
           </div>
           <div class="form-row form-group">
             <label for="newComment" class="col-sm-3 col-form-label">Commentaire</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="comment" placeholder="Commentaire" required></input>
+              <input type="text" class="form-control" id="comment" placeholder="Commentaire" disabled></input>
             </div>
           </div>
           <div class="form-row form-group">
             <label for="newProject" class="col-sm-3 col-form-label">Projet</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" id="project" placeholder="Nom du Projet"></input>
+              <input type="text" class="form-control" id="project" placeholder="Nom du Projet" disabled></input>
             </div>
           </div>
           <div class="form-row form-group">
             <label for="Collaborators" class="col-sm-3 col-form-label">Collaborateurs</label>
             <div class="col-sm-9">
-              <ul type="text" class="form-control" id="collaborators" placeholder="Collaborateurs"></ul>
+              <ul type="text" class="form-control" id="collaborators" placeholder="Collaborateurs" disabled></ul>
             </div>
           </div>
             <input type="hidden" name="id" id="id">
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
               <button type="submit" id="valid_customer" class="btn btn-primary">Valider</button>
+              <button type="button" id="edit" class="btn btn-warning">Modifier</button>
               <button type="button" class="btn btn-danger delete" id="deleteCustomer">Supprimer</button>
             </div>
         </form>

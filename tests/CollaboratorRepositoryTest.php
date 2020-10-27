@@ -30,16 +30,16 @@ class CollaboratorRepositoryTest extends TestCase
         $this->assertContainsOnlyInstancesOf(Collaborator::class, $collaboratorRepository->findAll());
         $this->assertEquals($collaborators, $collaboratorRepository->findAll());
     }
-    /*
-        public function testFindOneBy()
+    
+      /*  public function testFindOneBy()
         {
             $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
             $collaboratorRepository = new CollaboratorRepository();
             $query = $pdo->query("SELECT * FROM collaborator ORDER BY RAND() LIMIT 1");
             $query->setFetchMode(PDO::FETCH_CLASS,'App\Entity\Collaborator');
             $collaborator = $query->fetch();
-            $this->assertInstanceOf('App\Entity\Collaborator',$collaboratorRepository->findOneBy(["firstname"]));
+           $this->assertInstanceOf('App\Entity\Collaborator',$collaboratorRepository->findOneBy(["firstname"]));
             $this->assertEquals($collaborator,$collaborator);
-        }
-    */
+        }*/
+
 }
