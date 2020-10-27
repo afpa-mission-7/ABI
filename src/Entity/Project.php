@@ -17,16 +17,16 @@ class Project
 {
     use JSONTrait;
 
-    private int $id;
-    private string $name;
-    private ?string $type;
-    private $expected_date_start;
-    private $date_start;
-    private $expected_date_end;
-    private $date_end;
-    private array $customers;
-    private array $collaborators;
-    private array $documents;
+    protected int $id;
+    protected string $name;
+    protected ?string $type;
+    protected $expected_date_start;
+    protected $date_start;
+    protected $expected_date_end;
+    protected $date_end;
+    protected array $customers;
+    protected array $collaborators;
+    protected array $documents;
 
     public function __construct($nb = 1)
     {

@@ -6,16 +6,14 @@ use \PDO;
 use App\Config\DbConfig;
 
 
-class LoginForm
+class LoginForm extends Form
 {
+    protected string $password;
+    protected string $username;
 
-    private string $password;
-    private string $username;
-
-    public function __construct($post)
+    public function __construct(array $post)
     {
-        $this->username = $post['username'];
-        $this->password = $post['password'];
+        parent::__construct($post);
     }
 
 
