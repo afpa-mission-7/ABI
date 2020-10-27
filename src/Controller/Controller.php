@@ -27,11 +27,11 @@ class Controller
     {
         ob_start();
         session_start();
-        /* $collaboratorRepository = new CollaboratorRepository();
+         $collaboratorRepository = new CollaboratorRepository();
          $collaborators = $collaboratorRepository->find(5);
          $projectRepository = new ProjectRepository("Project");
          $projects = $projectRepository->findByCollaborator($collaborators);
-         dump($projects);*/
+         dump($projects);
         include '../templates/apropos.php';
         ob_end_flush();
     }
@@ -128,6 +128,15 @@ class Controller
         $repository = new $repositoryName();
         $entity = $repository->find($id);
         echo $entity->toJSON();
+    }
+
+    public function unjoinController()
+    {
+        $collaboratorRepository = new CollaboratorRepository();
+        $collaborator = $collaboratorRepository->find(5);
+        $projectRepository = new ProjectRepository();
+        $project = $projectRepository->find(6);
+        $project->unjoin($collaborator);
     }
 
     public function deleteCustomerController()

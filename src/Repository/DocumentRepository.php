@@ -17,12 +17,12 @@ class DocumentRepository extends Repository
         parent::__construct("Document");
     }
 
-    public function findByProject( Project $project, $first): array
+    public function findByProject( Project $project, $nb = 1): array
     {
         $idProject = $project->getId();
         $query = $this->pdo->prepare("SELECT document.* FROM document WHERE project_id = ?");
         $query->execute([$idProject]);
-        return $query->fetchAll(PDO:: FETCH_CLASS, Document::class,[$first]);
+        return $query->fetchAll(PDO:: FETCH_CLASS, Document::class,[$nb]);
     }
 }
  

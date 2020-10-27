@@ -7,7 +7,7 @@ namespace App\Entity;
 use App\Repository\ProjectRepository;
 use App\Traits\JSONTrait;
 
-class Collaborator
+class Collaborator extends Entity
 {
     use JSONTrait;
 
@@ -26,11 +26,11 @@ class Collaborator
     private array $projects;
 
 
-    public function __construct($first = true)
+    public function __construct($nb = 1)
     {
-        if ($first) {
+        if ($nb <=2) {
             $projectRepository = new ProjectRepository();
-            $this->projects = $projectRepository->findByCollaborator($this, false);
+            $this->projects = $projectRepository->findByCollaborator($this, $nb + 1);
         }
     }
 
