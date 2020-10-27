@@ -130,6 +130,15 @@ class Controller
         echo $entity->toJSON();
     }
 
+    public function unjoinController()
+    {
+        $collaboratorRepository = new CollaboratorRepository();
+        $collaborator = $collaboratorRepository->find(5);
+        $projectRepository = new ProjectRepository();
+        $project = $projectRepository->find(6);
+        $project->unjoin($collaborator);
+    }
+
     public function deleteCustomerController()
     {
         $id = $_POST['id'];

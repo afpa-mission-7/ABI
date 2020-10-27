@@ -13,7 +13,7 @@ use App\Repository\ProjectRepository;
 use \DateTime;
 
 
-class Project
+class Project extends Entity
 {
     use JSONTrait;
 

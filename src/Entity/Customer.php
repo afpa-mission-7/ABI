@@ -9,7 +9,7 @@ use App\Traits\JSONTrait;
 use \PDO;
 
 
-class Customer
+class Customer extends Entity
 {
     use JSONTrait;
 
