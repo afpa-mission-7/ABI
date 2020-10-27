@@ -27,11 +27,12 @@ class CollaboratorRepositoryTest extends TestCase
         $query = $pdo->query("SELECT * FROM collaborator");
         $collaborators = $query->fetchAll(PDO::FETCH_CLASS,'App\Entity\Collaborator');
         $collaboratorRepository = new CollaboratorRepository();
-        $this->assertContainsOnlyInstancesOf('App\Entity\User', $collaboratorRepository->findAll());
+        $this->assertContainsOnlyInstancesOf('App\Entity\Collaborator', $collaboratorRepository->findAll());
         $this->assertEquals($collaborators, $collaboratorRepository->findAll());
     }
-/*
-    public function testFindOneBy()
+    
+
+    /*public function testFindOneBy()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
         $collaboratorRepository = new CollaboratorRepository();
@@ -40,6 +41,6 @@ class CollaboratorRepositoryTest extends TestCase
         $collaborator = $query->fetch();
         $this->assertInstanceOf('App\Entity\Collaborator',$collaboratorRepository->findOneBy(["firstname"]));
         $this->assertEquals($collaborator,$collaborator);
-    }
-*/
+    }*/
+
 }

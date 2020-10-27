@@ -43,18 +43,6 @@ class Customer
     }
 
     /**
-     * @author Doryan
-     * @return JSON
-     * Permet de convertir la selection $this en JSON pour ensuite le transformer en JS puis encore apres en php pour le modal
-     */
-    public function toJSON()
-    {
-        return json_encode(get_object_vars($this));//get_object_vars permet de transformer un objet JSON en array,
-    }
-
-
-    
-    /**
      * @return int
      */
     public function getId(): int
