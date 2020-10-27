@@ -5,10 +5,10 @@ $("#listProject tbody tr").click(function () {
             $("#modalProject #" + property).val(project[property]);
         }
         $(project.customers).each(function (key, customer) {
-            $("#customers").append('<li class="list-group-item d-flex justify-content-between align-items-center">' + customer.company_name + '<button class="btn btn-danger removeCustomer" id="customer-' + customer.id + '"><i class="fas fa-trash-alt"></i></button></li>');
+            $("#customers").append('<li class="list-group-item d-flex justify-content-between align-items-center">' + customer.company_name + '</li>');
         });
         $(project.collaborators).each(function (key, collaborator) {
-            $("#collaborators").append('<li class="list-group-item d-flex justify-content-between align-items-center">' + collaborator.firstname + " " + collaborator.lastname + '<button class="btn btn-danger removeCollaborator" id="collaborator-' + collaborator.id + '"><i class="fas fa-trash-alt"></i></button></li>');
+            $("#collaborators").append('<li class="list-group-item d-flex justify-content-between align-items-center">' + collaborator.firstname + " " + collaborator.lastname + '</li>');
         });
         $(".removeCollaborator").click(function(){
             let id = this.id.split("-")[1];
@@ -23,8 +23,22 @@ $("#edit").click(function () {
     $("input").removeAttr('disabled');
 })
 
-$("#form_modal").submit(function (e) {
+$("#form_modal").submit(function(e) {
     e.preventDefault();
+    let inputs = $('#modalProject input');
+    let project = {};
+    $(inputs).each(function(index, element) {
+        let value = element.value;
+        let key = element.id;
+        project[key] = value;
+    })
+    $.post("/addProject", project, function() {
+        let row = $('#' + project.id);
+        for (property in project) {
+            $(row).find("." + property).text(project[property]);
+        }
+    });
+    $("#modalCustomer").modal("toggle");
 })
 
 
