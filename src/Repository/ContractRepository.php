@@ -15,8 +15,4 @@ class ContractRepository extends Repository
         parent::__construct("Contract");
     }
 
-    public function addContract(){
-        
-    }
-
 }

@@ -57,32 +57,8 @@ class CollaboratorRepository extends Repository
                 <td>". $value['salary'] . "</td>
             </tr>";
         }   
-        echo $newRow;
+        return $newRow;
         
-    }
-
-    /** ajoute un collaborateur
-     * @author Yann BOYER
-     * @method newCollaborator
-     */
-    public function newCollaborator(string $username, string $password, string $firstname, string $lastname, int $phone, string $email, string $status, string $qualification, $photo, string $address)
-    {
-        $sqlRequest = "
-        INSERT INTO collaborator(
-            `username`, 
-            `password`, 
-            `firstname`, 
-            `lastname`, 
-            `phone`, 
-            `email`, 
-            `status`, 
-            `qualification`, 
-            `photo`, 
-            `address`) 
-            VALUES ('$username','$password', '$firstname', '$lastname', '$phone', '$email', '$status', '$qualification', '$photo', '$address')       
-        ";
-        $sql = $this->pdo->prepare($sqlRequest);
-        $sql->execute();
     }
 
 }

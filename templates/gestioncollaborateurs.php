@@ -1,16 +1,15 @@
-<?php
+<?php require_once 'skeleton/header.php' ?>
 
-use App\Repository\CollaboratorRepository;
 
-require_once 'skeleton/header.php' ?>
-    <div>
-        <a href="newCollaborator.php">
-            <input type="button" value="ajouter un collaborateur et son contrat" class="btn btn-duck">
+
+    <div class="form-group">
+        <a href="nouveaucollaborateur">
+            <input type="button" value="Ajouter un collaborateur et son contrat" class="btn btn-block btn-duck">
         </a>
     </div>
 
-    <div class="row">
-        <input class="form-control mb-2" id="tableSearch" type="text" placeholder="Recherche">
+    <div class="form-group">
+        <input class="form-control mb-2" id="tableSearch" type="text" placeholder="Recherche un collaborateur">
     </div>
 
     <table class="table table-hover table-bordered">
@@ -31,11 +30,11 @@ require_once 'skeleton/header.php' ?>
         </thead>
         <tbody id="myTable">
             <?php 
-            $test = new CollaboratorRepository;
-            $test->showAllCollaborator(); 
+            echo $collaborators;
             ?>
         </tbody>
     </table>
+
 
 <?php require_once 'skeleton/footer.php' ?>
 

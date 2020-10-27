@@ -3,11 +3,14 @@
 namespace App\Controller;
 
 use App\Forms\LoginForm;
+use App\Forms\AddCollaboratorForm;
+use App\Forms\AddContractForm;
 use App\Repository\CollaboratorRepository;
-use App\Repository\Repository;
+use App\Repository\ContractRepository;
 use App\Repository\CustomerRepository;
 use App\Repository\DocumentRepository;
 use App\Repository\ProjectRepository;
+use App\Repository\Repository;
 
 
 
@@ -58,7 +61,19 @@ class Controller
     {
         ob_start();
         session_start();
+        $collaboratorRepository = new CollaboratorRepository;
+        $collaborators = $collaboratorRepository->showAllCollaborator(); 
         include '../templates/gestioncollaborateurs.php';
+        ob_end_flush();
+    }
+
+    public function nouveaucollaborateurController()
+    {
+        ob_start();
+        session_start();
+       // $newCollaborator = new AddCollaboratorForm($_POST);
+       // $newContract = new AddContractForm($_POST);
+        include '../templates/nouveaucollaborateur.php';
         ob_end_flush();
     }
 
