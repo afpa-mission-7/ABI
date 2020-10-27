@@ -9,7 +9,7 @@ use App\Traits\JSONTrait;
 use \PDO;
 
 
-class Customer
+class Customer extends Entity
 {
     use JSONTrait;
 
@@ -26,11 +26,11 @@ class Customer
     private ?string $comment;
     private array $projects;
 
-    public function __construct($first = true)
+    public function __construct($nb = 1)
     {
-        if ($first) {
+        if ($nb <= 2) {
             $projectRepository = new ProjectRepository();
-            $this->projects = $projectRepository->findByCustomer($this, false);
+            $this->projects = $projectRepository->findByCustomer($this, $nb +1);
         }
     }
     

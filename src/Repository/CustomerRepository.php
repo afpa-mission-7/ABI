@@ -19,12 +19,12 @@ class CustomerRepository extends Repository
         parent::__construct("Customer");
     }
 
-    public function findByProject( Project $project, $first): array
+    public function findByProject( Project $project, $nb = 1): array
     {
         $idProject = $project->getId();
         $query = $this->pdo->prepare("SELECT customer.* FROM customer JOIN project_customer AS pc ON customer.id = pc.customer_id WHERE pc.project_id = ?");
         $query->execute([$idProject]);
-        return $query->fetchAll(PDO::FETCH_CLASS, Customer::class,[$first]);
+        return $query->fetchAll(PDO::FETCH_CLASS, Customer::class,[$nb]);
     }
 
 }

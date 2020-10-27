@@ -21,12 +21,12 @@ class ProjectRepository extends Repository
         parent::__construct("Project");
     }
 
-    public function findOneByDocument( Document $document, $first):Project
+    public function findOneByDocument( Document $document, $nb = 1):Project
     {
         $idDocument = $document->getId();
         $query = $this->pdo->prepare("SELECT project.* FROM project JOIN document ON project.id=document.project_id WHERE document.id = ?  ");
         $query->execute([$idDocument]);
-        $query->setFetchMode(PDO:: FETCH_CLASS, Project::class,[$first]);
+        $query->setFetchMode(PDO:: FETCH_CLASS, Project::class,[$nb]);
         return $query->fetch();
     }
 
