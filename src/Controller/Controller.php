@@ -19,15 +19,6 @@ class Controller
     {
         ob_start();
         session_start();
-        $projectRepository = new ProjectRepository();
-        $project = $projectRepository->find(6);
-        $collaboratorRepository = new CollaboratorRepository();
-        $collaborator = $collaboratorRepository->find(5);
-        $customerRepository = new CustomerRepository();
-        $customer = $customerRepository->find(1);
-        $documentRepository = new DocumentRepository();
-        $document = $documentRepository->find(1);
-        dd($project,$collaborator,$customer, $document);
         include '../templates/index.php';
         ob_end_flush();
     }
@@ -77,8 +68,6 @@ class Controller
         session_start();
         $projectRepository = new ProjectRepository();
         $projects = $projectRepository->findAll();
-        $documentRepository = new DocumentRepository();
-        $customerRepository = new CustomerRepository();
         include '../templates/gestionprojets.php';
         ob_end_flush();
     }

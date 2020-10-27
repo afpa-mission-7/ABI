@@ -3,7 +3,7 @@
     <table id="listProject" class="table table-hover">
         <thead>
         <tr>
-            <th colspan="2"><h1 class="text-center">Liste des projets</h1></th>
+            <th colspan="2"><h2 class="text-center">Liste des projets</h2></th>
         </tr>
         </thead>
         <tbody>

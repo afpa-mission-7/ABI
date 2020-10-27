@@ -5,11 +5,14 @@ namespace App\Entity;
 
 use App\Config\DbConfig;
 use App\Repository\ProjectRepository;
+use App\Traits\JSONTrait;
 use \PDO;
 
 
 class Customer
 {
+    use JSONTrait;
+
     private int $id;
     private string $company_name;
     private string $sector_activity;

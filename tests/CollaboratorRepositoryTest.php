@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use App\Entity\Collaborator;
 use PHPUnit\Framework\TestCase;
 use App\Repository\CollaboratorRepository;
 use App\Config\DbConfig;
