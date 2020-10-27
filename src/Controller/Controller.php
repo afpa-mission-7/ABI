@@ -27,11 +27,6 @@ class Controller
     {
         ob_start();
         session_start();
-         $collaboratorRepository = new CollaboratorRepository();
-         $collaborators = $collaboratorRepository->find(5);
-         $projectRepository = new ProjectRepository("Project");
-         $projects = $projectRepository->findByCollaborator($collaborators);
-         dump($projects);
         include '../templates/apropos.php';
         ob_end_flush();
     }
