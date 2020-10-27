@@ -28,20 +28,20 @@ class Project
     private array $collaborators;
     private array $documents;
 
-    public function __construct($first = true)
+    public function __construct($nb = 1)
     {
         $this->expected_date_start = new DateTime($this->expected_date_start);
         $this->date_start = new DateTime($this->date_start);
         $this->expected_date_end = new DateTime($this->expected_date_end);
         if ($this->date_end !== null) $this->date_end = new DateTime($this->date_end);
 
-        if ($first) {
+        if ($nb <= 2) {
             $customerRepository = new CustomerRepository();
-            $this->customers = $customerRepository->findByProject($this, false);
+            $this->customers = $customerRepository->findByProject($this, $nb+1);
             $collaboratorRepository = new CollaboratorRepository();
-            $this->collaborators = $collaboratorRepository->findByProject($this, false);
+            $this->collaborators = $collaboratorRepository->findByProject($this, $nb+1);
             $documentRepository = new DocumentRepository();
-            $this->documents = $documentRepository->findByProject($this,false);
+            $this->documents = $documentRepository->findByProject($this,$nb+1);
         }
     }
 

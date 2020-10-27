@@ -21,11 +21,11 @@ class Document
     private string $link;
     private Project $project;
 
-    public function __construct($first = true)
+    public function __construct($nb = 1)
     {
-        if ($first) {
+        if ($nb <= 2) {
             $projectRepository = new ProjectRepository();
-            $this->project = $projectRepository->findOneByDocument($this, false);
+            $this->project = $projectRepository->findOneByDocument($this, $nb + 1);
         }
         unset($this->project_id);
     }

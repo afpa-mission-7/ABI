@@ -15,7 +15,6 @@ $("#edit").click(function(){
 
 $("#form_modal").submit(function(e){
     e.preventDefault();
-
 })
 
 
