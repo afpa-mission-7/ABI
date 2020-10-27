@@ -5,8 +5,6 @@
  * 22/10/20
  * Permet d'ouvrir un modal client avec toutes les info de la BDD et du php
  */
-<<<<<<< HEAD
-
 $(".row_customer").click(function(e) {
     let target = e.currentTarget;
     let id = target.id;
