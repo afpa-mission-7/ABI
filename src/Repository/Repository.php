@@ -24,7 +24,7 @@ class Repository
     }
 
     public function find(int $id)
-    {
+    { 
         $sql = "SELECT * FROM $this->table WHERE id =?";
         $query = $this->pdo->prepare($sql);
         $query->execute([$id]);
