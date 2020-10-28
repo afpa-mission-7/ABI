@@ -1,4 +1,5 @@
 <?php require_once 'skeleton/header.php' ?>
+<?= phpinfo() ?>
 
     <div class="row">
         <input class="form-control mb-2" id="tableSearch" type="text" placeholder="Recherche">

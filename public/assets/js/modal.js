@@ -5,6 +5,7 @@
  * 22/10/20
  * Permet d'ouvrir un modal client avec toutes les info de la BDD et du php
  */
+
 $(".row_customer").click(function() {
     $.post("/modalCustomer", { id: this.id }, function(data) {
         let customer = JSON.parse(data);

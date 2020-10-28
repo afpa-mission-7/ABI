@@ -14,18 +14,18 @@ class Customer
 {
     use JSONTrait;
 
-    private int $id;
-    private string $company_name;
-    private string $sector_activity;
-    private string $address;
-    private string $zip;
-    private string $city;
-    private string $revenue;
-    private int $staff;
-    private string $phone;
-    private string $email;
-    private ?string $comment;
-    private array $projects;
+    protected int $id;
+    protected string $company_name;
+    protected string $sector_activity;
+    protected string $address;
+    protected string $zip;
+    protected string $city;
+    protected string $revenue;
+    protected int $staff;
+    protected string $phone;
+    protected string $email;
+    protected ?string $comment;
+    protected array $projects;
 
     public function __construct($nb = 1)
     {
@@ -43,18 +43,6 @@ class Customer
         $query->execute([$this->id]);
     }
 
-    /**
-     * @author Doryan
-     * @return JSON
-     * Permet de convertir la selection $this en JSON pour ensuite le transformer en JS puis encore apres en php pour le modal
-     */
-    public function toJSON()
-    {
-        return json_encode(get_object_vars($this));//get_object_vars permet de transformer un objet JSON en array,
-    }
-
-
-    
     /**
      * @return int
      */
