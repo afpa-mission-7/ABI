@@ -14,11 +14,14 @@
     <script src="assets/js/connect.js" defer></script>
     <script src="assets/js/project.js" defer></script>
     <script src="assets/js/modal.js" defer></script>
+<!--   <script src="assets/js/collaborator.js" defer></script> -->
+
 </head>
 
 <body class="d-flex flex-column justify-content-between">
 
 <header class="d-flex flex-column fixed-top">
+    
 <?php
 if(!empty($_SESSION["id"])){
     require 'navBarConnect.php';

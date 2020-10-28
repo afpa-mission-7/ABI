@@ -9,6 +9,10 @@ use App\Forms\LoginForm;
 use App\Repository\CustomerRepository;
 use App\Repository\CollaboratorRepository;
 use App\Repository\Repository;
+use App\Entity\Document;
+use App\Forms\AddCollaboratorForm;
+use App\Forms\AddContractForm;
+use App\Repository\ContractRepository;
 use App\Repository\DocumentRepository;
 use App\Repository\ProjectRepository;
 
@@ -53,7 +57,48 @@ class Controller
     {
         ob_start();
         session_start();
+        $collaboratorRepository = new CollaboratorRepository;
+        $collaborators = $collaboratorRepository->showAllCollaborator(); 
         include '../templates/gestioncollaborateurs.php';
+        ob_end_flush();
+    }
+
+    public function nouveaucollaborateurController()
+    {
+        ob_start();
+        session_start();
+        // $newCollaborator = new AddCollaboratorForm($_POST);
+        // $newContract = new AddContractForm($_POST);
+        include '../templates/nouveaucollaborateur.php';
+        ob_end_flush();
+    }
+
+    public function nouveaucontratController()
+    {
+        ob_start();
+        session_start();
+        // $newContract = new AddContractForm($_POST);
+        $collaboratorRepository = new CollaboratorRepository;
+        $listOfCollaborators = $collaboratorRepository->findAll();
+        include '../templates/nouveaucontrat.php';
+/*
+        foreach ($listOfCollaborators as $key => $value) {
+            print_r($key );
+        }
+        echo " -------------------- \n";
+        print_r($listOfCollaborators);*/
+
+        ob_end_flush();
+    }
+
+    
+    public function infocollaborateurController()
+    {
+        ob_start();
+        session_start();
+
+        include '../templates/infocollaborateur.php';
+
         ob_end_flush();
     }
 

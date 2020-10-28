@@ -26,4 +26,40 @@ class CollaboratorRepository extends Repository
         $query->execute([$idProject]);
         return $query->fetchAll(PDO::FETCH_CLASS,Collaborator::class,[$nb]);
     }
+
+    /** montre tous les collaborateurs et leurs contrats
+     * @author Yann BOYER
+     * @method showAllCollaborator
+     */
+    public function showAllCollaborator()
+    {
+        $newRow = "";
+        $sqlRequest = "
+        SELECT `collaborator`.`lastname`, `collaborator`.`firstname`, `contract`.`label`, `contract`.`type`, `contract`.`start_date`, `contract`.`end_date`, `contract`.`hiring_reason`, `contract`.`salary`
+        FROM `collaborator` 
+        LEFT JOIN `contract` ON `contract`.`collaborator_id` = `collaborator`.`id` 
+        ";
+
+        $sql = $this->pdo->prepare($sqlRequest);
+        $sql->execute();
+        $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($result as $key => $value) {
+
+            $newRow .=  
+            "<tr>
+                <td>". $value['lastname'] . "</td>
+                <td>". $value['firstname'] . "</td>
+                <td>". $value['label'] . "</td>
+                <td>". $value['type'] . "</td>
+                <td>". $value['start_date'] . "</td>
+                <td>". $value['end_date'] . "</td>
+                <td>". $value['hiring_reason'] . "</td>
+                <td>". $value['salary'] . "</td>
+            </tr>";
+        }   
+        return $newRow;
+        
+    }
+
 }
