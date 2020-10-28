@@ -1,5 +1,4 @@
 <?php require_once 'skeleton/header.php' ?>
-<?= phpinfo() ?>
 
 <div class="row">
   <input class="form-control mb-2" id="tableSearch" type="text" placeholder="Recherche">
@@ -148,6 +147,7 @@
                         <input type="text" class="form-control" id="comment" placeholder="Commentaire" disabled></input>
                       </div>
                     </div>
+                    <input type="hidden" name="id" id="id">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                     <button type="submit" id="valid_customer" class="btn btn-primary">Valider</button>
                     <button type="button" id="edit" class="btn btn-warning">Modifier</button>
@@ -165,7 +165,6 @@
                     <div class="col-sm-9" id="collaborators">
                     </div>
                   </div>
-                  <input type="hidden" name="id" id="id">
                 </div>
               </div>
             </div>

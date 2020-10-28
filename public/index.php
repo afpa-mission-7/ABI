@@ -16,8 +16,7 @@ if ($uri === "/") {
     $controller->gestionclientsController();
 } elseif ($uri === "/gestioncollaborateurs") {
     $controller->gestioncollaborateursController();
-} elseif ($uri === "/gestionprojets") {
-}elseif($uri==="/nouveaucollaborateur"){
+} elseif($uri==="/nouveaucollaborateur"){
     $controller->nouveaucollaborateurController();
 }elseif($uri==="/nouveaucontrat"){
     $controller->nouveaucontratController();
@@ -39,8 +38,6 @@ if ($uri === "/") {
     $controller->modalController('Customer');
 } elseif ($uri === "/addCustomer") {
     $controller->addController('Customer');
-}elseif ($uri === "/unjoin"){
-    $controller->unjoinController();
 } elseif ($uri === "/deleteCustomer") {
     $controller->deleteCustomerController();
 } else{
