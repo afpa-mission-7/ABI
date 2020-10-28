@@ -19,7 +19,7 @@
                 <?php endforeach ?>
             </select>
         </div>
-        <input type="hidden" name="collaborator_id" id="collaborator_id" value="C'EST ICI QUE JE METS MON PHP QUI RECUPERE LE COLLABORATOR_ID">
+        <input type="hidden" name="collaborator_id" id="collaborator_id" value="">
     </div>
 
     <div class="form-row">

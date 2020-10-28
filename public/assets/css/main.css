@@ -5,6 +5,10 @@ body {
     background-color: #FFF5EE;
 }
 
+a:link {
+    text-decoration: none;
+}
+
 .bg-duck {
     background-color: #0080A3;
 }

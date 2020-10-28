@@ -1,21 +1,17 @@
-<?php
+<?php 
 
 namespace App\Forms;
 
 use \PDO;
 use App\Config\DbConfig;
+use App\Entity\Contract;
 
-class AddContractForm  
+class AddContractForm extends Contract
 {
-    private $start_date;
-    private $end_date;
-    private string $label;
-    private string $type;
-    private int $salary;
-    private string $hiringReason;
-
     public function __construct($post)
     {
+        $this->id = $post['id'];
+        $this->collaborator_id = $post['collaborator_id '];
         $this->start_date = $post['start_date'];
         $this->end_date = $post['end_date'];
         $this->label = $post['label'];
@@ -29,8 +25,8 @@ class AddContractForm
      * @author Yann BOYER
      * @method newContract
      */
-    public function newContract(){
-
+    public function newContract()      // C'EST PAR ICI AUSSI QUE JE BOSSE DUR
+    {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
 
         $sqlRequest = "

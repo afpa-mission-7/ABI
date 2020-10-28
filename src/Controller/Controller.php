@@ -78,8 +78,10 @@ class Controller
         ob_start();
         session_start();
         // $newContract = new AddContractForm($_POST);
+        
         $collaboratorRepository = new CollaboratorRepository;
         $listOfCollaborators = $collaboratorRepository->findAllAndSort('lastname', 'firstname');
+
         // dd($listOfCollaborators);
         include '../templates/nouveaucontrat.php';
 
@@ -171,6 +173,12 @@ class Controller
         $id = $_POST['id'];
         $customer = new Customer();
         $customer->delete($id);
+    }
+
+    public function newContractController() // JE TRAVAILLE PAR ICI
+    {
+        $AddContractForm = new AddContractForm($_POST);
+        $AddContractForm->newContract();
     }
 
 }

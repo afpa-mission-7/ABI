@@ -13,6 +13,8 @@
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/connect.js" defer></script>
     <script src="assets/js/alertJs.js" defer></script>
+    <script src="assets/js/nouveauContrat.js" defer></script>
+
 
 <!--   <script src="assets/js/collaborator.js" defer></script> -->
 
