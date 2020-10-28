@@ -15,7 +15,7 @@
             <select name="persons" id="persons" class="form-control">
                 <option value="" selected>Collaborateurs</option>
                 <?php foreach ($listOfCollaborators as $collaborator) : ?>
-                <option value=""><?= $collaborator->getLastname() . " " . $collaborator->getFirstname() ?></option>
+                <option value="<?= $collaborator->getId() ?>"><?= $collaborator->getLastname() . " " . $collaborator->getFirstname() ?></option>
                 <?php endforeach ?>
             </select>
         </div>
