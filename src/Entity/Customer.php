@@ -4,6 +4,7 @@
 namespace App\Entity;
 
 use App\Config\DbConfig;
+use App\Database;
 use App\Repository\ProjectRepository;
 use App\Traits\JSONTrait;
 use \PDO;
@@ -36,7 +37,7 @@ class Customer
     
     public function delete()
     {
-        $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
+        $pdo = Database::connect();
         
         $query = $pdo->prepare("DELETE FROM customer WHERE id = ?");
         $query->execute([$this->id]);

@@ -137,8 +137,9 @@ class Controller
     public function deleteCustomerController()
     {
         $id = $_POST['id'];
-        $customer = new Customer();
-        $customer->delete($id);
+        $customerRepository = new CustomerRepository();
+        $customer = $customerRepository->find($id);
+        $customer->delete();
     }
 
 }

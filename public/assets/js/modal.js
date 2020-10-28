@@ -12,10 +12,6 @@ $(".row_customer").click(function() {
             $("#modalCustomer #" + property).val(customer[property]);
         }
     })
-    if($('.delete').click(function(){
-        $.post("/deleteCustomer", {id:id});
-        $("#modalCustomer").modal("toggle");
-    }));
     $("#modalCustomer").modal("toggle");
 
 })
@@ -63,13 +59,13 @@ $("#addCustomer").click(function() {
 /**
  * @author Simon 
  * @author Doryan
+ * @author Aymeric
  * 26/10/20
  * Permet de Supprimer un client.
  */
 $('.delete').click(function() {
     let id = $(this).siblings("#id").val();
     $.post("/deleteCustomer", { id: id }, function() {
-        location.reload();
     });
     $("#modalCustomer").modal("toggle");
 
