@@ -33,6 +33,8 @@ if ($uri === "/") {
     $controller->profileController();
 }elseif($uri === "/modalProject"){
     $controller->modalController('Project');
+} elseif ($uri === "/addProject") {
+    $controller->addController('Project');
 } elseif ($uri === "/modalCustomer") {
     $controller->modalController('Customer');
 } elseif ($uri === "/addCustomer") {

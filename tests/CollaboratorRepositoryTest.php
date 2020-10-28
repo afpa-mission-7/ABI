@@ -18,28 +18,29 @@ class CollaboratorRepositoryTest extends TestCase
         $collaboratorRepository = new CollaboratorRepository();
         $collaborator = $collaboratorRepository->find($id);
         $this->assertEquals($id, $collaborator->getId());
-        $this->assertInstanceOf(Collaborator::class, $collaborator);
+        $this->assertInstanceOf('App\Entity\Collaborator', $collaborator);
     }
 
     public function testFindAll()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
         $query = $pdo->query("SELECT * FROM collaborator");
-        $collaborators = $query->fetchAll(PDO::FETCH_CLASS,Collaborator::class);
+        $collaborators = $query->fetchAll(PDO::FETCH_CLASS,'App\Entity\Collaborator');
         $collaboratorRepository = new CollaboratorRepository();
-        $this->assertContainsOnlyInstancesOf(Collaborator::class, $collaboratorRepository->findAll());
+        $this->assertContainsOnlyInstancesOf('App\Entity\Collaborator', $collaboratorRepository->findAll());
         $this->assertEquals($collaborators, $collaboratorRepository->findAll());
     }
     
-      /*  public function testFindOneBy()
-        {
-            $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
-            $collaboratorRepository = new CollaboratorRepository();
-            $query = $pdo->query("SELECT * FROM collaborator ORDER BY RAND() LIMIT 1");
-            $query->setFetchMode(PDO::FETCH_CLASS,'App\Entity\Collaborator');
-            $collaborator = $query->fetch();
-           $this->assertInstanceOf('App\Entity\Collaborator',$collaboratorRepository->findOneBy(["firstname"]));
-            $this->assertEquals($collaborator,$collaborator);
-        }*/
+
+    /*public function testFindOneBy()
+    {
+        $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
+        $collaboratorRepository = new CollaboratorRepository();
+        $query = $pdo->query("SELECT * FROM collaborator ORDER BY RAND() LIMIT 1");
+        $query->setFetchMode(PDO::FETCH_CLASS,'App\Entity\Collaborator');
+        $collaborator = $query->fetch();
+        $this->assertInstanceOf('App\Entity\Collaborator',$collaboratorRepository->findOneBy(["firstname"]));
+        $this->assertEquals($collaborator,$collaborator);
+    }*/
 
 }

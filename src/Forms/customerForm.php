@@ -8,20 +8,23 @@ use App\Config\DbConfig;
 use App\Entity\Customer;
 use App\Repository\Repository;
 
-class CustomerForm extends Customer
+class CustomerForm extends Form
 {
-    public function __construct($post)
+    protected int $id;
+    protected string $company_name;
+    protected string $sector_activity;
+    protected string $address;
+    protected string $zip;
+    protected string $city;
+    protected string $revenue;
+    protected int $staff;
+    protected string $phone;
+    protected string $email;
+    protected ?string $comment;
+
+    public function __construct(array $post)
     {
-        $this->company_name = $post['company_name'];
-        $this->sector_activity = $post['sector_activity'];
-        $this->address = $post['address'];
-        $this->zip = $post['zip'];
-        $this->city = $post['city'];
-        $this->revenue = $post['revenue'];
-        $this->staff = $post['staff'];
-        $this->phone = $post['phone'];
-        $this->comment = $post['comment'];
-        $this->email = $post['email'];
+        parent::__construct($post);
     }
 
 /**
@@ -29,21 +32,27 @@ class CustomerForm extends Customer
  * 23/10/20 
  * Fonction permetant de modifier un Client de la BDD
  */
-    public function updateCustomer()
+    public function add()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
 
-        $param = array_values(get_object_vars($this));
-        $query = $pdo->prepare("UPDATE customer (company_name, sector_activity, address, zip, city, revenue, staff, phone, email, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $objectVars = get_object_vars($this);
+        unset($objectVars['id']);
+        $param = array_values($objectVars);
+        $query = $pdo->prepare("INSERT INTO customer (company_name, sector_activity, address, zip, city, revenue, staff, phone, email, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $query->execute($param);
     }
 
-/*
-    public function updateCustomers()
+
+    public function update()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
-        $param = array_map(fn($key, $values)) => "$key = $values, " 
-        $query = $pdo->prepare("UPDATE customer SET ")
 
-    }*/
+        $param = get_object_vars($this);
+        unset($param['id']);
+        $param = join(", ", array_map(fn($key, $value) => "$key = '$value'", array_keys($param), array_values($param)));
+        $query = $pdo->prepare("UPDATE customer SET $param WHERE id = $this->id");
+        $query->execute([$param]);
+
+    }
 }

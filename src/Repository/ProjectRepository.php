@@ -30,20 +30,20 @@ class ProjectRepository extends Repository
         return $query->fetch();
     }
 
-    public function findByCustomer( Customer $customer, $first) : array
+    public function findByCustomer( Customer $customer, $nb = 1) : array
     {
         $idCustomer = $customer->getId();
         $query = $this->pdo->prepare("SELECT project.* FROM project JOIN project_customer AS pc ON project.id = pc.project_id WHERE pc.customer_id = ?");
         $query->execute([$idCustomer]);
-        return $query->fetchAll(PDO:: FETCH_CLASS, Project::class,[$first]);
+        return $query->fetchAll(PDO:: FETCH_CLASS, Project::class,[$nb]);
     }
 
-    public function findByCollaborator( Collaborator $collaborator, $first) : array
+    public function findByCollaborator( Collaborator $collaborator, $nb = 1) : array
     {
         $idCollaborator = $collaborator->getId();
         $query = $this->pdo->prepare("SELECT project.* FROM project JOIN project_collaborator AS pc ON project.id = pc.project_id WHERE pc.collaborator_id = ?");
         $query->execute([$idCollaborator]);
-        return $query->fetchAll(PDO:: FETCH_CLASS, Project::class,[$first]);
+        return $query->fetchAll(PDO:: FETCH_CLASS, Project::class,[$nb]);
 
     }
 }
