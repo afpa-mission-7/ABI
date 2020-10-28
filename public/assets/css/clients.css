@@ -1,0 +1,4 @@
+#tableCustomer tbody tr:hover {
+    cursor: pointer;
+    background-color: #f8e4d5;
+}

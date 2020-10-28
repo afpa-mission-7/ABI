@@ -7,6 +7,7 @@
 namespace App\Repository;
 use App\Repository\Repository;
 use App\Entity\Project;
+use App\Entity\Customer;
 use \PDO;
 
 
@@ -18,11 +19,12 @@ class CustomerRepository extends Repository
         parent::__construct("Customer");
     }
 
-    public function findByProject( Project $project): array 
+    public function findByProject( Project $project, $nb = 1): array
     {
         $idProject = $project->getId();
         $query = $this->pdo->prepare("SELECT customer.* FROM customer JOIN project_customer AS pc ON customer.id = pc.customer_id WHERE pc.project_id = ?");
         $query->execute([$idProject]);
-        return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\Customer");
+        return $query->fetchAll(PDO::FETCH_CLASS, Customer::class,[$nb]);
     }
+
 }

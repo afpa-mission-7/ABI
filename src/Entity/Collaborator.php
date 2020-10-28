@@ -4,8 +4,13 @@
 namespace App\Entity;
 
 
+use App\Repository\ProjectRepository;
+use App\Traits\JSONTrait;
+
 class Collaborator
 {
+    use JSONTrait;
+
     private int $id;
     private string $username;
     private string $password;
@@ -18,6 +23,16 @@ class Collaborator
     private ?string $status;
     private ?string $qualification;
     private int $salary;
+    private array $projects;
+
+
+    public function __construct($nb = 1)
+    {
+        if ($nb <=2) {
+            $projectRepository = new ProjectRepository();
+            $this->projects = $projectRepository->findByCollaborator($this, $nb + 1);
+        }
+    }
 
     /**
      * @return string

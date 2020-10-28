@@ -3,20 +3,46 @@
 
 namespace App\Entity;
 
+use App\Config\DbConfig;
+use App\Repository\ProjectRepository;
+use App\Traits\JSONTrait;
+use \PDO;
+
 
 class Customer
 {
-    private int $id;
-    private string $company_name;
-    private string $sector_activity;
-    private string $address;
-    private string $zip;
-    private string $city;
-    private string $revenue;
-    private int $staff;
-    private string $phone;
-    private string $comment;
+    use JSONTrait;
 
+    protected int $id;
+    protected string $company_name;
+    protected string $sector_activity;
+    protected string $address;
+    protected string $zip;
+    protected string $city;
+    protected string $revenue;
+    protected int $staff;
+    protected string $phone;
+    protected string $email;
+    protected ?string $comment;
+    protected array $projects;
+
+    public function __construct($nb = 1)
+    {
+        if ($nb <= 2) {
+            $projectRepository = new ProjectRepository();
+            $this->projects = $projectRepository->findByCustomer($this, $nb +1);
+        }
+    }
+    
+    public function delete()
+    {
+        $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
+        
+        $query = $pdo->prepare("DELETE FROM customer WHERE id = ?");
+        $query->execute([$this->id]);
+    }
+
+    
     /**
      * @return int
      */
@@ -24,6 +50,7 @@ class Customer
     {
         return $this->id;
     }
+
 
     /**
      * @param int $id
@@ -194,6 +221,24 @@ class Customer
     public function setComment(string $comment): Customer
     {
         $this->comment = $comment;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     * @return Customer
+     */
+    public function setEmail(string $email): Customer
+    {
+        $this->email = $email;
         return $this;
     }
 }

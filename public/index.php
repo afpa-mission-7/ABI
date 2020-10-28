@@ -1,19 +1,20 @@
 <?php
 require '../vendor/autoload.php';
+
 use App\Controller\Controller;
 
 $uri = $_SERVER['REQUEST_URI'];
 
 $controller = new Controller();
-if($uri==="/"){
+if ($uri === "/") {
     $controller->indexController();
-}elseif($uri==="/apropos"){
+} elseif ($uri === "/apropos") {
     $controller->aproposController();
-}elseif($uri==="/contact"){
+} elseif ($uri === "/contact") {
     $controller->contactController();
-}elseif($uri==="/gestionclients"){
+} elseif ($uri === "/gestionclients") {
     $controller->gestionclientsController();
-}elseif($uri==="/gestioncollaborateurs"){
+} elseif ($uri === "/gestioncollaborateurs") {
     $controller->gestioncollaborateursController();
 }elseif($uri==="/nouveaucollaborateur"){
     $controller->nouveaucollaborateurController();
@@ -23,10 +24,22 @@ if($uri==="/"){
     $controller->infocollaborateurController();
 }elseif($uri==="/gestionprojets"){
     $controller->gestionprojetsController();
-} elseif ($uri === "/login"){
+} elseif ($uri === "/login") {
     $controller->loginController();
 } elseif ($uri === "/disconnect") {
     $controller->disconnectController();
-}else{
+} elseif ($uri === "/profile") {
+    $controller->profileController();
+}elseif($uri === "/modalProject"){
+    $controller->modalController('Project');
+} elseif ($uri === "/modalCustomer") {
+    $controller->modalController('Customer');
+} elseif ($uri === "/addCustomer") {
+    $controller->addController('Customer');
+}elseif ($uri === "/unjoin"){
+    $controller->unjoinController();
+} elseif ($uri === "/deleteCustomer") {
+    $controller->deleteCustomerController();
+} else{
     $controller->error404Controller();
 }

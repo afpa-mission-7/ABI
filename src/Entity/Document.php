@@ -4,13 +4,31 @@
 namespace App\Entity;
 
 
+use App\Repository\CollaboratorRepository;
+use App\Repository\CustomerRepository;
+use App\Repository\DocumentRepository;
+use App\Repository\ProjectRepository;
+use App\Traits\JSONTrait;
+
 class Document
 {
-private int $id;
-private string $title;
-private string $resume;
-private $date;
-private string $link;
+    use JSONTrait;
+
+    private int $id;
+    private string $title;
+    private string $resume;
+    private $date;
+    private string $link;
+    private Project $project;
+
+    public function __construct($nb = 1)
+    {
+        if ($nb <= 2) {
+            $projectRepository = new ProjectRepository();
+            $this->project = $projectRepository->findOneByDocument($this, $nb + 1);
+        }
+        unset($this->project_id);
+    }
 
     /**
      * @return int
