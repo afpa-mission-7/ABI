@@ -8,29 +8,18 @@
 </div>
 
 
-REMPLIR MENU DEROULANT
-
 <form action="" method="post" class="" enctype="multipart/form-data">
     <div class="form-row">
         <div class="col form-group">
             <label for="persons">Collaborateur : </label>
             <select name="persons" id="persons" class="form-control">
                 <option value="" selected>Collaborateurs</option>
-                <option value="non cadre">Non cadre</option>
+                <?php foreach ($listOfCollaborators as $collaborator) : ?>
+                <option value=""><?= $collaborator->getLastname() . " " . $collaborator->getFirstname() ?></option>
+                <?php endforeach ?>
             </select>
         </div>
-    </div>
-
-
-    <div class="form-row">
-        <div class="col form-group">
-            <label for="lastname">Nom : </label>
-            <input type="text" name="lastname" id="lastname" class="form-control">
-        </div>
-        <div class="col form-group">
-            <label for="firstname">Prénom : </label>
-            <input type="text" name="firstname" id="firstname" class="form-control">
-        </div>
+        <input type="hidden" name="collaborator_id" id="collaborator_id" value="C'EST ICI QUE JE METS MON PHP QUI RECUPERE LE COLLABORATOR_ID">
     </div>
 
     <div class="form-row">

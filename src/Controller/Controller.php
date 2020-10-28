@@ -79,14 +79,9 @@ class Controller
         session_start();
         // $newContract = new AddContractForm($_POST);
         $collaboratorRepository = new CollaboratorRepository;
-        $listOfCollaborators = $collaboratorRepository->findAll();
+        $listOfCollaborators = $collaboratorRepository->findAllAndSort('lastname', 'firstname');
+        // dd($listOfCollaborators);
         include '../templates/nouveaucontrat.php';
-/*
-        foreach ($listOfCollaborators as $key => $value) {
-            print_r($key );
-        }
-        echo " -------------------- \n";
-        print_r($listOfCollaborators);*/
 
         ob_end_flush();
     }

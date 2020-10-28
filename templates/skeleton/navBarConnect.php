@@ -3,6 +3,11 @@
         <img src="assets/image/logo.png" width="auto" height="30" class="d-inline-block align-top" alt="ABI"/>
     </a>
 
+    <div id="alertJs">
+        <p>ATTENTION JavaScript est désactivé.<br>Ce site ne fonctionnera pas correctement.</p>  
+    </div>
+    
+
     <div class="collapse navbar-collapse d-flex">
         <ul class="navbar-nav navbar-collapse">
             <li class="nav-item">
