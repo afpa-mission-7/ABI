@@ -8,14 +8,18 @@
 $(".row_customer").click(function() {
     $.post("/modalCustomer", { id: this.id }, function(data) {
         let customer = JSON.parse(data);
+        console.log(customer);
         for (property in customer) {
             $("#modalCustomer #" + property).val(customer[property]);
         }
-    })
-    if($('.delete').click(function(){
-        $.post("/deleteCustomer", {id:id});
-        $("#modalCustomer").modal("toggle");
-    }));
+        $(customer.projects).each(function (key, project) {
+            $("#projects").append('<li class="list-group-item d-flex justify-content-between align-items-center">' + project.name + '</li>');
+            $(project.collaborators).each(function (key, collaborator) {
+                $('#collaborators').append('<li class="list-group-item d-flex justify-content-between align-items-center">' + collaborator.firstname + " " + collaborator.lastname + '</li>');
+            });
+        });
+        
+    });
     $("#modalCustomer").modal("toggle");
 
 })
@@ -69,7 +73,7 @@ $("#addCustomer").click(function() {
 $('.delete').click(function() {
     let id = $(this).siblings("#id").val();
     $.post("/deleteCustomer", { id: id }, function() {
-        location.reload();
+        //location.reload();
     });
     $("#modalCustomer").modal("toggle");
 
