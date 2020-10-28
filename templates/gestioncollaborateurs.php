@@ -12,6 +12,12 @@
             <input type="button" value="Ajouter un nouveau contrat à un collaborateur" class="btn btn-block btn-duck">
         </a>
     </div>
+    <div class="col form-group">
+        <a href="infocollaborateur">
+            <input type="button" value="Consulter les détails d'un collaborateur" class="btn btn-block btn-duck">
+        </a>
+    </div>
+
 </div>
 
 
