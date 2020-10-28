@@ -10,7 +10,7 @@ use App\Repository\DocumentRepository;
 use App\Repository\ProjectRepository;
 use App\Traits\JSONTrait;
 
-class Document extends Entity
+class Document
 {
     use JSONTrait;
 

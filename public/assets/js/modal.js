@@ -5,6 +5,7 @@
  * 22/10/20
  * Permet d'ouvrir un modal client avec toutes les info de la BDD et du php
  */
+
 $(".row_customer").click(function() {
     $.post("/modalCustomer", { id: this.id }, function(data) {
         let customer = JSON.parse(data);
@@ -67,13 +68,13 @@ $("#addCustomer").click(function() {
 /**
  * @author Simon 
  * @author Doryan
+ * @author Aymeric
  * 26/10/20
  * Permet de Supprimer un client.
  */
 $('.delete').click(function() {
     let id = $(this).siblings("#id").val();
     $.post("/deleteCustomer", { id: id }, function() {
-        //location.reload();
     });
     $("#modalCustomer").modal("toggle");
 

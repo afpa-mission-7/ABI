@@ -7,7 +7,7 @@ namespace App\Entity;
 use App\Repository\ProjectRepository;
 use App\Traits\JSONTrait;
 
-class Collaborator extends Entity
+class Collaborator
 {
     use JSONTrait;
 

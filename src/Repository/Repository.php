@@ -7,6 +7,7 @@
 namespace App\Repository;
 
 use App\Config\DbConfig;
+use App\Database;
 use \PDO;
 
 class Repository
@@ -17,7 +18,7 @@ class Repository
 
     public function __construct(string $classname)
     {
-        $this->pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
+        $this->pdo = Database::connect();
         $this->classname = $classname;
         $this->table = strtolower($classname);
     }
@@ -65,11 +66,6 @@ class Repository
         $query->execute($params);
         $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\\" . $this->classname);
         return $query->fetch();
-    }
-
-    public function unjoin($object1,$object2)
-    {
-        
     }
 
 }

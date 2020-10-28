@@ -68,6 +68,10 @@ class Controller
         session_start();
         $projectRepository = new ProjectRepository();
         $projects = $projectRepository->findAll();
+        $customerRepository = new CustomerRepository();
+        $customers = $customerRepository->findAll();
+        $collaboratorRepository = new CollaboratorRepository();
+        $collaborators = $collaboratorRepository->findAll();
         include '../templates/gestionprojets.php';
         ob_end_flush();
     }
@@ -112,12 +116,12 @@ class Controller
 
     public function addController($classname)
     {
-        $formName = "App\Forms\Add$classname" . "Form";
-        $addCustomerForm = new $formName($_POST);
+        $formName = 'App\Forms\\'.$classname.'Form';
+        $form = new $formName($_POST);
         if (empty($_POST['id'])) {
-            $addCustomerForm->addCustomer();
+            $form->add();
         } else {
-            $addCustomerForm->updateCustomer();
+            $form->update();
         }
     }
 
@@ -130,20 +134,12 @@ class Controller
         echo $entity->toJSON();
     }
 
-    public function unjoinController()
-    {
-        $collaboratorRepository = new CollaboratorRepository();
-        $collaborator = $collaboratorRepository->find(5);
-        $projectRepository = new ProjectRepository();
-        $project = $projectRepository->find(6);
-        $project->unjoin($collaborator);
-    }
-
     public function deleteCustomerController()
     {
         $id = $_POST['id'];
-        $customer = new Customer();
-        $customer->delete($id);
+        $customerRepository = new CustomerRepository();
+        $customer = $customerRepository->find($id);
+        $customer->delete();
     }
 
 }

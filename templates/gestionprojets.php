@@ -1,5 +1,7 @@
 <?php require_once 'skeleton/header.php' ?>
-
+    <div class="row mb-4 justify-content-center">
+        <button type="button" class="btn btn-duck" id="addProject">Ajouter un projet</button>
+    </div>
     <table id="listProject" class="table table-hover">
         <thead>
         <tr>
@@ -32,59 +34,74 @@
                                 <div class="form-row form-group">
                                     <label for="name" class="col-sm-3 col-form-label">Nom</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control editableModal" id="name" value=""
-                                               disabled>
+                                        <input type="text" class="form-control editableModal" id="name" value="">
                                     </div>
                                 </div>
                                 <div class="form-row form-group">
                                     <label for="expected_date_start" class="col-sm col-form-label">Date de début prévue
                                         : </label>
                                     <div class="col-sm">
-                                        <input type="date" class="form-control editableModal" id="expected_date_start"
-                                               disabled>
+                                        <input type="date" class="form-control editableModal" id="expected_date_start">
                                     </div>
                                 </div>
                                 <div class="form-row form-group">
                                     <label for="date_start" class="col-sm col-form-label">Date de début réelle
                                         : </label>
                                     <div class="col-sm">
-                                        <input type="date" class="form-control editableModal" id="date_start" disabled>
+                                        <input type="date" class="form-control editableModal" id="date_start">
                                     </div>
                                 </div>
                                 <div class="form-row form-group">
                                     <label for="expected_date_end" class="col-sm col-form-label">Date de fin prévue
                                         : </label>
                                     <div class="col-sm">
-                                        <input type="date" class="form-control editableModal" id="expected_date_end"
-                                               disabled>
+                                        <input type="date" class="form-control editableModal" id="expected_date_end">
                                     </div>
                                 </div>
                                 <div class="form-row form-group">
                                     <label for="date_end" class="col-sm col-form-label">Date de fin réelle : </label>
                                     <div class="col-sm">
-                                        <input type="date" class="form-control editableModal" id="date_end" disabled>
+                                        <input type="date" class="form-control editableModal" id="date_end">
                                     </div>
                                 </div>
-                                <hr>
-                                <input type="hidden" name="id" id="id">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                                <button type="submit" id="edit" class="btn btn-primary">Modifier</button>
-                                <button type="submit" id="valid" class="btn btn-primary">Valider</button>
-                            </form>
                         </div>
                         <div class="col">
                             <h5 class="text-center">Clients</h5>
-                            <ul id="customers" class="list-group">
-                            </ul>
+                            <div class="d-flex flex-column align-content-center">
+                                <ul id="customers" class="list-group">
+                                </ul>
+                                <button class="btn btn-duck mt-3" id="addCustomer">Ajouter un client</button>
+                            </div>
                             <hr>
                             <h5 class="text-center">Collaborateurs</h5>
-                            <ul id="collaborators" class="list-group">
-                            </ul>
+                            <div class="d-flex flex-column align-content-center">
+                                <ul id="collaborators" class="list-group">
+                                </ul>
+                                <button class="btn btn-duck mt-3" id="addCollaborator">Ajouter un collaborateur</button>
+                            </div>
                         </div>
                     </div>
+                    <hr>
+                    <input type="hidden" name="id" id="id">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="submit" id="edit" class="btn btn-warning">Modifier</button>
+                    <button type="submit" id="valid" class="btn btn-duck">Valider</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+    <select class="form-control mt-3 newCustomer d-none">
+        <option value=""></option>
+        <?php foreach ($customers as $customer): ?>
+            <option value="<?= $customer->getId() ?>"><?= $customer->getCompanyName() ?></option>
+        <?php endforeach; ?>
+    </select>
+    <select class="form-control mt-3 newCollaborator d-none">
+        <option value=""></option>
+        <?php foreach ($collaborators as $collaborator): ?>
+            <option value="<?= $collaborator->getId() ?>"><?= $collaborator->getFirstname() . " " . $collaborator->getLastname() ?></option>
+        <?php endforeach; ?>
+    </select>
 
 <?php require_once 'skeleton/footer.php' ?>

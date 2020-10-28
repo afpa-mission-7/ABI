@@ -31,7 +31,8 @@
   <tbody>
     <?php foreach ($customers as $customer) : ?>
       <tr id="<?= $customer->getId() ?>" class="row_customer">
-        <td scope="row" class="company_name"><?= $customer->getCompanyName() ?></th>
+        <td scope="row" class="company_name">
+          <?= $customer->getCompanyName() ?></th>
         <td class="zip"><?= $customer->getZip() ?></td>
         <td class="city"><?= $customer->getCity() ?></td>
         <td class="phone"><?= $customer->getPhone() ?></td>
@@ -141,11 +142,9 @@
                 </div>
               </div>
               <input type="hidden" name="id" id="id">
-              <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                 <button type="submit" id="valid_customer" class="btn btn-primary">Valider</button>
                 <button type="button" class="btn btn-danger delete" id="deleteCustomer">Supprimer</button>
-              </div>
             </form>
           </div>
           <div class="col">
