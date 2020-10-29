@@ -20,3 +20,13 @@ persons.onchange = function () {
 
     console.log(username.value);
 }
+
+
+let xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function(){
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById('nameResult').innerHTML = this.responseText;
+            }
+        }
+        xmlHttp.open("POST", "contactDB.php", true);
+        xmlHttp.send();

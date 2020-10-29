@@ -100,6 +100,7 @@ class Controller
         $collaboratorRepository = new CollaboratorRepository();
         $listOfCollaborators = $collaboratorRepository->findAllAndSort('lastname', 'firstname');
 
+        
         include '../templates/infocollaborateur.php';
 
         ob_end_flush();

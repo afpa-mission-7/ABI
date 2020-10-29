@@ -22,7 +22,11 @@
                         </div>
                         <input type="hidden" name="collaborator_id" id="collaborator_id" value="">
                     </div>
-
+                    
+                    
+                    <div id="nameResult"></div>
+                    
+                    
                     <p class="card-text">address</p>
                 </div>
                 <ul class="list-group list-group-flush">

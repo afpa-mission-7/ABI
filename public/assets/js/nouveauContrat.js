@@ -10,21 +10,11 @@ persons.onchange = function () {
     collaborator_id.value = persons.value;
 }
 
-/*
-function getIdCollaborator(waitId){
-    if (waitId == "") {
-        document.getElementById('collaborator_id');
-        return;
-    } else {
-        let xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function(){
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById('collaborator_id').value = this.responseText;
-            }
-        };
-        xmlHttp.open("POST", "postCollaboratorId.php", true);
-        xmlHttp.send();
-    }
-}
-*/
-// CREER PHP POUR RECUP ID
+
+let hiring_reason = document.getElementById('hiring_reason');
+console.log(hiring_reason.value);
+hiring_reason.addEventListener("click", function () {
+    let regex = /[&~"#_@¤£*-+<>$€]/gi
+    hiring_reason.value =  hiring_reason.replace(regex, '');
+    console.log(hiring_reason.value);
+});
