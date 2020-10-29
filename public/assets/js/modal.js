@@ -47,6 +47,8 @@ $("#form_customer").submit(function (e) {
     $.post("/addCustomer", customer, function (data) { //requete AJAX lors de /addCustomer
         let failed;
         let inputs = $('#modalCustomer input:not([type = radio])');
+        inputs['sector_activity'] = $;
+        console.log(inputs);
         if (!$.isEmptyObject(data)) {
             failed = JSON.parse(data);
             $(inputs).each(function (key, input) {

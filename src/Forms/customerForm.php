@@ -34,7 +34,8 @@ class CustomerForm extends Form
 
     protected function sector_activityIsValid()
     {
-        return $this->sector_activity;
+        
+        return $this->sector_activity.inArray(["1", "2", "3", "4"])
     }
     
     protected function addressIsValid()
