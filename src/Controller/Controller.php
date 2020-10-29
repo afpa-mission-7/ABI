@@ -97,6 +97,8 @@ class Controller
     {
         ob_start();
         session_start();
+        $collaboratorRepository = new CollaboratorRepository();
+        $listOfCollaborators = $collaboratorRepository->findAllAndSort('lastname', 'firstname');
 
         include '../templates/infocollaborateur.php';
 
@@ -179,7 +181,7 @@ class Controller
         $customer->delete($id);
     }
 
-    public function newContractController() // JE TRAVAILLE PAR ICI
+    public function newContractController()
     {
         $AddContractForm = new AddContractForm($_POST);
         $AddContractForm->newContract();

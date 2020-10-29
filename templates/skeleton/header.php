@@ -14,10 +14,7 @@
     <script src="assets/js/connect.js" defer></script>
     <script src="assets/js/alertJs.js" defer></script>
     <script src="assets/js/nouveauContrat.js" defer></script>
-
-
-<!--   <script src="assets/js/collaborator.js" defer></script> -->
-
+    <script src="assets/js/infocollaborateur.js" defer></script>
     <script src="assets/js/project.js" defer></script>
     <script src="assets/js/modal.js" defer></script>
 </head>

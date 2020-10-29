@@ -36,8 +36,7 @@ if ($uri === "/") {
     $controller->modalController('Customer');
 } elseif ($uri === "/addCustomer") {
     $controller->addController('Customer');
-} elseif ($uri === "/nouveaucontrat") {
-    $controller->nouveaucontratController();
+
 } elseif ($uri === "/unjoin"){
     $controller->unjoinController();
 } elseif ($uri === "/deleteCustomer") {
