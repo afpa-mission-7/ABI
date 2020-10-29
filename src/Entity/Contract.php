@@ -5,16 +5,18 @@
 
 namespace App\Entity;
 
+
+
 class Contract
 {
-    private int $id;
-    private int $collaborator_id;
-    private $start_date;
-    private $end_date;
-    private string $label;
-    private string $type;
-    private int $salary;
-    private string $hiring_reason;
+    protected int $id;
+    protected int $collaborator_id;
+    protected $start_date;
+    protected $end_date;
+    protected string $label;
+    protected string $type;
+    protected int $salary;
+    protected string $hiring_reason;
 
     /** obtenir l'ID du contrat */
     public function getId()

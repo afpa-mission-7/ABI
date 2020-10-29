@@ -12,16 +12,17 @@
     <script src="assets/js/bootstrap.js" defer></script>
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/connect.js" defer></script>
+    <script src="assets/js/alertJs.js" defer></script>
+    <script src="assets/js/nouveauContrat.js" defer></script>
+    <script src="assets/js/infocollaborateur.js" defer></script>
     <script src="assets/js/project.js" defer></script>
     <script src="assets/js/modal.js" defer></script>
-<!--   <script src="assets/js/collaborator.js" defer></script> -->
-
 </head>
 
 <body class="d-flex flex-column justify-content-between">
 
 <header class="d-flex flex-column fixed-top">
-    
+ 
 <?php
 if(!empty($_SESSION["id"])){
     require 'navBarConnect.php';
@@ -30,5 +31,4 @@ if(!empty($_SESSION["id"])){
 }
 ?>
 </header>
-
 <main class="container">

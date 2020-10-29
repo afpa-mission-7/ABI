@@ -33,13 +33,7 @@ class Controller
     public function aproposController()
     {
         ob_start();
-        session_start();/*
-        $collaboratorRepository = new CollaboratorRepository();
-        $collaborator = $collaboratorRepository->find(5);
-        $fonctionRepository = new FonctionRepository();
-        $fonction = $fonctionRepository->findByCollaborator($collaborator);
-        dd($fonction);*/
-
+        session_start();
         include '../templates/apropos.php';
         ob_end_flush();
     }
@@ -72,7 +66,7 @@ class Controller
     {
         ob_start();
         session_start();
-        $collaboratorRepository = new CollaboratorRepository;
+        $collaboratorRepository = new CollaboratorRepository();
         $collaborators = $collaboratorRepository->showAllCollaborator(); 
         $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Directeur administratif", "Directeur financier", "Responsable des ressources humaines", "Secrétaire administratif"];
         if(in_array($_SESSION['fonction'], $accepted))
@@ -114,15 +108,23 @@ class Controller
          } else {
              include '../templates/accessdenied.php';
         }
-/*
         foreach ($listOfCollaborators as $key => $value) {
             print_r($key );
+        $collaboratorRepository = new CollaboratorRepository();
+        $listOfCollaborators = $collaboratorRepository->findAllAndSort('lastname', 'firstname');
+        
+        if (!empty($_POST)) {
+            
+            $newContractForm = new AddContractForm($_POST);
+            $newContract = $newContractForm->newContract();
+            // dd($newContract);
+    
         }
-        echo " -------------------- \n";
-        print_r($listOfCollaborators);*/
+        include '../templates/nouveaucontrat.php';
 
         ob_end_flush();
-    }
+    }}
+
 
     
     public function infocollaborateurController()
@@ -136,6 +138,10 @@ class Controller
          } else {
              include '../templates/accessdenied.php';
         }
+        $collaboratorRepository = new CollaboratorRepository();
+        $listOfCollaborators = $collaboratorRepository->findAllAndSort('lastname', 'firstname');
+
+        include '../templates/infocollaborateur.php';
 
         ob_end_flush();
     }
@@ -225,6 +231,12 @@ class Controller
         $customerRepository = new CustomerRepository();
         $customer = $customerRepository->find($id);
         $customer->delete();
+    }
+
+    public function newContractController()
+    {
+        $AddContractForm = new AddContractForm($_POST);
+        $AddContractForm->newContract();
     }
 
 }

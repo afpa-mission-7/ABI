@@ -16,8 +16,6 @@
     </div>
   </div>
 </div>
-</div>
-</div>
 <div class="row mb-4 justify-content-center">
   <button type="button" class="btn btn-duck" id="addCustomer">Ajouter un client</button>
 </div>
