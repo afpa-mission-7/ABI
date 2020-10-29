@@ -16,14 +16,13 @@ if ($uri === "/") {
     $controller->gestionclientsController();
 } elseif ($uri === "/gestioncollaborateurs") {
     $controller->gestioncollaborateursController();
-} elseif ($uri === "/gestionprojets") {
-}elseif($uri==="/nouveaucollaborateur"){
+} elseif ($uri==="/nouveaucollaborateur"){
     $controller->nouveaucollaborateurController();
-}elseif($uri==="/nouveaucontrat"){
+} elseif ($uri==="/nouveaucontrat"){
     $controller->nouveaucontratController();
-}elseif($uri==="/infocollaborateur"){
+} elseif ($uri==="/infocollaborateur"){
     $controller->infocollaborateurController();
-}elseif($uri==="/gestionprojets"){
+} elseif ($uri==="/gestionprojets"){
     $controller->gestionprojetsController();
 } elseif ($uri === "/login") {
     $controller->loginController();
@@ -31,7 +30,7 @@ if ($uri === "/") {
     $controller->disconnectController();
 } elseif ($uri === "/profile") {
     $controller->profileController();
-}elseif($uri === "/modalProject"){
+} elseif ($uri === "/modalProject"){
     $controller->modalController('Project');
 } elseif ($uri === "/addProject") {
     $controller->addController('Project');
@@ -39,10 +38,8 @@ if ($uri === "/") {
     $controller->modalController('Customer');
 } elseif ($uri === "/addCustomer") {
     $controller->addController('Customer');
-}elseif ($uri === "/unjoin"){
-    $controller->unjoinController();
 } elseif ($uri === "/deleteCustomer") {
     $controller->deleteCustomerController();
-} else{
+} else {
     $controller->error404Controller();
 }

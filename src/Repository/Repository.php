@@ -24,7 +24,7 @@ class Repository
     }
 
     public function find(int $id)
-    {
+    { 
         $sql = "SELECT * FROM $this->table WHERE id =?";
         $query = $this->pdo->prepare($sql);
         $query->execute([$id]);
@@ -35,7 +35,7 @@ class Repository
     public function findBy(array $criteria, array $orderBy = null, int $limit = null, int $offset = null)
     {
         $params = array_values($criteria);
-        if (!empty($citeria)) {
+        if (!empty($criteria)) {
             $criteria = " WHERE " . join(" AND ", array_map(fn($key) => "$key = ?", array_keys($criteria)));
         } else {
             $criteria = null;
@@ -66,6 +66,22 @@ class Repository
         $query->execute($params);
         $query->setFetchMode(PDO::FETCH_CLASS, "App\Entity\\" . $this->classname);
         return $query->fetch();
+    }
+
+    /** fonction "montre tout" et trie ascendant sur deux colonnes.
+     * @author Yann BOYER
+    */
+    public function findAllAndSort($firstColumn, $secondColumn): array
+    {
+        $sql = " SELECT * FROM $this->table ORDER BY $firstColumn ASC, $secondColumn ASC";
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\" . $this->classname);
+    }
+
+    public function unjoin($object1,$object2)
+    {
+        
     }
 
 }

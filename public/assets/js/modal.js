@@ -6,6 +6,7 @@
  * Permet d'ouvrir un modal client avec toutes les info de la BDD et du php
  */
 $(".row_customer").click(function () {
+    $("input").attr('disabled', true);
     $('#modalCustomer input').removeClass(["is-valid", "is-invalid"]);
     $.post("/modalCustomer", { id: this.id }, function (data) {
         let customer = JSON.parse(data);
@@ -47,14 +48,16 @@ $("#form_customer").submit(function (e) {
     $.post("/addCustomer", customer, function (data) { //requete AJAX lors de /addCustomer
         let failed;
         let inputs = $('#modalCustomer input:not([type = radio])');
-        inputs['sector_activity'] = $;
+        inputs['sector_activity'] = $('#modalCustomer input[name=sector_activity]:checked').val();
         console.log(inputs);
         if (!$.isEmptyObject(data)) {
             failed = JSON.parse(data);
             $(inputs).each(function (key, input) {
                 if ($.inArray(input.id, failed) !== -1) {
+                    $(input).removeClass('is-valid');
                     $(input).addClass('is-invalid');
                 } else {
+                    $(input).removeClass('is-invalid');
                     $(input).addClass('is-valid');
                 };
             });

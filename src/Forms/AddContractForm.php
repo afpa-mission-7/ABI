@@ -1,27 +1,23 @@
-<?php
+<?php 
 
 namespace App\Forms;
 
 use \PDO;
 use App\Config\DbConfig;
+use App\Entity\Contract;
 
-class AddContractForm  
+class AddContractForm extends Contract
 {
-    private $start_date;
-    private $end_date;
-    private string $label;
-    private string $type;
-    private int $salary;
-    private string $hiringReason;
-
     public function __construct($post)
     {
+        // dd($post);
+        $this->collaborator_id = $post['collaborator_id'];
         $this->start_date = $post['start_date'];
         $this->end_date = $post['end_date'];
         $this->label = $post['label'];
         $this->type = $post['type'];
         $this->salary = $post['salary'];
-        $this->hiringReason = $post['hiringReason'];
+        $this->hiringReason = $post['hiring_reason'];
     }
 
 
@@ -29,11 +25,11 @@ class AddContractForm
      * @author Yann BOYER
      * @method newContract
      */
-    public function newContract(){
-
+    public function newContract()      // C'EST PAR ICI AUSSI QUE JE BOSSE DUR
+    {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
 
-        $sqlRequest = "
+        $sqlRequest = " 
         INSERT INTO contract(
             collaborator_id, 
             start_date, 
@@ -43,7 +39,7 @@ class AddContractForm
             salary, 
             hiring_reason) 
         VALUES (
-            '$this->collaboratorId', // mais ou est ce que je vais te trouver
+            '$this->collaborator_id',
             '$this->start_date',
             '$this->end_date',
             '$this->label',
@@ -51,10 +47,10 @@ class AddContractForm
             '$this->salary',
             '$this->hiringReason')
         ";
-
-        $sql = $this->pdo->prepare($sqlRequest);
+        
+        // dd($sqlRequest);
+        $sql = $pdo->prepare($sqlRequest);
         $sql->execute();
-
     }
 
 }

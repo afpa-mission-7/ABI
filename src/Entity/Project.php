@@ -2,15 +2,15 @@
 
 
 namespace App\Entity;
-use App\Traits\JSONTrait;
-use \PDO;
 
+use App\Entity\Customer;
+use App\Traits\JSONTrait;
 use App\Repository\CollaboratorRepository;
 use App\Repository\CustomerRepository;
 use App\Repository\DocumentRepository;
-use App\Entity\Customer;
 use App\Repository\ProjectRepository;
 use \DateTime;
+use \PDO;
 
 
 class Project

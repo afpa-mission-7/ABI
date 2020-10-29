@@ -9,33 +9,32 @@
 <section class="d-flex">
         <section class="mx-3 my-3 col-3">
             <div class="card bg-abi-light-brown" style="width: 100%;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+                <img class="card-img-top" src="" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">Prenom Nom</h5>
+                    <div class="form-row">
+                        <div class="col form-group">
+                            <select name="persons" id="persons" class="form-control">
+                                <option value="" selected>Collaborateurs</option>
+                                <?php foreach ($listOfCollaborators as $collaborator) : ?>
+                                <option value="<?= $collaborator->getId() ?>"><?= $collaborator->getLastname() . " " . $collaborator->getFirstname() ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                        <input type="hidden" name="collaborator_id" id="collaborator_id" value="">
+                    </div>
+
                     <p class="card-text">address</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">username</li>
-                    <li class="list-group-item">phone</li>
-                    <li class="list-group-item">email</li>
-                    <li class="list-group-item">status</li>
-                    <li class="list-group-item">qualification</li>
-                    <li class="list-group-item">email</li>
+                    <li class="list-group-item">username : <span id="username"></span></li>
+                    <li class="list-group-item">phone : <span id="phone"></span></li>
+                    <li class="list-group-item">email : <span id="email"></span></li>
+                    <li class="list-group-item">status : <span id="status"></span></li>
+                    <li class="list-group-item">qualification : <span id="qualification"></span></li>
                 </ul>
                 <div class="card-body">
                     <a href="#" class="card-link">Card link</a>
                     <a href="#" class="card-link">Another link</a>
-                </div>
-            </div>
-        </section>
-        <section class="mx-3 my-3 col">
-            <div class="card" style="width: 100%;">
-                <div class="card-body">
-                    <h5 class="card-title">Contrat initial / avenant</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Du ... au ...</h6>
-                    <p class="card-text">CDI : CDD : interim : stage</p>
-                    <p class="card-text">Salaire </p>
-                    <p class="card-text">Motif </p>
                 </div>
             </div>
         </section>

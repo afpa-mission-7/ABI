@@ -3,16 +3,20 @@
 namespace App\Controller;
 
 use App\Entity\Customer;
-use App\Forms\CustomerForm;
+use App\Entity\Document;
+use App\Entity\Collaborator;
+use App\Forms\AddCustomerForm;
+use App\Forms\customerForm;
+use App\Forms\AddCollaboratorForm;
+use App\Forms\AddContractForm;
 use App\Forms\LoginForm;
 use App\Repository\CustomerRepository;
 use App\Repository\CollaboratorRepository;
 use App\Repository\Repository;
-use App\Entity\Document;
-use App\Forms\AddCollaboratorForm;
-use App\Forms\AddContractForm;
+use App\Repository\Fonction;
 use App\Repository\ContractRepository;
 use App\Repository\DocumentRepository;
+use App\Repository\FonctionRepository;
 use App\Repository\ProjectRepository;
 
 
@@ -48,7 +52,12 @@ class Controller
         session_start();
         $customerRepository = new CustomerRepository();
         $customers = $customerRepository->findAll();
-        include '../templates/gestionclients.php';
+        $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Directeur administratif", "Directeur financier", "Responsable des ressources humaines", "Secrétaire administratif", "Commercial"];
+        if (in_array($_SESSION['fonction'], $accepted)) {
+            include '../templates/gestionclients.php';
+        } else {
+            include '../templates/accessdenied.php';
+        }
         ob_end_flush();
     }
 
@@ -56,9 +65,14 @@ class Controller
     {
         ob_start();
         session_start();
-        $collaboratorRepository = new CollaboratorRepository;
+        $collaboratorRepository = new CollaboratorRepository();
         $collaborators = $collaboratorRepository->showAllCollaborator();
-        include '../templates/gestioncollaborateurs.php';
+        $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Directeur administratif", "Directeur financier", "Responsable des ressources humaines", "Secrétaire administratif"];
+        if (in_array($_SESSION['fonction'], $accepted)) {
+            include '../templates/gestioncollaborateurs.php';
+        } else {
+            include '../templates/accessdenied.php';
+        }
         ob_end_flush();
     }
 
@@ -68,7 +82,12 @@ class Controller
         session_start();
         // $newCollaborator = new AddCollaboratorForm($_POST);
         // $newContract = new AddContractForm($_POST);
-        include '../templates/nouveaucollaborateur.php';
+        $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Directeur administratif", "Directeur financier", "Responsable des ressources humaines", "Secrétaire administratif"];
+        if (in_array($_SESSION['fonction'], $accepted)) {
+            include '../templates/nouveaucollaborateur.php';
+        } else {
+            include '../templates/accessdenied.php';
+        }
         ob_end_flush();
     }
 
@@ -76,16 +95,22 @@ class Controller
     {
         ob_start();
         session_start();
-        // $newContract = new AddContractForm($_POST);
-        $collaboratorRepository = new CollaboratorRepository;
-        $listOfCollaborators = $collaboratorRepository->findAll();
-        include '../templates/nouveaucontrat.php';
-        /*
-        foreach ($listOfCollaborators as $key => $value) {
-            print_r($key );
+
+        $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Directeur administratif", "Directeur financier", "Responsable des ressources humaines", "Secrétaire administratif"];
+        if (in_array($_SESSION['fonction'], $accepted)) {
+            $collaboratorRepository = new CollaboratorRepository();
+            $listOfCollaborators = $collaboratorRepository->findAllAndSort('lastname', 'firstname');
+            foreach ($listOfCollaborators as $key => $value) {
+                print_r($key);
+                if (!empty($_POST)) {
+                    $newContractForm = new AddContractForm($_POST);
+                    $newContract = $newContractForm->newContract();
+                }
+            }
+            include '../templates/nouveaucontrat.php';
+        } else {
+            include '../templates/accessdenied.php';
         }
-        echo " -------------------- \n";
-        print_r($listOfCollaborators);*/
 
         ob_end_flush();
     }
@@ -95,9 +120,14 @@ class Controller
     {
         ob_start();
         session_start();
-
-        include '../templates/infocollaborateur.php';
-
+        $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Directeur administratif", "Directeur financier", "Responsable des ressources humaines", "Secrétaire administratif"];
+        if (in_array($_SESSION['fonction'], $accepted)) {
+            include '../templates/infocollaborateur.php';
+        } else {
+            include '../templates/accessdenied.php';
+        }
+        $collaboratorRepository = new CollaboratorRepository();
+        $listOfCollaborators = $collaboratorRepository->findAllAndSort('lastname', 'firstname');
         ob_end_flush();
     }
 
@@ -111,7 +141,12 @@ class Controller
         $customers = $customerRepository->findAll();
         $collaboratorRepository = new CollaboratorRepository();
         $collaborators = $collaboratorRepository->findAll();
-        include '../templates/gestionprojets.php';
+        $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Développeur", "Directeur financier", "Directeur administratif"];
+        if (in_array($_SESSION['fonction'], $accepted)) {
+            include '../templates/gestionprojets.php';
+        } else {
+            include '../templates/accessdenied.php';
+        }
         ob_end_flush();
     }
 
@@ -185,5 +220,11 @@ class Controller
         $customerRepository = new CustomerRepository();
         $customer = $customerRepository->find($id);
         $customer->delete();
+    }
+
+    public function newContractController()
+    {
+        $AddContractForm = new AddContractForm($_POST);
+        $AddContractForm->newContract();
     }
 }
