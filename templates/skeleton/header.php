@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/c2ce3de10b.js" crossorigin="anonymous" defer></script>
     <script src="assets/js/bootstrap/jquery.js" defer></script>
     <script src="assets/js/bootstrap/bootstrap.js" defer></script>
+    <script src="assets/js/alertJs.js" defer></script>
     <script src="assets/js/main.js" defer></script>
     <script src="assets/js/connect.js" defer></script>
     <script src="assets/js/include.js" defer></script>

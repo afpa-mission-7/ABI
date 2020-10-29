@@ -3,7 +3,7 @@
         <img src="assets/image/logo.png" width="auto" height="30" class="d-inline-block align-top" alt="ABI"/>
     </a>
 
-    <div id="alertJs">
+    <div id="alertJs" style="display:none" >
         <p>ATTENTION JavaScript est désactivé.<br>Ce site ne fonctionnera pas correctement.</p>  
     </div>
     
