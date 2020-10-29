@@ -57,7 +57,7 @@ class Controller
     {
         ob_start();
         session_start();
-        $collaboratorRepository = new CollaboratorRepository;
+        $collaboratorRepository = new CollaboratorRepository();
         $collaborators = $collaboratorRepository->showAllCollaborator(); 
         include '../templates/gestioncollaborateurs.php';
         ob_end_flush();
@@ -77,12 +77,16 @@ class Controller
     {
         ob_start();
         session_start();
-        // $newContract = new AddContractForm($_POST);
-        
-        $collaboratorRepository = new CollaboratorRepository;
+        $collaboratorRepository = new CollaboratorRepository();
         $listOfCollaborators = $collaboratorRepository->findAllAndSort('lastname', 'firstname');
-
-        // dd($listOfCollaborators);
+        
+        if (!empty($_POST)) {
+            
+            $newContractForm = new AddContractForm($_POST);
+            $newContract = $newContractForm->newContract();
+            // dd($newContract);
+    
+        }
         include '../templates/nouveaucontrat.php';
 
         ob_end_flush();
