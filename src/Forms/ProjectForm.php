@@ -9,8 +9,8 @@ use \PDO;
 class ProjectForm extends Form
 {
     protected ?int $id;
-    protected string $name;
-    protected ?string $type;
+    protected $name;
+    protected string $type;
     protected $expected_date_start;
     protected $date_start;
     protected $expected_date_end;
@@ -19,6 +19,11 @@ class ProjectForm extends Form
     public function __construct(array $post)
     {
         parent::__construct($post);
+    }
+
+    protected function nameIsValid()
+    {
+        return preg_match("/^[A-Za-zÀ-ÿ0-9 \\-]$/", $this->name);
     }
 
     /**

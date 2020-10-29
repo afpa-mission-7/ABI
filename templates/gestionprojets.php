@@ -5,18 +5,20 @@
     <table id="listProject" class="table table-hover">
         <thead>
         <tr>
-            <th colspan="2"><h2 class="text-center">Liste des projets</h2></th>
+            <th colspan="2">
+                <h2 class="text-center">Liste des projets</h2>
+            </th>
         </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($projects as $project): ?>
+    </thead>
+    <tbody>
+        <?php foreach ($projects as $project) : ?>
             <tr id="<?= $project->getId() ?>">
                 <td><?= $project->getName() ?></td>
                 <td><?= $project->getDateEnd() ? $project->getDateEnd() : "En cours" ?></td>
             </tr>
         <?php endforeach; ?>
-        </tbody>
-    </table>
+    </tbody>
+</table>
 
     <div class="modal fade" id="modalProject" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
         <div class="modal-dialog modal-xl" role="document">

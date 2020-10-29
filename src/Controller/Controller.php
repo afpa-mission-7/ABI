@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Customer;
-use App\Forms\AddCustomerForm;
-use App\Forms\customerForm;
+use App\Forms\CustomerForm;
 use App\Forms\LoginForm;
 use App\Repository\CustomerRepository;
 use App\Repository\CollaboratorRepository;
 use App\Repository\Repository;
+use App\Entity\Document;
+use App\Forms\AddCollaboratorForm;
+use App\Forms\AddContractForm;
+use App\Repository\ContractRepository;
 use App\Repository\DocumentRepository;
 use App\Repository\ProjectRepository;
 
@@ -27,11 +30,6 @@ class Controller
     {
         ob_start();
         session_start();
-         $collaboratorRepository = new CollaboratorRepository();
-         $collaborators = $collaboratorRepository->find(5);
-         $projectRepository = new ProjectRepository("Project");
-         $projects = $projectRepository->findByCollaborator($collaborators);
-         dump($projects);
         include '../templates/apropos.php';
         ob_end_flush();
     }
@@ -58,7 +56,48 @@ class Controller
     {
         ob_start();
         session_start();
+        $collaboratorRepository = new CollaboratorRepository;
+        $collaborators = $collaboratorRepository->showAllCollaborator();
         include '../templates/gestioncollaborateurs.php';
+        ob_end_flush();
+    }
+
+    public function nouveaucollaborateurController()
+    {
+        ob_start();
+        session_start();
+        // $newCollaborator = new AddCollaboratorForm($_POST);
+        // $newContract = new AddContractForm($_POST);
+        include '../templates/nouveaucollaborateur.php';
+        ob_end_flush();
+    }
+
+    public function nouveaucontratController()
+    {
+        ob_start();
+        session_start();
+        // $newContract = new AddContractForm($_POST);
+        $collaboratorRepository = new CollaboratorRepository;
+        $listOfCollaborators = $collaboratorRepository->findAll();
+        include '../templates/nouveaucontrat.php';
+        /*
+        foreach ($listOfCollaborators as $key => $value) {
+            print_r($key );
+        }
+        echo " -------------------- \n";
+        print_r($listOfCollaborators);*/
+
+        ob_end_flush();
+    }
+
+
+    public function infocollaborateurController()
+    {
+        ob_start();
+        session_start();
+
+        include '../templates/infocollaborateur.php';
+
         ob_end_flush();
     }
 
@@ -116,12 +155,17 @@ class Controller
 
     public function addController($classname)
     {
-        $formName = 'App\Forms\\'.$classname.'Form';
+        $formName = 'App\Forms\\' . $classname . 'Form';
         $form = new $formName($_POST);
-        if (empty($_POST['id'])) {
-            $form->add();
+        $failed = $form->getFailed();
+        if (empty($failed)) {
+            if (empty($_POST['id'])) {
+                $form->add();
+            } else {
+                $form->update();
+            }
         } else {
-            $form->update();
+            echo json_encode($failed);
         }
     }
 
@@ -131,6 +175,7 @@ class Controller
         $repositoryName = 'App\Repository\\' . $classname . 'Repository';
         $repository = new $repositoryName();
         $entity = $repository->find($id);
+        // dd($entity->toJSON());
         echo $entity->toJSON();
     }
 
@@ -141,5 +186,4 @@ class Controller
         $customer = $customerRepository->find($id);
         $customer->delete();
     }
-
 }

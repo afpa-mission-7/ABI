@@ -17,4 +17,18 @@ abstract class Form
             }
         }
     }
+
+    public function getFailed(): array
+    {
+        $objectVars = get_object_vars($this);
+        unset($objectVars['id']);
+        $failed = [];
+        foreach($objectVars as $key => $value){
+            $methodName = $key . 'IsValid';
+            if(!$this->$methodName()){
+                $failed[]= $key;
+            }
+        }
+        return $failed;
+    }
 }
