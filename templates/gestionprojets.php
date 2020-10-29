@@ -86,7 +86,7 @@
                     <hr>
                     <input type="hidden" name="id" id="id">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <button type="submit" id="edit" class="btn btn-warning">Modifier</button>
+                    <button type="button" id="edit" class="btn btn-warning">Modifier</button>
                     <button type="submit" id="valid" class="btn btn-duck">Valider</button>
                     </form>
                 </div>

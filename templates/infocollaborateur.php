@@ -38,17 +38,6 @@
                 </div>
             </div>
         </section>
-        <section class="mx-3 my-3 col">
-            <div class="card" style="width: 100%;">
-                <div class="card-body">
-                    <h5 class="card-title">Contrat initial / avenant</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Du ... au ...</h6>
-                    <p class="card-text">CDI : CDD : interim : stage</p>
-                    <p class="card-text">Salaire </p>
-                    <p class="card-text">Motif </p>
-                </div>
-            </div>
-        </section>
 </section>
 
 

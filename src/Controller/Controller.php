@@ -53,11 +53,10 @@ class Controller
         $customerRepository = new CustomerRepository();
         $customers = $customerRepository->findAll();
         $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Directeur administratif", "Directeur financier", "Responsable des ressources humaines", "Secrétaire administratif", "Commercial"];
-        if(in_array($_SESSION['fonction'], $accepted))
-        {
+        if (in_array($_SESSION['fonction'], $accepted)) {
             include '../templates/gestionclients.php';
-         } else {
-             include '../templates/accessdenied.php';
+        } else {
+            include '../templates/accessdenied.php';
         }
         ob_end_flush();
     }
@@ -67,13 +66,12 @@ class Controller
         ob_start();
         session_start();
         $collaboratorRepository = new CollaboratorRepository();
-        $collaborators = $collaboratorRepository->showAllCollaborator(); 
+        $collaborators = $collaboratorRepository->showAllCollaborator();
         $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Directeur administratif", "Directeur financier", "Responsable des ressources humaines", "Secrétaire administratif"];
-        if(in_array($_SESSION['fonction'], $accepted))
-        {
+        if (in_array($_SESSION['fonction'], $accepted)) {
             include '../templates/gestioncollaborateurs.php';
-         } else {
-             include '../templates/accessdenied.php';
+        } else {
+            include '../templates/accessdenied.php';
         }
         ob_end_flush();
     }
@@ -85,11 +83,10 @@ class Controller
         // $newCollaborator = new AddCollaboratorForm($_POST);
         // $newContract = new AddContractForm($_POST);
         $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Directeur administratif", "Directeur financier", "Responsable des ressources humaines", "Secrétaire administratif"];
-        if(in_array($_SESSION['fonction'], $accepted))
-        {
+        if (in_array($_SESSION['fonction'], $accepted)) {
             include '../templates/nouveaucollaborateur.php';
-         } else {
-             include '../templates/accessdenied.php';
+        } else {
+            include '../templates/accessdenied.php';
         }
         ob_end_flush();
     }
@@ -98,51 +95,40 @@ class Controller
     {
         ob_start();
         session_start();
-        // $newContract = new AddContractForm($_POST);
-        $collaboratorRepository = new CollaboratorRepository;
-        $listOfCollaborators = $collaboratorRepository->findAll();
+
         $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Directeur administratif", "Directeur financier", "Responsable des ressources humaines", "Secrétaire administratif"];
-        if(in_array($_SESSION['fonction'], $accepted))
-        {
+        if (in_array($_SESSION['fonction'], $accepted)) {
+            $collaboratorRepository = new CollaboratorRepository();
+            $listOfCollaborators = $collaboratorRepository->findAllAndSort('lastname', 'firstname');
+            foreach ($listOfCollaborators as $key => $value) {
+                print_r($key);
+                if (!empty($_POST)) {
+                    $newContractForm = new AddContractForm($_POST);
+                    $newContract = $newContractForm->newContract();
+                }
+            }
             include '../templates/nouveaucontrat.php';
-         } else {
-             include '../templates/accessdenied.php';
+        } else {
+            include '../templates/accessdenied.php';
         }
-        foreach ($listOfCollaborators as $key => $value) {
-            print_r($key );
-        $collaboratorRepository = new CollaboratorRepository();
-        $listOfCollaborators = $collaboratorRepository->findAllAndSort('lastname', 'firstname');
-        
-        if (!empty($_POST)) {
-            
-            $newContractForm = new AddContractForm($_POST);
-            $newContract = $newContractForm->newContract();
-            // dd($newContract);
-    
-        }
-        include '../templates/nouveaucontrat.php';
 
         ob_end_flush();
-    }}
+    }
 
 
-    
+
     public function infocollaborateurController()
     {
         ob_start();
         session_start();
         $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Directeur administratif", "Directeur financier", "Responsable des ressources humaines", "Secrétaire administratif"];
-        if(in_array($_SESSION['fonction'], $accepted))
-        {
+        if (in_array($_SESSION['fonction'], $accepted)) {
             include '../templates/infocollaborateur.php';
-         } else {
-             include '../templates/accessdenied.php';
+        } else {
+            include '../templates/accessdenied.php';
         }
         $collaboratorRepository = new CollaboratorRepository();
         $listOfCollaborators = $collaboratorRepository->findAllAndSort('lastname', 'firstname');
-
-        include '../templates/infocollaborateur.php';
-
         ob_end_flush();
     }
 
@@ -156,13 +142,12 @@ class Controller
         $customers = $customerRepository->findAll();
         $collaboratorRepository = new CollaboratorRepository();
         $collaborators = $collaboratorRepository->findAll();
-        $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Développeur", "Directeur financier", "Directeur administratif" ];
-       if(in_array($_SESSION['fonction'], $accepted))
-       {
-           include '../templates/gestionprojets.php';
+        $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Développeur", "Directeur financier", "Directeur administratif"];
+        if (in_array($_SESSION['fonction'], $accepted)) {
+            include '../templates/gestionprojets.php';
         } else {
             include '../templates/accessdenied.php';
-       }
+        }
         ob_end_flush();
     }
 
@@ -206,7 +191,7 @@ class Controller
 
     public function addController($classname)
     {
-        $formName = 'App\Forms\\'.$classname.'Form';
+        $formName = 'App\Forms\\' . $classname . 'Form';
         $form = new $formName($_POST);
         if (empty($_POST['id'])) {
             $form->add();
@@ -221,7 +206,7 @@ class Controller
         $repositoryName = 'App\Repository\\' . $classname . 'Repository';
         $repository = new $repositoryName();
         $entity = $repository->find($id);
-       // dd($entity->toJSON());
+        // dd($entity->toJSON());
         echo $entity->toJSON();
     }
 
@@ -238,5 +223,4 @@ class Controller
         $AddContractForm = new AddContractForm($_POST);
         $AddContractForm->newContract();
     }
-
 }
