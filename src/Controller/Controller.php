@@ -33,12 +33,12 @@ class Controller
     public function aproposController()
     {
         ob_start();
-        session_start();
+        session_start();/*
         $collaboratorRepository = new CollaboratorRepository();
         $collaborator = $collaboratorRepository->find(5);
         $fonctionRepository = new FonctionRepository();
         $fonction = $fonctionRepository->findByCollaborator($collaborator);
-        dd($fonction);
+        dd($fonction);*/
 
         include '../templates/apropos.php';
         ob_end_flush();
@@ -150,7 +150,7 @@ class Controller
         $customers = $customerRepository->findAll();
         $collaboratorRepository = new CollaboratorRepository();
         $collaborators = $collaboratorRepository->findAll();
-        $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Développeur", "Directeur financier" ];
+        $accepted = ["Scrum master", "Secrétaire technique", "Directeur général", "Développeur", "Directeur financier", "Directeur administratif" ];
        if(in_array($_SESSION['fonction'], $accepted))
        {
            include '../templates/gestionprojets.php';

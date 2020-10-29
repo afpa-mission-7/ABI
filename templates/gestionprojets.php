@@ -2,7 +2,7 @@
     <div class="row mb-4 justify-content-center">
         <button type="button" class="btn btn-duck" id="addProject">Ajouter un projet</button>
     </div>
-    <table id="listProject" class="table table-hover">
+    <table id="listProject" class="table table-hover table-bordered">
         <thead>
         <tr>
             <th colspan="2">
