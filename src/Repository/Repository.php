@@ -23,6 +23,11 @@ class Repository
         $this->table = strtolower($classname);
     }
 
+    /**
+     * Retourne les valeurs correspondantes dans la table que l'on recherche dans la base de donnée selon l'id
+     * @param int id
+     * @method find
+     */
     public function find(int $id)
     { 
         $sql = "SELECT * FROM $this->table WHERE id =?";
@@ -32,6 +37,14 @@ class Repository
         return $query->fetch();
     }
 
+    /**
+     * Retourne les valeurs correspondantes dans la table que l'on recherche dans la base de donnée selon les critères, l'ordre, la limite et l'offset
+     * @param array criteria
+     * @param array orderBy
+     * @param int limit
+     * @param int offset
+     * @method findBy
+     */
     public function findBy(array $criteria, array $orderBy = null, int $limit = null, int $offset = null)
     {
         $params = array_values($criteria);
@@ -48,6 +61,11 @@ class Repository
         return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\" . $this->classname);
     }
 
+    /**
+     * Retourne les valeurs correspondantes dans la table que l'on recherche
+     * @return array
+     * @method findAll
+     */
     public function findAll(): array
     {
         $sql = "SELECT * FROM $this->table";
@@ -56,6 +74,12 @@ class Repository
         return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\" . $this->classname);
     }
 
+    /**
+     * Retourne les valeurs correspondantes dans la table que l'on recherche dans la base de donnée selon les critères et l'ordre
+     * @param array criteria
+     * @param array orderBy
+     * @method findOneBy
+     */
     public function findOneBy(array $criteria, array $orderBy = null)
     {
         $params = array_values($criteria);

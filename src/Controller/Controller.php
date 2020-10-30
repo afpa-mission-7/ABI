@@ -21,7 +21,7 @@ use App\Repository\ProjectRepository;
 
 
 /**
- * Class d'appel aux différentes pages
+ * Class d'appel aux différentes pages en utilisant les différentes méthodes créer dans les Repository
  * @author Aymeric
  * @author Doryan
  * @author Simon

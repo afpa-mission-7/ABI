@@ -10,6 +10,9 @@ use \PDO;
 
 class CollaboratorRepositoryTest extends TestCase
 {
+    /**
+     * Test de la méthode find
+     */
     public function testFind()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
@@ -21,6 +24,9 @@ class CollaboratorRepositoryTest extends TestCase
         $this->assertInstanceOf('App\Entity\Collaborator', $collaborator);
     }
 
+    /**
+     * Test de la méthode findAll
+     */
     public function testFindAll()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);

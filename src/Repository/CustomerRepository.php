@@ -19,6 +19,12 @@ class CustomerRepository extends Repository
         parent::__construct("Customer");
     }
 
+    /**
+     * Retourne les valeurs correspondantes dans la table client associer a la table project dans la base de donnée selon les id
+     * @param object project
+     * @method findByProject
+     * @return array
+     */
     public function findByProject( Project $project, $nb = 1): array
     {
         $idProject = $project->getId();

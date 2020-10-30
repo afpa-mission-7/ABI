@@ -21,9 +21,14 @@ class ProjectForm extends Form
         parent::__construct($post);
     }
 
+    /**
+     * Regex controle du formulaire nom
+     * @author Simon
+     * 29/10/20
+     */
     protected function nameIsValid()
     {
-        return preg_match("/^[A-Za-zÀ-ÿ0-9 \\-]$/", $this->name);
+        return preg_match("/^[A-Za-zÀ-ÿ0-9 .-]$/", $this->name);
     }
 
     /**
