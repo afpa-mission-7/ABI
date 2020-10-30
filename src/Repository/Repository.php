@@ -40,9 +40,9 @@ class Repository
     /**
      * Retourne les valeurs correspondantes dans la table que l'on recherche dans la base de donnée selon les critères, l'ordre, la limite et l'offset
      * @param array criteria
-     * @param array orderBy
-     * @param int limit
-     * @param int offset
+     * @param array|null orderBy
+     * @param int|null limit
+     * @param int|null offset
      * @method findBy
      */
     public function findBy(array $criteria, array $orderBy = null, int $limit = null, int $offset = null)
@@ -77,7 +77,7 @@ class Repository
     /**
      * Retourne les valeurs correspondantes dans la table que l'on recherche dans la base de donnée selon les critères et l'ordre
      * @param array criteria
-     * @param array orderBy
+     * @param array|null orderBy
      * @method findOneBy
      */
     public function findOneBy(array $criteria, array $orderBy = null)
