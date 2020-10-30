@@ -29,7 +29,7 @@ class Customer
 
     public function __construct($nb = 1)
     {
-        if ($nb <= 2) {
+        if ($nb <= 1) {
             $projectRepository = new ProjectRepository();
             $this->projects = $projectRepository->findByCustomer($this, $nb +1);
         }

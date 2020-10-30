@@ -34,14 +34,15 @@ class Project
         $this->date_start = new DateTime($this->date_start);
         $this->expected_date_end = new DateTime($this->expected_date_end);
         if ($this->date_end !== null) $this->date_end = new DateTime($this->date_end);
-
-        if ($nb <= 2) {
+        if ($nb <= 1) {
             $customerRepository = new CustomerRepository();
-            $this->customers = $customerRepository->findByProject($this, $nb+1);
-            $collaboratorRepository = new CollaboratorRepository();
-            $this->collaborators = $collaboratorRepository->findByProject($this, $nb+1);
+            $this->customers = $customerRepository->findByProject($this, $nb + 1);
             $documentRepository = new DocumentRepository();
-            $this->documents = $documentRepository->findByProject($this,$nb+1);
+            $this->documents = $documentRepository->findByProject($this, $nb + 1);
+        }
+        if ($nb <= 2) {
+            $collaboratorRepository = new CollaboratorRepository();
+            $this->collaborators = $collaboratorRepository->findByProject($this, $nb + 1);
         }
     }
 

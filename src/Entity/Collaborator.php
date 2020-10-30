@@ -28,7 +28,7 @@ class Collaborator
 
     public function __construct($nb = 1)
     {
-        if ($nb <=2) {
+        if ($nb <= 1) {
             $projectRepository = new ProjectRepository();
             $this->projects = $projectRepository->findByCollaborator($this, $nb + 1);
         }

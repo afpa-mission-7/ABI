@@ -16,6 +16,7 @@ $(".row_customer").click(function () {
         $('#modalCustomer input[name=sector_activity][value=' + customer.sector_activity + ']').prop("checked", true);
         $('#projects').empty();
         $('#collaborators').empty();
+        console.log(customer);
         $(customer.projects).each(function (key, project) {
             $('#projects').append('<li class="list-group-item d-flex justify-content-between align-items-center">' + project.name + '</li>');
             $(project.collaborators).each(function (key, collaborator) {
