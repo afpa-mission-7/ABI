@@ -20,6 +20,13 @@ use App\Repository\FonctionRepository;
 use App\Repository\ProjectRepository;
 
 
+/**
+ * Class d'appel aux différentes pages
+ * @author Aymeric
+ * @author Doryan
+ * @author Simon
+ * 19/10/20
+ */
 class Controller
 {
     public function indexController()

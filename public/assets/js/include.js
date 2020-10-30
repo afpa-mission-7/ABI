@@ -1,3 +1,9 @@
+/**
+ * Permet d'inclure des scripts aux pages php qui doivent l'utiliser
+ * @author Aymeric
+ * @author Simon
+ * 29/10/20
+ */
 let uri = location.pathname;
 if (uri === "/gestionclients" || uri === "/gestionprojets") {
   $("head").append('<script src="assets/js/project.js" defer></script>');
