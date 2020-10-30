@@ -1,6 +1,8 @@
 <?php 
 /**
  * @author Doryan
+ * @author Aymeric
+ * @author Simon
  * 21/10/20
  */
 
@@ -17,6 +19,13 @@ class DocumentRepository extends Repository
         parent::__construct("Document");
     }
 
+    /**
+     * @method findByProject
+     * Retourne un Document qui a une relation avec le Project passé en paramètre
+     * @param Project $project
+     * @param int $nb
+     * @return array
+     */
     public function findByProject( Project $project, $nb = 1): array
     {
         $idProject = $project->getId();

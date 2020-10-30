@@ -34,7 +34,7 @@ class LoginForm extends Form
             $_SESSION['id'] = $collaborator->getId();
             $_SESSION['firstname'] = $collaborator->getFirstname();
             $_SESSION['lastname'] = $collaborator->getLastname();
-            $_SESSION['fonction'] = $fonctionRepository->findByCollaborator($collaborator)->getLabel();
+            $_SESSION['fonction'] = $fonctionRepository->findOneByCollaborator($collaborator)->getLabel();
             return true;
         } else {
             return false;

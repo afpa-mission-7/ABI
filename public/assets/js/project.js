@@ -1,3 +1,7 @@
+/**
+ * @author Aymeric
+ * Permet d'ouvrir un modal qui va chercher les infos d'un projet en Ajax.
+ */
 $("#listProject tbody tr").click(function() {
     $("input").attr("disabled", true);
     $.post("/modalProject", { id: this.id }, function(data) {
@@ -19,10 +23,18 @@ $("#listProject tbody tr").click(function() {
     $("#modalProject").modal("toggle");
 })
 
+/**
+ * @author Aymeric
+ * Permet de passer en mode édition pour pouvoir modifier les infos d'un projet
+ */
 $("#edit").click(function() {
     $("input").removeAttr('disabled');
 })
 
+/**
+ * @author Aymeric
+ * Permet de soumettre les formulaire pour ajouter ou modifier un projet dans la BDD
+ */
 $("#form_modal").submit(function(e) {
     e.preventDefault();
     let inputs = $('#modalProject input');
@@ -42,6 +54,10 @@ $("#form_modal").submit(function(e) {
     $("#modalCustomer").modal("toggle");
 })
 
+/**
+ * @author Aymeric
+ * Permet d'ouvrir un modal qui permet d'ajouter un nouveau projet
+ */
 $("#addProject").click(function() {
     let inputs = $('#modalProject input');
     $(inputs).each(function(index, element) {
@@ -54,12 +70,20 @@ $("#addProject").click(function() {
     $("#modalProject").modal("toggle");
 })
 
+/**
+ * @author Aymeric
+ * Permet de faire apparaitre un select HTML qui permettra d'ajouter un nouveau client à un projet
+ */
 $("#addCustomer").click(function() {
     let select = $(".newCustomer").clone()[0];
     $(select).removeClass("d-none");
     $("#customers").append(select);
 })
 
+/**
+ * @author Aymeric
+ * Permet de faire apparaitre un select HTML qui permettra d'ajouter un nouveau client à un projet
+ */
 $("#addCollaborator").click(function() {
     let select = $(".newCollaborator").clone()[0];
     $(select).removeClass("d-none");

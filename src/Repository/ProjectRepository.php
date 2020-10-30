@@ -1,6 +1,8 @@
 <?php 
 /**
+ * @author Aymeric
  * @author Doryan
+ * @author Simon
  * 21/10/20
  */
 
@@ -22,7 +24,7 @@ class ProjectRepository extends Repository
     }
 
     /**
-     * Retourne un projet dont
+     * Retourne un Project qui a une relation avec le Document passé en paramètre
      * @param Document $document
      * @param int $nb
      * @return Project
@@ -36,6 +38,12 @@ class ProjectRepository extends Repository
         return $query->fetch();
     }
 
+    /**
+     * Retourne un Project qui a une relation avec le Customer passé en paramètre
+     * @param Customer $customer
+     * @param int $nb
+     * @return array
+     */
     public function findByCustomer( Customer $customer, $nb = 1) : array
     {
         $idCustomer = $customer->getId();
@@ -44,6 +52,12 @@ class ProjectRepository extends Repository
         return $query->fetchAll(PDO:: FETCH_CLASS, Project::class,[$nb]);
     }
 
+    /**
+     * Retourne un Project qui a une relation avec le Collaborator passé en paramètre
+     * @param Collaborator $collaborator
+     * @param int $nb
+     * @return array
+     */
     public function findByCollaborator( Collaborator $collaborator, $nb = 1) : array
     {
         $idCollaborator = $collaborator->getId();

@@ -1,14 +1,17 @@
 <?php
 
-
 namespace App\Forms;
-
 
 abstract class Form
 {
+    /**
+     * @autor Aymeric
+     * @param $post
+     */
     public function __construct($post)
     {
         // Boucle sur $post et attribut chaque valeur aux propriétés des classes filles correspondantes
+        // Si une valeur est vide, la transforme en null
         foreach ($post as $key => $value) {
             if(empty($value)){
                 $this->$key = null;
@@ -22,7 +25,7 @@ abstract class Form
      * @author Aymeric
      * @author Simon
      * 28/10/20 
-     * Fonction permetant de récupérer les valeurs renseignées dans le formulaire
+     * Retourne un talbleau contenant le nom de tous les champs d'un formulaire qui ne sont pas valide
      * @return array
      */
     public function getFailed(): array

@@ -1,6 +1,8 @@
 <?php
 /**
  * @author Doryan
+ * @author Aymeric
+ * @author Simon
  * 21/10/20
  */
 
@@ -20,9 +22,10 @@ class CustomerRepository extends Repository
     }
 
     /**
-     * Retourne les valeurs correspondantes dans la table client associer a la table project dans la base de donnée selon les id
-     * @param object project
      * @method findByProject
+     * Retourne tous les Customer qui ont une relation avec le Project passé en paramètre
+     * @param Project $project
+     * @param int $nb
      * @return array
      */
     public function findByProject( Project $project, $nb = 1): array

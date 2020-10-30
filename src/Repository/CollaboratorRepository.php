@@ -1,6 +1,9 @@
 <?php
 /**
  * @author Doryan
+ * @author Yann
+ * @author Aymeric
+ * @author Simon
  * 21/10/20
  */
 
@@ -19,6 +22,13 @@ class CollaboratorRepository extends Repository
         parent::__construct("Collaborator");
     }
 
+    /**
+     * @method findByProject
+     * Retourne tous les Collaborator qui ont une relation avec le Project passé en paramètre
+     * @param Project $project
+     * @param int $nb
+     * @return array
+     */
         public function findByProject(Project $project, $nb = 1): array
     {
         $idProject = $project->getId();

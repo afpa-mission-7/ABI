@@ -5,7 +5,9 @@
  * 29/10/20
  */
 let uri = location.pathname;
-if (uri === "/gestionclients" || uri === "/gestionprojets") {
+if (uri === "/gestionclients" ||
+    uri === "/gestionprojets"
+) {
   $("head").append('<script src="assets/js/project.js" defer></script>');
   $("head").append('<script src="assets/js/modal.js" defer></script>');
 } else if (

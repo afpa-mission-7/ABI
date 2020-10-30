@@ -1,6 +1,7 @@
 <?php
 /**
  * @author Doryan
+ * @author Yann
  * @author Simon
  * @author Aymeric
  * date 19/10/20
@@ -26,12 +27,13 @@ class Repository
     }
 
     /**
+     * @method find
      * Retourne les valeurs correspondantes dans la table que l'on recherche dans la base de donnée selon l'id
      * @param int id
-     * @method find
+     * @return mixed
      */
     public function find(int $id)
-    { 
+    {
         $sql = "SELECT * FROM $this->table WHERE id =?";
         $query = $this->pdo->prepare($sql);
         $query->execute([$id]);
@@ -40,12 +42,13 @@ class Repository
     }
 
     /**
+     * @method findBy
      * Retourne les valeurs correspondantes dans la table que l'on recherche dans la base de donnée selon les critères, l'ordre, la limite et l'offset
      * @param array criteria
-     * @param array orderBy
-     * @param int limit
-     * @param int offset
-     * @method findBy
+     * @param array|null orderBy
+     * @param int|null limit
+     * @param int|null offset
+     * @return array
      */
     public function findBy(array $criteria, array $orderBy = null, int $limit = null, int $offset = null)
     {
@@ -64,9 +67,9 @@ class Repository
     }
 
     /**
+     * @method findAll
      * Retourne les valeurs correspondantes dans la table que l'on recherche
      * @return array
-     * @method findAll
      */
     public function findAll(): array
     {
@@ -77,11 +80,11 @@ class Repository
     }
 
     /**
+     * @method findOneBy
      * Retourne les valeurs correspondantes dans la table que l'on recherche dans la base de donnée selon les critères et l'ordre
      * @param array criteria
      * @param array|null $orderBy
      * @return mixed
-     * @method findOneBy
      */
     public function findOneBy(array $criteria, array $orderBy = null)
     {
@@ -97,7 +100,7 @@ class Repository
 
     /** fonction "montre tout" et trie ascendant sur deux colonnes.
      * @author Yann BOYER
-    */
+     */
     public function findAllAndSort($firstColumn, $secondColumn): array
     {
         $sql = " SELECT * FROM $this->table ORDER BY $firstColumn ASC, $secondColumn ASC";
@@ -105,10 +108,4 @@ class Repository
         $query->execute();
         return $query->fetchAll(PDO::FETCH_CLASS, "App\Entity\\" . $this->classname);
     }
-
-    public function unjoin($object1,$object2)
-    {
-        
-    }
-
 }

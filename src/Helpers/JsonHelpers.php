@@ -6,8 +6,11 @@ use \DateTime;
 
 class JsonHelpers
 {
-
-    public static function ObjectToAssoc(array &$objectVars)
+    /**
+     * Transforme toutes les entrées d'un tableau en tableau assiociatif, de manière récursive
+     * @param array $objectVars
+     */
+    public static function toAssocRecursive(array &$objectVars)
     {
         array_walk_recursive($objectVars, function (&$value) {
             if (is_object($value)) {
@@ -16,6 +19,10 @@ class JsonHelpers
         });
     }
 
+    /**
+     * Transforme tous les DateTime d'un tableau en string au format "Y-m-d"
+     * @param array $objectVars
+     */
     public static function formatDates(array &$objectVars)
     {
         array_walk_recursive($objectVars, function (&$value, &$key) {

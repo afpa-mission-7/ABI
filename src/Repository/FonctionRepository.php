@@ -1,5 +1,7 @@
 <?php
 /**
+ * @author Simon
+ * @author Aymeric
  * @author Doryan
  * 28/10/20
  */
@@ -20,7 +22,13 @@ use App\Entity\Fonction;
         parent::__construct("Fonction");
     }
 
-    public function findByCollaborator( Collaborator $collaborator): Fonction 
+     /**
+      * @method findOneByCollaborator
+      * Retourne la Fonction qui a une relation avec le Collaborator passé en paramètre
+      * @param Collaborator $collaborator
+      * @return Fonction
+      */
+    public function findOneByCollaborator( Collaborator $collaborator): Fonction
     {
         $idCollaborator = $collaborator->getId();
         $query = $this->pdo->prepare("SELECT fonction.* FROM fonction WHERE collaborator_id = ?");
