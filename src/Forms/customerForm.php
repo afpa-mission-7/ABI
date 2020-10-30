@@ -27,61 +27,112 @@ class CustomerForm extends Form
         parent::__construct($post);
     }
 
+    /**
+     * Regex controle du formulaire company_name
+     * @author Simon
+     * 29/10/20
+     */
     protected function company_nameIsValid()
     {
         return preg_match("/^[A-Za-zÀ-ÿ0-9 .-]{1,}$/", $this->company_name);
     }
 
+    /**
+     * Controle du formulaire sector_activity
+     * @author Simon
+     * 29/10/20
+     */
     protected function sector_activityIsValid()
     {
         
         return in_array($this->sector_activity, ["1", "2", "3", "4"]);
     }
-    
+
+    /**
+     * Regex controle du formulaire adresse
+     * @author Simon
+     * 29/10/20
+     */
     protected function addressIsValid()
     {
         return preg_match("/^[A-Za-zÀ-ÿ0-9, -]{1,}$/", $this->address);
     }
     
+    /**
+     * Regex controle du formulaire code postal
+     * @author Simon
+     * 29/10/20
+     */
     protected function zipIsValid()
     {
         return preg_match("/^[0-9]{5}$/", $this->zip);
     }
     
+    /**
+     * Regex controle du formulaire ville
+     * @author Simon
+     * 29/10/20
+     */
     protected function cityIsValid()
     {
         return preg_match("/^[A-Za-zÀ-ÿ -]{1,}$/", $this->city);
     }
     
+    /**
+     * Regex controle du formulaire chiffre d'affaire
+     * @author Simon
+     * 29/10/20
+     */
     protected function revenueIsValid()
     {
         return preg_match("/^[0-9]{1,10}$/", $this->revenue);
     }
 
+    /**
+     * Regex controle du formulaire effectif
+     * @author Simon
+     * 29/10/20
+     */
     protected function staffIsValid()
     {
         return preg_match("/^[0-9]{1,4}$/", $this->staff);
     }
 
+    /**
+     * Regex controle du formulaire téléphone
+     * @author Simon
+     * 29/10/20
+     */
     protected function phoneIsValid()
     {
         return preg_match("/^[0-9]{10}$/", $this->phone);
     }
 
+    /**
+     * Regex controle du formulaire email
+     * @author Simon
+     * 29/10/20
+     */
     protected function emailIsValid()
     {
         return preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $this->email);
     }
 
+    /**
+     * Regex controle du formulaire commentaire
+     * @author Simon
+     * 29/10/20
+     */
     protected function commentIsValid()
     {
         return preg_match("/^[A-Za-zÀ-ÿ0-9, .:;()]{0,}$/", $this->comment);
     }
-/**
- * @author Doryan
- * 23/10/20 
- * Fonction permetant de modifier un Client de la BDD
- */
+
+    /**
+     * @author Doryan
+     * 23/10/20 
+     * Fonction permetant d'ajouter un Client a la BDD
+     */
     public function add()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
@@ -93,7 +144,11 @@ class CustomerForm extends Form
         $query->execute($param);
     }
 
-
+    /**
+     * @author Doryan
+     * 23/10/20 
+     * Fonction permetant de modifier un Client de la BDD
+     */
     public function update()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);

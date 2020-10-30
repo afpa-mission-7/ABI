@@ -17,7 +17,14 @@ abstract class Form
             }
         }
     }
-
+    
+    /**
+     * @author Aymeric
+     * @author Simon
+     * 28/10/20 
+     * Fonction permetant de récupérer les valeurs renseignées dans le formulaire
+     * @return array
+     */
     public function getFailed(): array
     {
         $objectVars = get_object_vars($this);

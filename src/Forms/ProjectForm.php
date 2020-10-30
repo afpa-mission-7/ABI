@@ -27,9 +27,9 @@ class ProjectForm extends Form
     }
 
     /**
-     * @author Doryan
+     * @author Aymeric
      * 23/10/20
-     * Fonction permetant de modifier un Client de la BDD
+     * Fonction permetant d'ajouter un Projet a la BDD
      */
     public function add()
     {
@@ -44,7 +44,11 @@ class ProjectForm extends Form
         $query->execute($param);
     }
 
-
+    /**
+     * @author Aymeric
+     * 23/10/20
+     * Fonction permetant de modifier un Projet de la BDD
+     */
     public function update()
     {
         $pdo = new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD);
