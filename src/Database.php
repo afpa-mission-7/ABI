@@ -19,5 +19,5 @@ class Database
         return new PDO(DbConfig::DSN, DbConfig::USERNAME, DbConfig::PASSWORD,[
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
-}
+    }
 }

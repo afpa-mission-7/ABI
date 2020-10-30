@@ -25,7 +25,7 @@ abstract class Form
      * @author Aymeric
      * @author Simon
      * 28/10/20 
-     * Retourne un talbleau contenant le nom de tous les champs d'un formulaire qui ne sont pas valide
+     * Retourne un tableau contenant le nom de tous les champs d'un formulaire qui ne sont pas valide
      * @return array
      */
     public function getFailed(): array
