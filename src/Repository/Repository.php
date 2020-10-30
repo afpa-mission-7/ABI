@@ -1,6 +1,8 @@
 <?php
 /**
- * @author Doryan,A,S
+ * @author Doryan
+ * @author Simon
+ * @author Aymeric
  * date 19/10/20
  */
 
@@ -77,7 +79,8 @@ class Repository
     /**
      * Retourne les valeurs correspondantes dans la table que l'on recherche dans la base de donnée selon les critères et l'ordre
      * @param array criteria
-     * @param array orderBy
+     * @param array|null $orderBy
+     * @return mixed
      * @method findOneBy
      */
     public function findOneBy(array $criteria, array $orderBy = null)

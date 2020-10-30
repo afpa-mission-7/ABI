@@ -21,6 +21,12 @@ class ProjectRepository extends Repository
         parent::__construct("Project");
     }
 
+    /**
+     * Retourne un projet dont
+     * @param Document $document
+     * @param int $nb
+     * @return Project
+     */
     public function findOneByDocument( Document $document, $nb = 1):Project
     {
         $idDocument = $document->getId();
